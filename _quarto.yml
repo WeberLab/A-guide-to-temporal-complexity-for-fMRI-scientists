@@ -1,0 +1,19 @@
+project:
+  type: manuscript
+
+execute:
+  freeze: true
+
+manuscript:
+  article: index.qmd
+
+format:
+  html:
+    comments:
+      hypothesis: true
+  docx: default
+  jats: default
+  elsevier-pdf:
+      keep-tex: true
+
+  # (other formats)
