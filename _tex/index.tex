@@ -142,7 +142,7 @@
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
   pdftitle={A Hitchhiker's Guide to Temporal Complexity for Resting State fMRI Analysis},
-  pdfauthor={Isabel Si-En Wilson; Andre Zamani; Alexander Mark Weber},
+  pdfauthor={Isabel Si-En Wilson; Andre Reza Zamani; Alexander Mark Weber},
   pdfkeywords={temporal complexity, complexity, entropy, sample
 entropy, hurst exponent, fractal dimension, fractal, functional magnetic
 resonance imaging, resting-state, nonlinear
@@ -166,10 +166,10 @@ fMRI Analysis}
 %
 }
  \ead{isabelsienw@gmail.com} 
-\author[2]{Andre Zamani%
+\author[2]{Andre Reza Zamani%
 %
 }
-
+ \ead{azamani@psych.ubc.ca} 
 \author[1,3]{Alexander Mark Weber%
 \corref{cor1}%
 }
@@ -178,10 +178,10 @@ fMRI Analysis}
 \affiliation[1]{organization={BC Children's Hospital Research Institute,
 The University of British Columbia, Vancouver, BC,
 Canada},,postcodesep={}}
-\affiliation[2]{organization={Department of Neuroscience, The University
+\affiliation[2]{organization={Department of Pyschology, The University
 of British Columbia, Vancouver, BC, Canada},,postcodesep={}}
-\affiliation[3]{organization={School of Biomedical Engineering, The
-University of British Columbia, Vancouver, BC, Canada},,postcodesep={}}
+\affiliation[3]{organization={Department of Pediatrics, The University
+of British Columbia, Vancouver, BC, Canada},,postcodesep={}}
 
 \cortext[cor1]{Corresponding author}
 
@@ -222,12 +222,292 @@ temporal correlations \sep long-term memory \sep scale-invariance \sep
 \end{keyword}
 \end{frontmatter}
     
-\section{Introduction}\label{introduction}
+\subsection{Introduction}\label{introduction}
 
 Hello \citep{beggsCortexCriticalPoint2022}
 
-\section*{References}\label{references}
-\addcontentsline{toc}{section}{References}
+See \textbf{?@fig-fmritempresolution}
+
+\includegraphics{./images/unnamed.png}
+
+See Figure~\ref{fig-wordcloud}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{index_files/figure-latex/notebooks-Figures-wordcloud-output-1.png}
+
+\textsubscript{Source:
+\href{https://WeberLab.github.io/A-guide-to-temporal-complexity-for-fMRI-scientists/notebooks/Figures-preview.html\#cell-wordcloud}{Figures}}
+
+}
+
+\caption{\label{fig-wordcloud}\textbf{A variety of approaches to
+nonlinear analysis of fMRI data.} A Python-generated word cloud of fMRI
+complexity terms, weighted by number of results in PubMed. Keywords were
+selected from reviews of nonlinearity/complexity (including
+\citep{sarassoConsciousnessComplexityConsilience2021},
+\citep{sunComplexityAnalysisEEG2020},
+\citep{hernandezBrainComplexityPsychiatric2023},
+\citep{keshmiriEntropyBrainOverview2020},
+\citep{donoghueEvaluatingComparingMeasures2024}, and
+\citep{yangMentalIllnessComplex2013}).}
+
+\end{figure}%
+
+See Figure~\ref{fig-sierpinskitriangle}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{index_files/figure-latex/notebooks-Figures-sierpinskitriangle-output-1.png}
+
+\textsubscript{Source:
+\href{https://WeberLab.github.io/A-guide-to-temporal-complexity-for-fMRI-scientists/notebooks/Figures-preview.html\#cell-sierpinskitriangle}{Figures}}
+
+}
+
+\caption{\label{fig-sierpinskitriangle}\textbf{Ideal mathematical
+fractal.} The 2D Sierpinski triangle starts with a simple equilateral
+triangle (left), and subdivides it recursively into smaller equilateral
+triangles. For every iteration, each triangle (in blue) is further
+subdivided it into four smaller congruent equilateral triangles with the
+central triangle removed. The first such iteration is shown in the
+centre, with the fifth iteration shown on the right.}
+
+\end{figure}%
+
+See Figure~\ref{fig-statisticalfractal}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=3.64583in,height=\textheight]{./images/exact_vs_statistical_tree.png}
+
+}
+
+\caption{\label{fig-statisticalfractal}\textbf{A comparison of
+statistical and exact fractal patterns.} The two basic forms of fractals
+are demonstrated. Zooming in on tree branches (left), an exact
+self-similar element cannot be found. Zooming in on an exact fractal
+(right), exact replica of the whole are found. Photo by author.
+Branching fractal made in Python. Figure inspired by
+\citep{taylorPersonalReflectionsJackson2006}}
+
+\end{figure}%
+
+See Figure~\ref{fig-fourproperties}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{index_files/figure-latex/notebooks-Figures-fourproperties-output-1.png}
+
+\textsubscript{Source:
+\href{https://WeberLab.github.io/A-guide-to-temporal-complexity-for-fMRI-scientists/notebooks/Figures-preview.html\#cell-fourproperties}{Figures}}
+
+}
+
+\caption{\label{fig-fourproperties}\textbf{Main properties of a fractal
+time-series} A-C show a raw time-series (fractional Gaussian noise in
+this example) at different scales: B is the first half of A (shown as
+vertical dashed lines in A), while C is half of B (shown in vertical
+dashed lines in B). D is a power spectral density plot of A. E shows D
+but on a log-log plot, demonstrating the linear nature of fractal
+signals when plotted on a log-log scale. The slope of E is \(-\beta\).
+In this example, \(\beta\) is calculated to be 0.6, which translates to
+an H of 0.8. F shows a modified version of E, which imagines that E only
+demonstrates a power law scaling relationship between two distinct
+frequencies. The equation for calculating the scaling range in decades
+is shown. Exact fractal time-series (A) was created using the
+Davies-Harte method.}
+
+\end{figure}%
+
+See Figure~\ref{fig-typicalsamplepaths}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{index_files/figure-latex/notebooks-Figures-typicalsamplepaths-output-1.png}
+
+\textsubscript{Source:
+\href{https://WeberLab.github.io/A-guide-to-temporal-complexity-for-fMRI-scientists/notebooks/Figures-preview.html\#cell-typicalsamplepaths}{Figures}}
+
+}
+
+\caption{\label{fig-typicalsamplepaths}\textbf{Simulated fractional
+Gaussian noise and fractional Brownian motion.} Raw simulated
+time-series with 1,024 time-points and known Hurst values are plotted on
+the left. The top three time-series are fractional Gaussian noise, while
+the bottom three are fractional Brownian motion. H values are displayed
+on the left, while \(\beta\) values are displayed on the right. Note how
+fractional Gaussian noise remain centered around a mean
+(i.e.~stationary), while fractional Brownian motion wanders away from
+the mean (i.e.~non-stationary). Log-log power spectral density plots of
+the signals on the left are shown on the right. Linear-regression fits
+are shown in red, which are used to calculate \(\beta\) and H using the
+appropriate equation (on the right). Exact fractal time-series were
+created using the Davies-Harte method. Figure inspired by
+\citep{ekePhysiologicalTimeSeries2000}.}
+
+\end{figure}%
+
+See Table~\ref{tbl-fmrihurst}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1176}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1176}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1176}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1176}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1176}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1176}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.2941}}@{}}
+\caption{\textbf{fMRI-Hurst studies.} An attempt to gather all published
+fMRI studies that have used Hurst or Hurst-like analysis, some stats,
+and the main findings. Main findings are almost certainly more nuanced
+than how we have reported them here; we have attempted to condense the
+findings as succinctly as possible. n = number of subjects in the study;
+TR = repition time; MLWD = maximum likelihood wavelet;
+PSD\textsubscript{Welch} = power spectral density Welch method; DMN =
+default mode network; DFA = detrended fluctuation analysis; DA =
+dispersional analysis; SWV = scaled window variance; RS = rescaled
+range; LW = local Whittle;}\label{tbl-fmrihurst}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Study
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+n
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Age range
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Methods
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Volumes
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+TR (s)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Results
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Study
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+n
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Age range
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Methods
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Volumes
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+TR (s)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Results
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\citep{akhrifFractalAnalysisBOLD2018} & 103 & 19-28 & AFA & task: 425,
+resting: 350 & 2 & impulsivity: \(\downarrow\) \\
+\citep{barnesEndogenousHumanBrain2009} & 14 & 21-29 & MLW & 2048 & 1.1 &
+cognitive effort: \(\downarrow\) H \\
+\citep{campbellFractalBasedAnalysisFMRI2022} & 72 & mean 29 &
+PSD\textsubscript{Welch} & 900 & 1 & movie-watching: \(\uparrow\) H in
+visual, somatosensory, and dorsal attention; \(\downarrow\)
+frontoparietal and DMN \\
+\citep{churchillScalefreeBrainDynamics2015} & 97 (28 chemo; 37
+radiation; 32 HC) & n/a & DFA, Wavelet & 285 & 1.5 & worry:
+\(\downarrow\) H \\
+\citep{churchillSuppressionScalefreeFMRI2016} & three datasets (98): 19;
+49; 30 & 20-82 & DFA, PSD\textsubscript{Welch} & \(\sim\) 300 & 2 & age,
+task novelty and difficulty: \(\downarrow\) H \\
+\citep{ciuciuInterplayFunctionalConnectivity2014} & 17 & 18-27 & Wavelet
+& 194 & 2.16 & networks \\
+\citep{donaTemporalFractalAnalysis2017} & 71 (56 ASD; 15 HC) & mean 13 &
+PSD, DA, SWV & 300 & 2 & ASD: \(\uparrow\) H \\
+\citep{donaFractalAnalysisBrain2017} & 110 (55 mTBI; 55 HC) & mean 13 &
+PSD, DA, SWV & 180 & 2 & mTBI: \(\uparrow\) H \\
+\citep{dongHurstExponentAnalysis2018} & 116 & 19-85 & RS & 260 & 2.5 &
+age: \(\uparrow\) H frontal and parietal lobe; \(\downarrow\) H insula,
+limbic, occipital, temporal lobes \\
+\citep{drayneLongrangeTemporalCorrelation2024} & 98 & preterm &
+PSD\textsubscript{Welch} & 100 & 3 & preterm: \(\downarrow\) H;
+differentiates networks \\
+\citep{erbilScaleFreeDynamicsRestingState2025} & 7 & 21-28 & Wavelet &
+1,000; 1,000, 3,000 & 1; 0.6; 0.2 & microstates \\
+\citep{gaoTemporalDynamicsSpontaneous2018} & 110 & mean 21 & PSD,
+Wavelet & 232 & 2 & reappraisal scores: \(\downarrow\) H \\
+\citep{gaoTemporalDynamicPatterns2023} & 195 (100; 95) & 18-28 & Wavelet
+& ? & 2 & rumination: \(\uparrow\) H \\
+\citep{gentiliNotOneMetric2017} & 31 & mean 25 & Wavelet & 512 & 1.64 &
+neuroticism: \(\downarrow\) \\
+\citep{gentiliPronenessSocialAnxiety2015} & 36 & mean 27 & Wavelet & 450
+& 2 & social anxiety: \(\uparrow\) H \\
+\citep{heScaleFreePropertiesFunctional2011} & 17 & 18-27 & DFA, PSD &
+194 & 2.16 & task: \(\downarrow\) H; differentiates networks; brain
+glucose metabolism and neurovascular coupling \\
+\citep{jagerDecreasedLongrangeTemporal2024} & 40 (20 task; 20 no task) &
+20-32 & DFA & 512 & 1.13 & motor sequence learning: \(\downarrow\) H \\
+\citep{laiShiftRandomnessBrain2010} & 63 (33 ASD; 3- HC) & n/a & Wavelet
+& 512 & 1.3 & ASD: \(\downarrow\) H \\
+\citep{leiExtraversionEncodedScalefree2013} & 17 & 18-29 & Wavelet & 200
+& 1.5 & extroversion: \(\downarrow\) H in DMN \\
+\citep{leiFadedCriticalDynamics2021} & 75 (16 HMMD; 34 IMMD; 25 HC) &
+mean \(\sim\) 41 & RS & 240 & 2 & moyamoya disease: \(\downarrow\) H \\
+\citep{linkeAlteredDevelopmentHurst2024} & 83 & 1.5-5 & WML & 400 & 0.8
+& age of children ASD: \(\downarrow\) H in vmPFC \\
+\citep{maximFractionalGaussianNoise2005} & 21 & n/a & LW, Wornell, MLW &
+150 & 2 & AD: \(\uparrow\) H \\
+\citep{mellaTemporalComplexityBOLDsignal2024} & 716 & preterm &
+PSD\textsubscript{Welch} & 2,300 & 0.392 & preterm: \(\downarrow\) H; H
+starts \textless{} 0.5 at preterm age ; differentiates networks \\
+\citep{omidvarniaAssessmentTemporalComplexity2021} & 100 & 22-35 & PSD,
+DFA & min 250 & 0.72 & cognitive load: \(\downarrow\) H; H and
+entropy-based complexity highly correlated; H highest in frontoparietal
+network and default mode network \\
+\citep{rubinOptimizingComplexityMeasures2013} & 22 & ? & Many & ? & ? &
+HFFT and PSD\textsubscript{Welch} outperform other methods \\
+\citep{sokunbiNonlinearComplexityAnalysis2014} & 29 (13 SZ; 16 HC) & ? &
+DA, DFA & ? & ? & SZ: \(\downarrow\) H \\
+\citep{sucklingEndogenousMultifractalBrain2008} & 22 (11 old; 11 young)
+& 22 and 65 & MLW & 512 & 1.1 & multifractal reanalysis of
+\citep{winkAgeCholinergicEffects2006} \\
+\citep{teterevaVarianceScaleFreeProperties2020} & 23 & mean 23.9 & DFA &
+300 & 2 & fear: \(\downarrow\) H then \(\uparrow\) H \\
+\citep{uscatescuUsingExcitationInhibition2022} & 124 (55 TD; 30 AT; 39
+SZ) & ? & Wavelet & 947? & 0.475 & ASD and SZ: \(\downarrow\) H \\
+\citep{varleyFractalDimensionCortical2020} & 33 (15 HC; 10 min
+conscious; 8 veg) & ? & HFD & ? & ? & Lower consciousness:
+\(\downarrow\) H \\
+\citep{vonwegnerMutualInformationIdentifies2018} & ? & ? & Wavelet, DFA
+& 1500 & 2.08 & multiscale variance effects produce Hurst phenomena
+without long-range dependence \\
+\citep{warsiCorrelatingBrainBlood2012} & 46 (33 AD; 13 HC) & ? & PSD, RD
+& 2,400 & 0.25 & AD: \(\uparrow\) H \\
+\citep{weberPreliminaryStudyEffects2014} & 14 & 22-38 & Wavelet & 512 &
+2 & acute alcohol intoxication: mix of \(uparrow\) and \(downarrow\)
+H \\
+\citep{winkAgeCholinergicEffects2006} & 22 (11 old; 11 young) & 22 and
+65 & MLW & 512 & 1.1 & age: \(\uparrow\) H in bilateral hippocampus;
+scopolamine: \(\uparrow\) H; faster task: \(\uparrow\) H \\
+\citep{winkMonofractalMultifractalDynamics2008} & 11 & mean 35 \(\pm\)
+10 & Wavelet & 136 & 1.1 & latency in fame decision task: \(\downarrow\)
+H \\
+\citep{xiePharmacoresistantTemporalLobe2024} & 70 & ? & Wavelet & 700 &
+0.6 & pharmaco-resistant TLE: \(\downarrow\) H \\
+\end{longtable}
+
+\subsection*{References}\label{references}
+\addcontentsline{toc}{subsection}{References}
 
 \renewcommand{\bibsection}{}
 \bibliography{BrainDynamics.bib}

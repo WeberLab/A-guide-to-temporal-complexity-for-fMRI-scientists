@@ -1,112 +1,161 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving
 and Interchange DTD v1.2 20190208//EN" "JATS-archivearticle1.dtd">
+
 <article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="other">
-  <front>
-    <journal-meta>
-      <journal-id/>
-      <journal-title-group>
-        <journal-title>Unpublished</journal-title>
-      </journal-title-group>
-      <issn/>
-      <publisher>
-        <publisher-name/>
-      </publisher>
-    </journal-meta>
-    <article-meta>
-      <title-group>
-        <article-title>A Hitchhiker’s Guide to Temporal Complexity for Resting
+
+<front>
+<journal-meta>
+<journal-id></journal-id>
+
+<journal-title-group>
+<journal-title>Unpublished</journal-title>
+</journal-title-group>
+<issn></issn>
+
+<publisher>
+<publisher-name></publisher-name>
+</publisher>
+</journal-meta>
+
+
+<article-meta>
+
+
+<title-group>
+<article-title>A Hitchhiker’s Guide to Temporal Complexity for Resting
 State fMRI Analysis</article-title>
-      </title-group>
-      <contrib-group>
-        <contrib contrib-type="author">
-          <contrib-id contrib-id-type="orcid">0000-0002-1142-8622</contrib-id>
-          <name>
-            <surname>Wilson</surname>
-            <given-names>Isabel Si-En</given-names>
-          </name>
-          <string-name>Isabel Si-En Wilson</string-name>
-          <email>isabelsienw@gmail.com</email>
-          <role vocab="https://credit.niso.org" vocab-term="data curation" vocab-term-identifier="https://credit.niso.org/contributor-roles/data-curation/">data
+</title-group>
+
+<contrib-group>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">0000-0002-1142-8622</contrib-id>
+<name>
+<surname>Wilson</surname>
+<given-names>Isabel Si-En</given-names>
+</name>
+<string-name>Isabel Si-En Wilson</string-name>
+
+<email>isabelsienw@gmail.com</email>
+<role vocab="https://credit.niso.org" vocab-term="data
+curation" vocab-term-identifier="https://credit.niso.org/contributor-roles/data-curation/">data
 curation</role>
-          <role vocab="https://credit.niso.org" vocab-term="formal analysis" vocab-term-identifier="https://credit.niso.org/contributor-roles/formal-analysis/">formal
+<role vocab="https://credit.niso.org" vocab-term="formal
+analysis" vocab-term-identifier="https://credit.niso.org/contributor-roles/formal-analysis/">formal
 analysis</role>
-          <role vocab="https://credit.niso.org" vocab-term="investigation" vocab-term-identifier="https://credit.niso.org/contributor-roles/investigation/">investigation</role>
-          <role vocab="https://credit.niso.org" vocab-term="methodology" vocab-term-identifier="https://credit.niso.org/contributor-roles/methodology/">methodology</role>
-          <role vocab="https://credit.niso.org" vocab-term="investigation" vocab-term-identifier="https://credit.niso.org/contributor-roles/investigation/">investigation</role>
-          <role vocab="https://credit.niso.org" vocab-term="visualization" vocab-term-identifier="https://credit.niso.org/contributor-roles/visualization/">visualization</role>
-          <role>writing - original draft preparation</role>
-          <xref ref-type="aff" rid="1">a</xref>
-        </contrib>
-        <contrib contrib-type="author">
-          <contrib-id contrib-id-type="orcid">0000-0002-2930-3940</contrib-id>
-          <name>
-            <surname>Zamani</surname>
-            <given-names>Andre</given-names>
-          </name>
-          <string-name>Andre Zamani</string-name>
-          <role>writing - review &amp; editing</role>
-          <xref ref-type="aff" rid="2">b</xref>
-        </contrib>
-        <contrib contrib-type="author" corresp="yes">
-          <contrib-id contrib-id-type="orcid">0000-0001-7295-0775</contrib-id>
-          <name>
-            <surname>Weber</surname>
-            <given-names>Alexander Mark</given-names>
-          </name>
-          <string-name>Alexander Mark Weber</string-name>
-          <degrees>PhD, MSc</degrees>
-          <email>aweber@bcchr.ca</email>
-          <role vocab="https://credit.niso.org" vocab-term="conceptualization" vocab-term-identifier="https://credit.niso.org/contributor-roles/conceptualization/">conceptualization</role>
-          <role vocab="https://credit.niso.org" vocab-term="data curation" vocab-term-identifier="https://credit.niso.org/contributor-roles/data-curation/">data
+<role vocab="https://credit.niso.org" vocab-term="investigation" vocab-term-identifier="https://credit.niso.org/contributor-roles/investigation/">investigation</role>
+<role vocab="https://credit.niso.org" vocab-term="methodology" vocab-term-identifier="https://credit.niso.org/contributor-roles/methodology/">methodology</role>
+<role vocab="https://credit.niso.org" vocab-term="investigation" vocab-term-identifier="https://credit.niso.org/contributor-roles/investigation/">investigation</role>
+<role vocab="https://credit.niso.org" vocab-term="visualization" vocab-term-identifier="https://credit.niso.org/contributor-roles/visualization/">visualization</role>
+<role>writing - original draft preparation</role>
+<xref ref-type="aff" rid="1">a</xref>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">0000-0002-2930-3940</contrib-id>
+<name>
+<surname>Zamani</surname>
+<given-names>Andre Reza</given-names>
+</name>
+<string-name>Andre Reza Zamani</string-name>
+
+<email>azamani@psych.ubc.ca</email>
+<role>writing - review &amp; editing</role>
+<xref ref-type="aff" rid="2">b</xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes">
+<contrib-id contrib-id-type="orcid">0000-0001-7295-0775</contrib-id>
+<name>
+<surname>Weber</surname>
+<given-names>Alexander Mark</given-names>
+</name>
+<string-name>Alexander Mark Weber</string-name>
+<degrees>PhD, MSc</degrees>
+<email>aweber@bcchr.ca</email>
+<role vocab="https://credit.niso.org" vocab-term="conceptualization" vocab-term-identifier="https://credit.niso.org/contributor-roles/conceptualization/">conceptualization</role>
+<role vocab="https://credit.niso.org" vocab-term="data
+curation" vocab-term-identifier="https://credit.niso.org/contributor-roles/data-curation/">data
 curation</role>
-          <role vocab="https://credit.niso.org" vocab-term="formal analysis" vocab-term-identifier="https://credit.niso.org/contributor-roles/formal-analysis/">formal
+<role vocab="https://credit.niso.org" vocab-term="formal
+analysis" vocab-term-identifier="https://credit.niso.org/contributor-roles/formal-analysis/">formal
 analysis</role>
-          <role vocab="https://credit.niso.org" vocab-term="funding acquisition" vocab-term-identifier="https://credit.niso.org/contributor-roles/funding-acquisition/">funding
+<role vocab="https://credit.niso.org" vocab-term="funding
+acquisition" vocab-term-identifier="https://credit.niso.org/contributor-roles/funding-acquisition/">funding
 acquisition</role>
-          <role vocab="https://credit.niso.org" vocab-term="investigation" vocab-term-identifier="https://credit.niso.org/contributor-roles/investigation/">investigation</role>
-          <role vocab="https://credit.niso.org" vocab-term="methodology" vocab-term-identifier="https://credit.niso.org/contributor-roles/methodology/">methodology</role>
-          <role vocab="https://credit.niso.org" vocab-term="project administration" vocab-term-identifier="https://credit.niso.org/contributor-roles/project-administration/">project
+<role vocab="https://credit.niso.org" vocab-term="investigation" vocab-term-identifier="https://credit.niso.org/contributor-roles/investigation/">investigation</role>
+<role vocab="https://credit.niso.org" vocab-term="methodology" vocab-term-identifier="https://credit.niso.org/contributor-roles/methodology/">methodology</role>
+<role vocab="https://credit.niso.org" vocab-term="project
+administration" vocab-term-identifier="https://credit.niso.org/contributor-roles/project-administration/">project
 administration</role>
-          <role vocab="https://credit.niso.org" vocab-term="resources" vocab-term-identifier="https://credit.niso.org/contributor-roles/resources/">resources</role>
-          <role vocab="https://credit.niso.org" vocab-term="supervision" vocab-term-identifier="https://credit.niso.org/contributor-roles/supervision/">supervision</role>
-          <role vocab="https://credit.niso.org" vocab-term="validation" vocab-term-identifier="https://credit.niso.org/contributor-roles/validation/">validation</role>
-          <role vocab="https://credit.niso.org" vocab-term="visualization" vocab-term-identifier="https://credit.niso.org/contributor-roles/visualization/">visualization</role>
-          <role>writing - review &amp; editing</role>
-          <xref ref-type="aff" rid="1">a</xref>
-          <xref ref-type="aff" rid="3">c</xref>
-          <xref ref-type="corresp" rid="cor-3">*</xref>
-        </contrib>
-      </contrib-group>
-      <aff id="1">
-        <institution-wrap>
-          <institution>BC Children’s Hospital Research Institute, The University
+<role vocab="https://credit.niso.org" vocab-term="resources" vocab-term-identifier="https://credit.niso.org/contributor-roles/resources/">resources</role>
+<role vocab="https://credit.niso.org" vocab-term="supervision" vocab-term-identifier="https://credit.niso.org/contributor-roles/supervision/">supervision</role>
+<role vocab="https://credit.niso.org" vocab-term="validation" vocab-term-identifier="https://credit.niso.org/contributor-roles/validation/">validation</role>
+<role vocab="https://credit.niso.org" vocab-term="visualization" vocab-term-identifier="https://credit.niso.org/contributor-roles/visualization/">visualization</role>
+<role>writing - review &amp; editing</role>
+<xref ref-type="aff" rid="1">a</xref>
+<xref ref-type="aff" rid="3">c</xref>
+<xref ref-type="corresp" rid="cor-3">&#x002A;</xref>
+</contrib>
+</contrib-group>
+<aff id="1">
+<institution-wrap>
+<institution>BC Children’s Hospital Research Institute, The University
 of British Columbia, Vancouver, BC, Canada</institution>
-        </institution-wrap>
-      </aff>
-      <aff id="2">
-        <institution-wrap>
-          <institution>Department of Neuroscience, The University of British
+</institution-wrap>
+
+
+
+
+
+
+
+</aff>
+<aff id="2">
+<institution-wrap>
+<institution>Department of Pyschology, The University of British
 Columbia, Vancouver, BC, Canada</institution>
-        </institution-wrap>
-      </aff>
-      <aff id="3">
-        <institution-wrap>
-          <institution>School of Biomedical Engineering, The University of British
+</institution-wrap>
+
+
+
+
+
+
+
+</aff>
+<aff id="3">
+<institution-wrap>
+<institution>Department of Pediatrics, The University of British
 Columbia, Vancouver, BC, Canada</institution>
-        </institution-wrap>
-      </aff>
-      <author-notes>
-        <corresp id="cor-3">aweber@bcchr.ca</corresp>
-      </author-notes>
-      <pub-date date-type="pub" publication-format="electronic" iso-8601-date="2025-12-02">
-        <year>2025</year>
-        <month>12</month>
-        <day>2</day>
-      </pub-date>
-      <history/>
-      <abstract>
-        <p>Cognitive and clinical neuroimaging have increasingly drawn on tools
+</institution-wrap>
+
+
+
+
+
+
+
+</aff>
+<author-notes>
+<corresp id="cor-3">aweber@bcchr.ca</corresp>
+</author-notes>
+
+<pub-date date-type="pub" publication-format="electronic" iso-8601-date="2025-12-03">
+<year>2025</year>
+<month>12</month>
+<day>3</day>
+</pub-date>
+
+
+
+
+
+
+
+<history></history>
+
+
+<abstract>
+<p>Cognitive and clinical neuroimaging have increasingly drawn on tools
 from complexity science to characterize the nonlinear dynamics of the
 brain. Temporal complexity metrics reflect a range of approaches to
 complexity in time series, including describing the system’s regularity
@@ -121,62 +170,2138 @@ overview of fMRI temporal complexity metrics—Shannon entropy, variations
 of (multi-scale) sample entropy, Lempel-Ziv complexity, avalanche
 measures, and Hurst—followed by a comprehensive review of extant
 applications in fMRI.</p>
-      </abstract>
-      <kwd-group kwd-group-type="author">
-        <kwd>temporal complexity</kwd>
-        <kwd>complexity</kwd>
-        <kwd>entropy</kwd>
-        <kwd>sample entropy</kwd>
-        <kwd>hurst exponent</kwd>
-        <kwd>fractal dimension</kwd>
-        <kwd>fractal</kwd>
-        <kwd>functional magnetic resonance imaging</kwd>
-        <kwd>resting-state</kwd>
-        <kwd>nonlinear dynamics</kwd>
-        <kwd>neuroscience</kwd>
-        <kwd>brain</kwd>
-        <kwd>blood-oxygen level dependence</kwd>
-        <kwd>predictability</kwd>
-        <kwd>irregularity</kwd>
-        <kwd>long-range temporal correlations</kwd>
-        <kwd>long-term memory</kwd>
-        <kwd>scale-invariance</kwd>
-        <kwd>power-law</kwd>
-      </kwd-group>
-    </article-meta>
-  </front>
-  <body>
-    <sec id="introduction">
-      <title>Introduction</title>
-      <p>Hello
+</abstract>
+<kwd-group kwd-group-type="author">
+<kwd>temporal complexity</kwd>
+<kwd>complexity</kwd>
+<kwd>entropy</kwd>
+<kwd>sample entropy</kwd>
+<kwd>hurst exponent</kwd>
+<kwd>fractal dimension</kwd>
+<kwd>fractal</kwd>
+<kwd>functional magnetic resonance imaging</kwd>
+<kwd>resting-state</kwd>
+<kwd>nonlinear dynamics</kwd>
+<kwd>neuroscience</kwd>
+<kwd>brain</kwd>
+<kwd>blood-oxygen level dependence</kwd>
+<kwd>predictability</kwd>
+<kwd>irregularity</kwd>
+<kwd>long-range temporal correlations</kwd>
+<kwd>long-term memory</kwd>
+<kwd>scale-invariance</kwd>
+<kwd>power-law</kwd>
+</kwd-group>
+
+
+
+
+</article-meta>
+
+</front>
+
+<body>
+<sec id="introduction">
+  <title>Introduction</title>
+  <p>Hello
   (<xref alt="Beggs 2022" rid="ref-beggsCortexCriticalPoint2022" ref-type="bibr">Beggs
   2022</xref>)</p>
+  <p>See <bold>?@fig-fmritempresolution</bold></p>
+  <p><inline-graphic id="fig-fmritempresolution" mimetype="image" mime-subtype="png" xlink:href="./images/unnamed.png">
+    <alt-text>Among neuroimaging methods, fMRI has a low temporal
+    resolution. Here, one second of BOLD signal (TR = 1s in this
+    example) is contrasted with one second of MEG signal (TR < 0.001s).
+    Each timepoint in the BOLD signal represents activity for the entire
+    one-second window. Arbitrary units; note that BOLD and MEG signals
+    represent different physiological processes. Original
+    image.</alt-text>
+  </inline-graphic> </p>
+  <p>See <xref alt="Figure 1" rid="fig-wordcloud">Figure 1</xref></p>
+  <fig id="fig-wordcloud">
+    <caption><p>Figure 1: <bold>A variety of approaches to nonlinear
+    analysis of fMRI data.</bold> A Python-generated word cloud of fMRI
+    complexity terms, weighted by number of results in PubMed. Keywords
+    were selected from reviews of nonlinearity/complexity (including
+    Sarasso et al.
+    (<xref alt="2021" rid="ref-sarassoConsciousnessComplexityConsilience2021" ref-type="bibr">2021</xref>),
+    Sun et al.
+    (<xref alt="2020" rid="ref-sunComplexityAnalysisEEG2020" ref-type="bibr">2020</xref>),
+    Hernández et al.
+    (<xref alt="2023" rid="ref-hernandezBrainComplexityPsychiatric2023" ref-type="bibr">2023</xref>),
+    Keshmiri
+    (<xref alt="2020" rid="ref-keshmiriEntropyBrainOverview2020" ref-type="bibr">2020</xref>),
+    Donoghue et al.
+    (<xref alt="2024" rid="ref-donoghueEvaluatingComparingMeasures2024" ref-type="bibr">2024</xref>),
+    and Yang and Tsai
+    (<xref alt="2013" rid="ref-yangMentalIllnessComplex2013" ref-type="bibr">2013</xref>)).</p></caption>
+    <graphic id="wordcloud" mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/notebooks-Figures-wordcloud-output-1.png" />
+  </fig>
+  <p>See
+  <xref alt="Figure 2" rid="fig-sierpinskitriangle">Figure 2</xref></p>
+  <fig id="fig-sierpinskitriangle">
+    <caption><p>Figure 2: <bold>Ideal mathematical fractal.</bold> The
+    2D Sierpinski triangle starts with a simple equilateral triangle
+    (left), and subdivides it recursively into smaller equilateral
+    triangles. For every iteration, each triangle (in blue) is further
+    subdivided it into four smaller congruent equilateral triangles with
+    the central triangle removed. The first such iteration is shown in
+    the centre, with the fifth iteration shown on the
+    right.</p></caption>
+    <graphic id="sierpinskitriangle" mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/notebooks-Figures-sierpinskitriangle-output-1.png" />
+  </fig>
+  <p>See
+  <xref alt="Figure 3" rid="fig-statisticalfractal">Figure 3</xref></p>
+  <fig id="fig-statisticalfractal">
+    <caption><p>Figure 3: <bold>A comparison of statistical and exact
+    fractal patterns.</bold> The two basic forms of fractals are
+    demonstrated. Zooming in on tree branches (left), an exact
+    self-similar element cannot be found. Zooming in on an exact fractal
+    (right), exact replica of the whole are found. Photo by author.
+    Branching fractal made in Python. Figure inspired by Taylor
+    (<xref alt="2006" rid="ref-taylorPersonalReflectionsJackson2006" ref-type="bibr">2006</xref>)</p></caption>
+    <graphic mimetype="image" mime-subtype="png" xlink:href="./images/exact_vs_statistical_tree.png" />
+  </fig>
+  <p>See
+  <xref alt="Figure 4" rid="fig-fourproperties">Figure 4</xref></p>
+  <fig id="fig-fourproperties">
+    <caption><p>Figure 4: <bold>Main properties of a fractal
+    time-series</bold> A-C show a raw time-series (fractional Gaussian
+    noise in this example) at different scales: B is the first half of A
+    (shown as vertical dashed lines in A), while C is half of B (shown
+    in vertical dashed lines in B). D is a power spectral density plot
+    of A. E shows D but on a log-log plot, demonstrating the linear
+    nature of fractal signals when plotted on a log-log scale. The slope
+    of E is <inline-formula><alternatives>
+    <tex-math><![CDATA[-\beta]]></tex-math>
+    <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mi>−</mml:mi><mml:mi>β</mml:mi></mml:mrow></mml:math></alternatives></inline-formula>.
+    In this example, <inline-formula><alternatives>
+    <tex-math><![CDATA[\beta]]></tex-math>
+    <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>β</mml:mi></mml:math></alternatives></inline-formula>
+    is calculated to be 0.6, which translates to an H of 0.8. F shows a
+    modified version of E, which imagines that E only demonstrates a
+    power law scaling relationship between two distinct frequencies. The
+    equation for calculating the scaling range in decades is shown.
+    Exact fractal time-series (A) was created using the Davies-Harte
+    method.</p></caption>
+    <graphic id="fourproperties" mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/notebooks-Figures-fourproperties-output-1.png" />
+  </fig>
+  <p>See
+  <xref alt="Figure 5" rid="fig-typicalsamplepaths">Figure 5</xref></p>
+  <fig id="fig-typicalsamplepaths">
+    <caption><p>Figure 5: <bold>Simulated fractional Gaussian noise and
+    fractional Brownian motion.</bold> Raw simulated time-series with
+    1,024 time-points and known Hurst values are plotted on the left.
+    The top three time-series are fractional Gaussian noise, while the
+    bottom three are fractional Brownian motion. H values are displayed
+    on the left, while <inline-formula><alternatives>
+    <tex-math><![CDATA[\beta]]></tex-math>
+    <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>β</mml:mi></mml:math></alternatives></inline-formula>
+    values are displayed on the right. Note how fractional Gaussian
+    noise remain centered around a mean (i.e. stationary), while
+    fractional Brownian motion wanders away from the mean
+    (i.e. non-stationary). Log-log power spectral density plots of the
+    signals on the left are shown on the right. Linear-regression fits
+    are shown in red, which are used to calculate
+    <inline-formula><alternatives>
+    <tex-math><![CDATA[\beta]]></tex-math>
+    <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>β</mml:mi></mml:math></alternatives></inline-formula>
+    and H using the appropriate equation (on the right). Exact fractal
+    time-series were created using the Davies-Harte method. Figure
+    inspired by Eke et al.
+    (<xref alt="2000" rid="ref-ekePhysiologicalTimeSeries2000" ref-type="bibr">2000</xref>).</p></caption>
+    <graphic id="typicalsamplepaths" mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/notebooks-Figures-typicalsamplepaths-output-1.png" />
+  </fig>
+  <p>See <xref alt="Table 1" rid="tbl-fmrihurst">Table 1</xref></p>
+  <fig id="tbl-fmrihurst">
+    <caption><p>Table 1: <bold>fMRI-Hurst studies.</bold> An attempt to
+    gather all published fMRI studies that have used Hurst or Hurst-like
+    analysis, some stats, and the main findings. Main findings are
+    almost certainly more nuanced than how we have reported them here;
+    we have attempted to condense the findings as succinctly as
+    possible. n = number of subjects in the study; TR = repition time;
+    MLWD = maximum likelihood wavelet; PSD<sub>Welch</sub> = power
+    spectral density Welch method; DMN = default mode network; DFA =
+    detrended fluctuation analysis; DA = dispersional analysis; SWV =
+    scaled window variance; RS = rescaled range; LW = local
+    Whittle;</p></caption>
+    <table-wrap>
+      <table>
+        <colgroup>
+          <col width="12%" />
+          <col width="12%" />
+          <col width="12%" />
+          <col width="12%" />
+          <col width="12%" />
+          <col width="12%" />
+          <col width="29%" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Study</th>
+            <th>n</th>
+            <th>Age range</th>
+            <th>Methods</th>
+            <th>Volumes</th>
+            <th>TR (s)</th>
+            <th>Results</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Akhrif et al.
+            (<xref alt="2018" rid="ref-akhrifFractalAnalysisBOLD2018" ref-type="bibr">2018</xref>)</td>
+            <td>103</td>
+            <td>19-28</td>
+            <td>AFA</td>
+            <td>task: 425, resting: 350</td>
+            <td>2</td>
+            <td>impulsivity: <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula></td>
+          </tr>
+          <tr>
+            <td>Barnes, Bullmore, and Suckling
+            (<xref alt="2009" rid="ref-barnesEndogenousHumanBrain2009" ref-type="bibr">2009</xref>)</td>
+            <td>14</td>
+            <td>21-29</td>
+            <td>MLW</td>
+            <td>2048</td>
+            <td>1.1</td>
+            <td>cognitive effort: <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula>
+            H</td>
+          </tr>
+          <tr>
+            <td>Campbell, Vanderwal, and Weber
+            (<xref alt="2022" rid="ref-campbellFractalBasedAnalysisFMRI2022" ref-type="bibr">2022</xref>)</td>
+            <td>72</td>
+            <td>mean 29</td>
+            <td>PSD<sub>Welch</sub></td>
+            <td>900</td>
+            <td>1</td>
+            <td>movie-watching: <inline-formula><alternatives>
+            <tex-math><![CDATA[\uparrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↑</mml:mo></mml:math></alternatives></inline-formula>
+            H in visual, somatosensory, and dorsal attention;
+            <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula>
+            frontoparietal and DMN</td>
+          </tr>
+          <tr>
+            <td>Churchill et al.
+            (<xref alt="2015" rid="ref-churchillScalefreeBrainDynamics2015" ref-type="bibr">2015</xref>)</td>
+            <td>97 (28 chemo; 37 radiation; 32 HC)</td>
+            <td>n/a</td>
+            <td>DFA, Wavelet</td>
+            <td>285</td>
+            <td>1.5</td>
+            <td>worry: <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula>
+            H</td>
+          </tr>
+          <tr>
+            <td>Churchill et al.
+            (<xref alt="2016" rid="ref-churchillSuppressionScalefreeFMRI2016" ref-type="bibr">2016</xref>)</td>
+            <td>three datasets (98): 19; 49; 30</td>
+            <td>20-82</td>
+            <td>DFA, PSD<sub>Welch</sub></td>
+            <td><inline-formula><alternatives>
+            <tex-math><![CDATA[\sim]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>∼</mml:mo></mml:math></alternatives></inline-formula>
+            300</td>
+            <td>2</td>
+            <td>age, task novelty and difficulty:
+            <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula>
+            H</td>
+          </tr>
+          <tr>
+            <td>Ciuciu, Abry, and He
+            (<xref alt="2014" rid="ref-ciuciuInterplayFunctionalConnectivity2014" ref-type="bibr">2014</xref>)</td>
+            <td>17</td>
+            <td>18-27</td>
+            <td>Wavelet</td>
+            <td>194</td>
+            <td>2.16</td>
+            <td>networks</td>
+          </tr>
+          <tr>
+            <td>Dona, Hall, and Noseworthy
+            (<xref alt="2017" rid="ref-donaTemporalFractalAnalysis2017" ref-type="bibr">2017</xref>)</td>
+            <td>71 (56 ASD; 15 HC)</td>
+            <td>mean 13</td>
+            <td>PSD, DA, SWV</td>
+            <td>300</td>
+            <td>2</td>
+            <td>ASD: <inline-formula><alternatives>
+            <tex-math><![CDATA[\uparrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↑</mml:mo></mml:math></alternatives></inline-formula>
+            H</td>
+          </tr>
+          <tr>
+            <td>Dona et al.
+            (<xref alt="2017" rid="ref-donaFractalAnalysisBrain2017" ref-type="bibr">2017</xref>)</td>
+            <td>110 (55 mTBI; 55 HC)</td>
+            <td>mean 13</td>
+            <td>PSD, DA, SWV</td>
+            <td>180</td>
+            <td>2</td>
+            <td>mTBI: <inline-formula><alternatives>
+            <tex-math><![CDATA[\uparrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↑</mml:mo></mml:math></alternatives></inline-formula>
+            H</td>
+          </tr>
+          <tr>
+            <td>Dong et al.
+            (<xref alt="2018" rid="ref-dongHurstExponentAnalysis2018" ref-type="bibr">2018</xref>)</td>
+            <td>116</td>
+            <td>19-85</td>
+            <td>RS</td>
+            <td>260</td>
+            <td>2.5</td>
+            <td>age: <inline-formula><alternatives>
+            <tex-math><![CDATA[\uparrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↑</mml:mo></mml:math></alternatives></inline-formula>
+            H frontal and parietal lobe; <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula>
+            H insula, limbic, occipital, temporal lobes</td>
+          </tr>
+          <tr>
+            <td>Drayne et al.
+            (<xref alt="2024" rid="ref-drayneLongrangeTemporalCorrelation2024" ref-type="bibr">2024</xref>)</td>
+            <td>98</td>
+            <td>preterm</td>
+            <td>PSD<sub>Welch</sub></td>
+            <td>100</td>
+            <td>3</td>
+            <td>preterm: <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula>
+            H; differentiates networks</td>
+          </tr>
+          <tr>
+            <td>Erbil and Deshpande
+            (<xref alt="2025" rid="ref-erbilScaleFreeDynamicsRestingState2025" ref-type="bibr">2025</xref>)</td>
+            <td>7</td>
+            <td>21-28</td>
+            <td>Wavelet</td>
+            <td>1,000; 1,000, 3,000</td>
+            <td>1; 0.6; 0.2</td>
+            <td>microstates</td>
+          </tr>
+          <tr>
+            <td>Gao et al.
+            (<xref alt="2018" rid="ref-gaoTemporalDynamicsSpontaneous2018" ref-type="bibr">2018</xref>)</td>
+            <td>110</td>
+            <td>mean 21</td>
+            <td>PSD, Wavelet</td>
+            <td>232</td>
+            <td>2</td>
+            <td>reappraisal scores: <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula>
+            H</td>
+          </tr>
+          <tr>
+            <td>Gao et al.
+            (<xref alt="2023" rid="ref-gaoTemporalDynamicPatterns2023" ref-type="bibr">2023</xref>)</td>
+            <td>195 (100; 95)</td>
+            <td>18-28</td>
+            <td>Wavelet</td>
+            <td>?</td>
+            <td>2</td>
+            <td>rumination: <inline-formula><alternatives>
+            <tex-math><![CDATA[\uparrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↑</mml:mo></mml:math></alternatives></inline-formula>
+            H</td>
+          </tr>
+          <tr>
+            <td>Gentili et al.
+            (<xref alt="2017" rid="ref-gentiliNotOneMetric2017" ref-type="bibr">2017</xref>)</td>
+            <td>31</td>
+            <td>mean 25</td>
+            <td>Wavelet</td>
+            <td>512</td>
+            <td>1.64</td>
+            <td>neuroticism: <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula></td>
+          </tr>
+          <tr>
+            <td>Gentili et al.
+            (<xref alt="2015" rid="ref-gentiliPronenessSocialAnxiety2015" ref-type="bibr">2015</xref>)</td>
+            <td>36</td>
+            <td>mean 27</td>
+            <td>Wavelet</td>
+            <td>450</td>
+            <td>2</td>
+            <td>social anxiety: <inline-formula><alternatives>
+            <tex-math><![CDATA[\uparrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↑</mml:mo></mml:math></alternatives></inline-formula>
+            H</td>
+          </tr>
+          <tr>
+            <td>He
+            (<xref alt="2011" rid="ref-heScaleFreePropertiesFunctional2011" ref-type="bibr">2011</xref>)</td>
+            <td>17</td>
+            <td>18-27</td>
+            <td>DFA, PSD</td>
+            <td>194</td>
+            <td>2.16</td>
+            <td>task: <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula>
+            H; differentiates networks; brain glucose metabolism and
+            neurovascular coupling</td>
+          </tr>
+          <tr>
+            <td>Jäger et al.
+            (<xref alt="2024" rid="ref-jagerDecreasedLongrangeTemporal2024" ref-type="bibr">2024</xref>)</td>
+            <td>40 (20 task; 20 no task)</td>
+            <td>20-32</td>
+            <td>DFA</td>
+            <td>512</td>
+            <td>1.13</td>
+            <td>motor sequence learning: <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula>
+            H</td>
+          </tr>
+          <tr>
+            <td>Lai et al.
+            (<xref alt="2010" rid="ref-laiShiftRandomnessBrain2010" ref-type="bibr">2010</xref>)</td>
+            <td>63 (33 ASD; 3- HC)</td>
+            <td>n/a</td>
+            <td>Wavelet</td>
+            <td>512</td>
+            <td>1.3</td>
+            <td>ASD: <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula>
+            H</td>
+          </tr>
+          <tr>
+            <td>X. Lei, Zhao, and Chen
+            (<xref alt="2013" rid="ref-leiExtraversionEncodedScalefree2013" ref-type="bibr">2013</xref>)</td>
+            <td>17</td>
+            <td>18-29</td>
+            <td>Wavelet</td>
+            <td>200</td>
+            <td>1.5</td>
+            <td>extroversion: <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula>
+            H in DMN</td>
+          </tr>
+          <tr>
+            <td>Y. Lei et al.
+            (<xref alt="2021" rid="ref-leiFadedCriticalDynamics2021" ref-type="bibr">2021</xref>)</td>
+            <td>75 (16 HMMD; 34 IMMD; 25 HC)</td>
+            <td>mean <inline-formula><alternatives>
+            <tex-math><![CDATA[\sim]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>∼</mml:mo></mml:math></alternatives></inline-formula>
+            41</td>
+            <td>RS</td>
+            <td>240</td>
+            <td>2</td>
+            <td>moyamoya disease: <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula>
+            H</td>
+          </tr>
+          <tr>
+            <td>Linke et al.
+            (<xref alt="2024" rid="ref-linkeAlteredDevelopmentHurst2024" ref-type="bibr">2024</xref>)</td>
+            <td>83</td>
+            <td>1.5-5</td>
+            <td>WML</td>
+            <td>400</td>
+            <td>0.8</td>
+            <td>age of children ASD: <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula>
+            H in vmPFC</td>
+          </tr>
+          <tr>
+            <td>Maxim et al.
+            (<xref alt="2005" rid="ref-maximFractionalGaussianNoise2005" ref-type="bibr">2005</xref>)</td>
+            <td>21</td>
+            <td>n/a</td>
+            <td>LW, Wornell, MLW</td>
+            <td>150</td>
+            <td>2</td>
+            <td>AD: <inline-formula><alternatives>
+            <tex-math><![CDATA[\uparrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↑</mml:mo></mml:math></alternatives></inline-formula>
+            H</td>
+          </tr>
+          <tr>
+            <td>Mella et al.
+            (<xref alt="2024" rid="ref-mellaTemporalComplexityBOLDsignal2024" ref-type="bibr">2024</xref>)</td>
+            <td>716</td>
+            <td>preterm</td>
+            <td>PSD<sub>Welch</sub></td>
+            <td>2,300</td>
+            <td>0.392</td>
+            <td>preterm: <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula>
+            H; H starts &lt; 0.5 at preterm age ; differentiates
+            networks</td>
+          </tr>
+          <tr>
+            <td>Omidvarnia et al.
+            (<xref alt="2021" rid="ref-omidvarniaAssessmentTemporalComplexity2021" ref-type="bibr">2021</xref>)</td>
+            <td>100</td>
+            <td>22-35</td>
+            <td>PSD, DFA</td>
+            <td>min 250</td>
+            <td>0.72</td>
+            <td>cognitive load: <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula>
+            H; H and entropy-based complexity highly correlated; H
+            highest in frontoparietal network and default mode
+            network</td>
+          </tr>
+          <tr>
+            <td>Rubin, Fekete, and Mujica-Parodi
+            (<xref alt="2013" rid="ref-rubinOptimizingComplexityMeasures2013" ref-type="bibr">2013</xref>)</td>
+            <td>22</td>
+            <td>?</td>
+            <td>Many</td>
+            <td>?</td>
+            <td>?</td>
+            <td>HFFT and PSD<sub>Welch</sub> outperform other
+            methods</td>
+          </tr>
+          <tr>
+            <td>Sokunbi et al.
+            (<xref alt="2014" rid="ref-sokunbiNonlinearComplexityAnalysis2014" ref-type="bibr">2014</xref>)</td>
+            <td>29 (13 SZ; 16 HC)</td>
+            <td>?</td>
+            <td>DA, DFA</td>
+            <td>?</td>
+            <td>?</td>
+            <td>SZ: <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula>
+            H</td>
+          </tr>
+          <tr>
+            <td>Suckling et al.
+            (<xref alt="2008" rid="ref-sucklingEndogenousMultifractalBrain2008" ref-type="bibr">2008</xref>)</td>
+            <td>22 (11 old; 11 young)</td>
+            <td>22 and 65</td>
+            <td>MLW</td>
+            <td>512</td>
+            <td>1.1</td>
+            <td>multifractal reanalysis of
+            (<xref alt="Alle Meije Wink et al. 2006" rid="ref-winkAgeCholinergicEffects2006" ref-type="bibr">Alle
+            Meije Wink et al. 2006</xref>)</td>
+          </tr>
+          <tr>
+            <td>Tetereva et al.
+            (<xref alt="2020" rid="ref-teterevaVarianceScaleFreeProperties2020" ref-type="bibr">2020</xref>)</td>
+            <td>23</td>
+            <td>mean 23.9</td>
+            <td>DFA</td>
+            <td>300</td>
+            <td>2</td>
+            <td>fear: <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula>
+            H then <inline-formula><alternatives>
+            <tex-math><![CDATA[\uparrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↑</mml:mo></mml:math></alternatives></inline-formula>
+            H</td>
+          </tr>
+          <tr>
+            <td>Uscătescu et al.
+            (<xref alt="2022" rid="ref-uscatescuUsingExcitationInhibition2022" ref-type="bibr">2022</xref>)</td>
+            <td>124 (55 TD; 30 AT; 39 SZ)</td>
+            <td>?</td>
+            <td>Wavelet</td>
+            <td>947?</td>
+            <td>0.475</td>
+            <td>ASD and SZ: <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula>
+            H</td>
+          </tr>
+          <tr>
+            <td>Varley et al.
+            (<xref alt="2020" rid="ref-varleyFractalDimensionCortical2020" ref-type="bibr">2020</xref>)</td>
+            <td>33 (15 HC; 10 min conscious; 8 veg)</td>
+            <td>?</td>
+            <td>HFD</td>
+            <td>?</td>
+            <td>?</td>
+            <td>Lower consciousness: <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula>
+            H</td>
+          </tr>
+          <tr>
+            <td>Von Wegner, Laufs, and Tagliazucchi
+            (<xref alt="2018" rid="ref-vonwegnerMutualInformationIdentifies2018" ref-type="bibr">2018</xref>)</td>
+            <td>?</td>
+            <td>?</td>
+            <td>Wavelet, DFA</td>
+            <td>1500</td>
+            <td>2.08</td>
+            <td>multiscale variance effects produce Hurst phenomena
+            without long-range dependence</td>
+          </tr>
+          <tr>
+            <td>Warsi, Molloy, and Noseworthy
+            (<xref alt="2012" rid="ref-warsiCorrelatingBrainBlood2012" ref-type="bibr">2012</xref>)</td>
+            <td>46 (33 AD; 13 HC)</td>
+            <td>?</td>
+            <td>PSD, RD</td>
+            <td>2,400</td>
+            <td>0.25</td>
+            <td>AD: <inline-formula><alternatives>
+            <tex-math><![CDATA[\uparrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↑</mml:mo></mml:math></alternatives></inline-formula>
+            H</td>
+          </tr>
+          <tr>
+            <td>Weber, Soreni, and Noseworthy
+            (<xref alt="2014" rid="ref-weberPreliminaryStudyEffects2014" ref-type="bibr">2014</xref>)</td>
+            <td>14</td>
+            <td>22-38</td>
+            <td>Wavelet</td>
+            <td>512</td>
+            <td>2</td>
+            <td>acute alcohol intoxication: mix of
+            <inline-formula><alternatives>
+            <tex-math><![CDATA[uparrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mi>u</mml:mi><mml:mi>p</mml:mi><mml:mi>a</mml:mi><mml:mi>r</mml:mi><mml:mi>r</mml:mi><mml:mi>o</mml:mi><mml:mi>w</mml:mi></mml:mrow></mml:math></alternatives></inline-formula>
+            and <inline-formula><alternatives>
+            <tex-math><![CDATA[downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mi>d</mml:mi><mml:mi>o</mml:mi><mml:mi>w</mml:mi><mml:mi>n</mml:mi><mml:mi>a</mml:mi><mml:mi>r</mml:mi><mml:mi>r</mml:mi><mml:mi>o</mml:mi><mml:mi>w</mml:mi></mml:mrow></mml:math></alternatives></inline-formula>
+            H</td>
+          </tr>
+          <tr>
+            <td>Alle Meije Wink et al.
+            (<xref alt="2006" rid="ref-winkAgeCholinergicEffects2006" ref-type="bibr">2006</xref>)</td>
+            <td>22 (11 old; 11 young)</td>
+            <td>22 and 65</td>
+            <td>MLW</td>
+            <td>512</td>
+            <td>1.1</td>
+            <td>age: <inline-formula><alternatives>
+            <tex-math><![CDATA[\uparrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↑</mml:mo></mml:math></alternatives></inline-formula>
+            H in bilateral hippocampus; scopolamine:
+            <inline-formula><alternatives>
+            <tex-math><![CDATA[\uparrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↑</mml:mo></mml:math></alternatives></inline-formula>
+            H; faster task: <inline-formula><alternatives>
+            <tex-math><![CDATA[\uparrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↑</mml:mo></mml:math></alternatives></inline-formula>
+            H</td>
+          </tr>
+          <tr>
+            <td>Alle-Meije Wink et al.
+            (<xref alt="2008" rid="ref-winkMonofractalMultifractalDynamics2008" ref-type="bibr">2008</xref>)</td>
+            <td>11</td>
+            <td>mean 35 <inline-formula><alternatives>
+            <tex-math><![CDATA[\pm]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>±</mml:mi></mml:math></alternatives></inline-formula>
+            10</td>
+            <td>Wavelet</td>
+            <td>136</td>
+            <td>1.1</td>
+            <td>latency in fame decision task:
+            <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula>
+            H</td>
+          </tr>
+          <tr>
+            <td>Xie et al.
+            (<xref alt="2024" rid="ref-xiePharmacoresistantTemporalLobe2024" ref-type="bibr">2024</xref>)</td>
+            <td>70</td>
+            <td>?</td>
+            <td>Wavelet</td>
+            <td>700</td>
+            <td>0.6</td>
+            <td>pharmaco-resistant TLE: <inline-formula><alternatives>
+            <tex-math><![CDATA[\downarrow]]></tex-math>
+            <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mo>↓</mml:mo></mml:math></alternatives></inline-formula>
+            H</td>
+          </tr>
+        </tbody>
+      </table>
+    </table-wrap>
+  </fig>
+</sec>
+</body>
+
+<back>
+<ref-list>
+  <title>References</title>
+  <ref id="ref-akhrifFractalAnalysisBOLD2018">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Akhrif</surname><given-names>Atae</given-names></name>
+        <name><surname>Romanos</surname><given-names>Marcel</given-names></name>
+        <name><surname>Domschke</surname><given-names>Katharina</given-names></name>
+        <name><surname>Schmitt-Boehrer</surname><given-names>Angelika</given-names></name>
+        <name><surname>Neufang</surname><given-names>Susanne</given-names></name>
+      </person-group>
+      <article-title>Fractal Analysis of BOLD Time Series in a Network Associated With Waiting Impulsivity</article-title>
+      <source>Frontiers in Physiology</source>
+      <year iso-8601-date="2018-10">2018</year><month>10</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2024-11-29">2024</year><month>11</month><day>29</day></date-in-citation>
+      <volume>9</volume>
+      <issn>1664-042X</issn>
+      <pub-id pub-id-type="doi">10.3389/fphys.2018.01378</pub-id>
+      <fpage>1378</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-barnesEndogenousHumanBrain2009">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Barnes</surname><given-names>Anna</given-names></name>
+        <name><surname>Bullmore</surname><given-names>Edward T.</given-names></name>
+        <name><surname>Suckling</surname><given-names>John</given-names></name>
+      </person-group>
+      <article-title>Endogenous Human Brain Dynamics Recover Slowly Following Cognitive Effort</article-title>
+      <source>PLoS ONE</source>
+      <person-group person-group-type="editor">
+        <name><surname>Brembs</surname><given-names>Björn</given-names></name>
+      </person-group>
+      <year iso-8601-date="2009-08">2009</year><month>08</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-01-30">2025</year><month>01</month><day>30</day></date-in-citation>
+      <volume>4</volume>
+      <issue>8</issue>
+      <issn>1932-6203</issn>
+      <pub-id pub-id-type="doi">10.1371/journal.pone.0006626</pub-id>
+      <fpage>e6626</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-beggsCortexCriticalPoint2022">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Beggs</surname><given-names>John M.</given-names></name>
+      </person-group>
+      <source>The Cortex and the Critical Point</source>
+      <publisher-name>MIT Press Direct</publisher-name>
+      <publisher-loc>Cambridge, MA</publisher-loc>
+      <year iso-8601-date="2022">2022</year>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2024-09-28">2024</year><month>09</month><day>28</day></date-in-citation>
+      <edition>1</edition>
+      <isbn>978-0-262-37034-9</isbn>
+    </element-citation>
+  </ref>
+  <ref id="ref-campbellFractalBasedAnalysisFMRI2022">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Campbell</surname><given-names>Olivia</given-names></name>
+        <name><surname>Vanderwal</surname><given-names>Tamara</given-names></name>
+        <name><surname>Weber</surname><given-names>Alexander Mark</given-names></name>
+      </person-group>
+      <article-title>Fractal-Based Analysis of fMRI BOLD Signal During Naturalistic Viewing Conditions</article-title>
+      <source>Frontiers in Physiology</source>
+      <year iso-8601-date="2022-01">2022</year><month>01</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-01-30">2025</year><month>01</month><day>30</day></date-in-citation>
+      <volume>12</volume>
+      <issn>1664-042X</issn>
+      <pub-id pub-id-type="doi">10.3389/fphys.2021.809943</pub-id>
+      <fpage>809943</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-churchillScalefreeBrainDynamics2015">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Churchill</surname><given-names>Nathan W.</given-names></name>
+        <name><surname>Cimprich</surname><given-names>Bernadine</given-names></name>
+        <name><surname>Askren</surname><given-names>Mary K.</given-names></name>
+        <name><surname>Reuter-Lorenz</surname><given-names>Patricia A.</given-names></name>
+        <name><surname>Jung</surname><given-names>Mi Sook</given-names></name>
+        <name><surname>Peltier</surname><given-names>Scott</given-names></name>
+        <name><surname>Berman</surname><given-names>Marc G.</given-names></name>
+      </person-group>
+      <article-title>Scale-free brain dynamics under physical and psychological distress: Pre-treatment effects in women diagnosed with breast cancer</article-title>
+      <source>Human Brain Mapping</source>
+      <year iso-8601-date="2015-03">2015</year><month>03</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-01-30">2025</year><month>01</month><day>30</day></date-in-citation>
+      <volume>36</volume>
+      <issue>3</issue>
+      <issn>1065-9471, 1097-0193</issn>
+      <pub-id pub-id-type="doi">10.1002/hbm.22687</pub-id>
+      <fpage>1077</fpage>
+      <lpage>1092</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-churchillSuppressionScalefreeFMRI2016">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Churchill</surname><given-names>Nathan W.</given-names></name>
+        <name><surname>Spring</surname><given-names>Robyn</given-names></name>
+        <name><surname>Grady</surname><given-names>Cheryl</given-names></name>
+        <name><surname>Cimprich</surname><given-names>Bernadine</given-names></name>
+        <name><surname>Askren</surname><given-names>Mary K.</given-names></name>
+        <name><surname>Reuter-Lorenz</surname><given-names>Patricia A.</given-names></name>
+        <name><surname>Jung</surname><given-names>Mi Sook</given-names></name>
+        <name><surname>Peltier</surname><given-names>Scott</given-names></name>
+        <name><surname>Strother</surname><given-names>Stephen C.</given-names></name>
+        <name><surname>Berman</surname><given-names>Marc G.</given-names></name>
+      </person-group>
+      <article-title>The suppression of scale-free fMRI brain dynamics across three different sources of effort: Aging, task novelty and task difficulty</article-title>
+      <source>Scientific Reports</source>
+      <year iso-8601-date="2016-08">2016</year><month>08</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-02-14">2025</year><month>02</month><day>14</day></date-in-citation>
+      <volume>6</volume>
+      <issue>1</issue>
+      <issn>2045-2322</issn>
+      <pub-id pub-id-type="doi">10.1038/srep30895</pub-id>
+      <fpage>30895</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-ciuciuInterplayFunctionalConnectivity2014">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Ciuciu</surname><given-names>Philippe</given-names></name>
+        <name><surname>Abry</surname><given-names>Patrice</given-names></name>
+        <name><surname>He</surname><given-names>Biyu J.</given-names></name>
+      </person-group>
+      <article-title>Interplay between functional connectivity and scale-free dynamics in intrinsic fMRI networks</article-title>
+      <source>NeuroImage</source>
+      <year iso-8601-date="2014-07">2014</year><month>07</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-01-30">2025</year><month>01</month><day>30</day></date-in-citation>
+      <volume>95</volume>
+      <issn>10538119</issn>
+      <pub-id pub-id-type="doi">10.1016/j.neuroimage.2014.03.047</pub-id>
+      <fpage>248</fpage>
+      <lpage>263</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-donaFractalAnalysisBrain2017">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Dona</surname><given-names>Olga</given-names></name>
+        <name><surname>Noseworthy</surname><given-names>Michael D.</given-names></name>
+        <name><surname>DeMatteo</surname><given-names>Carol</given-names></name>
+        <name><surname>Connolly</surname><given-names>John F.</given-names></name>
+      </person-group>
+      <article-title>Fractal Analysis of Brain Blood Oxygenation Level Dependent (BOLD) Signals from Children with Mild Traumatic Brain Injury (mTBI)</article-title>
+      <source>PLOS ONE</source>
+      <person-group person-group-type="editor">
+        <name><surname>Tzekov</surname><given-names>Radouil</given-names></name>
+      </person-group>
+      <year iso-8601-date="2017-01">2017</year><month>01</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-01-30">2025</year><month>01</month><day>30</day></date-in-citation>
+      <volume>12</volume>
+      <issue>1</issue>
+      <issn>1932-6203</issn>
+      <pub-id pub-id-type="doi">10.1371/journal.pone.0169647</pub-id>
+      <fpage>e0169647</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-donaTemporalFractalAnalysis2017">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Dona</surname><given-names>Olga</given-names></name>
+        <name><surname>Hall</surname><given-names>Geoffrey B.</given-names></name>
+        <name><surname>Noseworthy</surname><given-names>Michael D.</given-names></name>
+      </person-group>
+      <article-title>Temporal fractal analysis of the rs-BOLD signal identifies brain abnormalities in autism spectrum disorder</article-title>
+      <source>PLOS ONE</source>
+      <person-group person-group-type="editor">
+        <name><surname>Hayasaka</surname><given-names>Satoru</given-names></name>
+      </person-group>
+      <year iso-8601-date="2017-12">2017</year><month>12</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-01-30">2025</year><month>01</month><day>30</day></date-in-citation>
+      <volume>12</volume>
+      <issue>12</issue>
+      <issn>1932-6203</issn>
+      <pub-id pub-id-type="doi">10.1371/journal.pone.0190081</pub-id>
+      <fpage>e0190081</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-dongHurstExponentAnalysis2018">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Dong</surname><given-names>Jianxin</given-names></name>
+        <name><surname>Jing</surname><given-names>Bin</given-names></name>
+        <name><surname>Ma</surname><given-names>Xiangyu</given-names></name>
+        <name><surname>Liu</surname><given-names>Han</given-names></name>
+        <name><surname>Mo</surname><given-names>Xiao</given-names></name>
+        <name><surname>Li</surname><given-names>Haiyun</given-names></name>
+      </person-group>
+      <article-title>Hurst Exponent Analysis of Resting-State fMRI Signal Complexity across the Adult Lifespan</article-title>
+      <source>Frontiers in Neuroscience</source>
+      <year iso-8601-date="2018-02">2018</year><month>02</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-02-14">2025</year><month>02</month><day>14</day></date-in-citation>
+      <volume>12</volume>
+      <issn>1662-453X</issn>
+      <pub-id pub-id-type="doi">10.3389/fnins.2018.00034</pub-id>
+      <fpage>34</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-donoghueEvaluatingComparingMeasures2024">
+    <element-citation>
+      <person-group person-group-type="author">
+        <name><surname>Donoghue</surname><given-names>Thomas</given-names></name>
+        <name><surname>Hammonds</surname><given-names>Ryan</given-names></name>
+        <name><surname>Lybrand</surname><given-names>Eric</given-names></name>
+        <name><surname>Washcke</surname><given-names>Leonhard</given-names></name>
+        <name><surname>Gao</surname><given-names>Richard</given-names></name>
+        <name><surname>Voytek</surname><given-names>Bradley</given-names></name>
+      </person-group>
+      <article-title>Evaluating and Comparing Measures of Aperiodic Neural Activity</article-title>
+      <year iso-8601-date="2024-09">2024</year><month>09</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-11-29">2025</year><month>11</month><day>29</day></date-in-citation>
+      <pub-id pub-id-type="doi">10.1101/2024.09.15.613114</pub-id>
+    </element-citation>
+  </ref>
+  <ref id="ref-drayneLongrangeTemporalCorrelation2024">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Drayne</surname><given-names>Johann P.</given-names></name>
+        <name><surname>Mella</surname><given-names>Allison E.</given-names></name>
+        <name><surname>McLean</surname><given-names>Mia M.</given-names></name>
+        <name><surname>Ufkes</surname><given-names>Steven</given-names></name>
+        <name><surname>Chau</surname><given-names>Vann</given-names></name>
+        <name><surname>Guo</surname><given-names>Ting</given-names></name>
+        <name><surname>Branson</surname><given-names>Helen M.</given-names></name>
+        <name><surname>Kelly</surname><given-names>Edmond</given-names></name>
+        <name><surname>Miller</surname><given-names>Steven P.</given-names></name>
+        <name><surname>Grunau</surname><given-names>Ruth E.</given-names></name>
+        <name><surname>Weber</surname><given-names>Alexander M.</given-names></name>
+      </person-group>
+      <article-title>Long-range temporal correlation development in resting-state fMRI signal in preterm infants: Scanned shortly after birth and at term-equivalent age</article-title>
+      <source>PLOS Complex Systems</source>
+      <person-group person-group-type="editor">
+        <name><surname>Kosmidis</surname><given-names>Kosmas</given-names></name>
+      </person-group>
+      <year iso-8601-date="2024-12">2024</year><month>12</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-02-28">2025</year><month>02</month><day>28</day></date-in-citation>
+      <volume>1</volume>
+      <issue>4</issue>
+      <issn>2837-8830</issn>
+      <pub-id pub-id-type="doi">10.1371/journal.pcsy.0000024</pub-id>
+      <fpage>e0000024</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-ekePhysiologicalTimeSeries2000">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Eke</surname><given-names>A.</given-names></name>
+        <name><surname>Hermán</surname><given-names>P.</given-names></name>
+        <name><surname>Bassingthwaighte</surname><given-names>J.</given-names></name>
+        <name><surname>Raymond</surname><given-names>G.</given-names></name>
+        <name><surname>Percival</surname><given-names>D.</given-names></name>
+        <name><surname>Cannon</surname><given-names>M.</given-names></name>
+        <name><surname>Balla</surname><given-names>I.</given-names></name>
+        <name><surname>Ikrényi</surname><given-names>C.</given-names></name>
+      </person-group>
+      <article-title>Physiological time series: Distinguishing fractal noises from motions</article-title>
+      <source>Pflügers Archiv - European Journal of Physiology</source>
+      <year iso-8601-date="2000-02">2000</year><month>02</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-03-03">2025</year><month>03</month><day>03</day></date-in-citation>
+      <volume>439</volume>
+      <issue>4</issue>
+      <issn>0031-6768, 1432-2013</issn>
+      <pub-id pub-id-type="doi">10.1007/s004249900135</pub-id>
+      <fpage>403</fpage>
+      <lpage>415</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-erbilScaleFreeDynamicsRestingState2025">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Erbil</surname><given-names>Nurhan</given-names></name>
+        <name><surname>Deshpande</surname><given-names>Gopikrishna</given-names></name>
+      </person-group>
+      <article-title>Scale-Free Dynamics of Resting-State fMRI Microstates</article-title>
+      <source>Fractal and Fractional</source>
+      <year iso-8601-date="2025-02">2025</year><month>02</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-03-14">2025</year><month>03</month><day>14</day></date-in-citation>
+      <volume>9</volume>
+      <issue>2</issue>
+      <issn>2504-3110</issn>
+      <pub-id pub-id-type="doi">10.3390/fractalfract9020112</pub-id>
+      <fpage>112</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-gaoTemporalDynamicPatterns2023">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Gao</surname><given-names>Wei</given-names></name>
+        <name><surname>Biswal</surname><given-names>Bharat</given-names></name>
+        <name><surname>Yang</surname><given-names>Jiemin</given-names></name>
+        <name><surname>Li</surname><given-names>Songlin</given-names></name>
+        <name><surname>Wang</surname><given-names>YanQing</given-names></name>
+        <name><surname>Chen</surname><given-names>Shengdong</given-names></name>
+        <name><surname>Yuan</surname><given-names>JiaJin</given-names></name>
+      </person-group>
+      <article-title>Temporal dynamic patterns of the ventromedial prefrontal cortex underlie the association between rumination and depression</article-title>
+      <source>Cerebral Cortex</source>
+      <year iso-8601-date="2023-02">2023</year><month>02</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-03-28">2025</year><month>03</month><day>28</day></date-in-citation>
+      <volume>33</volume>
+      <issue>4</issue>
+      <issn>1047-3211, 1460-2199</issn>
+      <pub-id pub-id-type="doi">10.1093/cercor/bhac115</pub-id>
+      <fpage>969</fpage>
+      <lpage>982</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-gaoTemporalDynamicsSpontaneous2018">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Gao</surname><given-names>Wei</given-names></name>
+        <name><surname>Chen</surname><given-names>ShengDong</given-names></name>
+        <name><surname>Biswal</surname><given-names>Bharat</given-names></name>
+        <name><surname>Lei</surname><given-names>Xu</given-names></name>
+        <name><surname>Yuan</surname><given-names>JiaJin</given-names></name>
+      </person-group>
+      <article-title>Temporal dynamics of spontaneous default-mode network activity mediate the association between reappraisal and depression</article-title>
+      <source>Social Cognitive and Affective Neuroscience</source>
+      <year iso-8601-date="2018-10">2018</year><month>10</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-03-28">2025</year><month>03</month><day>28</day></date-in-citation>
+      <issn>1749-5016, 1749-5024</issn>
+      <pub-id pub-id-type="doi">10.1093/scan/nsy092</pub-id>
+    </element-citation>
+  </ref>
+  <ref id="ref-gentiliNotOneMetric2017">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Gentili</surname><given-names>Claudio</given-names></name>
+        <name><surname>Cristea</surname><given-names>Ioana Alina</given-names></name>
+        <name><surname>Ricciardi</surname><given-names>Emiliano</given-names></name>
+        <name><surname>Vanello</surname><given-names>Nicola</given-names></name>
+        <name><surname>Popita</surname><given-names>Cristian</given-names></name>
+        <name><surname>David</surname><given-names>Daniel</given-names></name>
+        <name><surname>Pietrini</surname><given-names>Pietro</given-names></name>
+      </person-group>
+      <article-title>Not in one metric: Neuroticism modulates different resting state metrics within distinctive brain regions</article-title>
+      <source>Behavioural Brain Research</source>
+      <year iso-8601-date="2017-06">2017</year><month>06</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-02-14">2025</year><month>02</month><day>14</day></date-in-citation>
+      <volume>327</volume>
+      <issn>01664328</issn>
+      <pub-id pub-id-type="doi">10.1016/j.bbr.2017.03.031</pub-id>
+      <fpage>34</fpage>
+      <lpage>43</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-gentiliPronenessSocialAnxiety2015">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Gentili</surname><given-names>Claudio</given-names></name>
+        <name><surname>Vanello</surname><given-names>Nicola</given-names></name>
+        <name><surname>Cristea</surname><given-names>Ioana</given-names></name>
+        <name><surname>David</surname><given-names>Daniel</given-names></name>
+        <name><surname>Ricciardi</surname><given-names>Emiliano</given-names></name>
+        <name><surname>Pietrini</surname><given-names>Pietro</given-names></name>
+      </person-group>
+      <article-title>Proneness to social anxiety modulates neural complexity in the absence of exposure: A resting state fMRI study using Hurst exponent</article-title>
+      <source>Psychiatry Research: Neuroimaging</source>
+      <year iso-8601-date="2015-05">2015</year><month>05</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-02-14">2025</year><month>02</month><day>14</day></date-in-citation>
+      <volume>232</volume>
+      <issue>2</issue>
+      <issn>09254927</issn>
+      <pub-id pub-id-type="doi">10.1016/j.pscychresns.2015.03.005</pub-id>
+      <fpage>135</fpage>
+      <lpage>144</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-hernandezBrainComplexityPsychiatric2023">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Hernández</surname><given-names>Ronald Miguel</given-names></name>
+        <name><surname>Ponce-Meza</surname><given-names>Jacqueline Cynthia</given-names></name>
+        <name><surname>Saavedra-López</surname><given-names>Miguel Ángel</given-names></name>
+        <name><surname>Campos Ugaz</surname><given-names>Walter Antonio</given-names></name>
+        <name><surname>Chanduvi</surname><given-names>Roxana Monteza</given-names></name>
+        <name><surname>Monteza</surname><given-names>Walter Campos</given-names></name>
+      </person-group>
+      <article-title>Brain Complexity and Psychiatric Disorders</article-title>
+      <source>Iranian Journal of Psychiatry</source>
+      <year iso-8601-date="2023-09">2023</year><month>09</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-11-29">2025</year><month>11</month><day>29</day></date-in-citation>
+      <issn>1735-4587, 2008-2215</issn>
+      <pub-id pub-id-type="doi">10.18502/ijps.v18i4.13637</pub-id>
+    </element-citation>
+  </ref>
+  <ref id="ref-heScaleFreePropertiesFunctional2011">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>He</surname><given-names>Biyu J.</given-names></name>
+      </person-group>
+      <article-title>Scale-Free Properties of the Functional Magnetic Resonance Imaging Signal during Rest and Task</article-title>
+      <source>The Journal of Neuroscience</source>
+      <year iso-8601-date="2011-09">2011</year><month>09</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-02-27">2025</year><month>02</month><day>27</day></date-in-citation>
+      <volume>31</volume>
+      <issue>39</issue>
+      <issn>0270-6474, 1529-2401</issn>
+      <pub-id pub-id-type="doi">10.1523/JNEUROSCI.2111-11.2011</pub-id>
+      <fpage>13786</fpage>
+      <lpage>13795</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-jagerDecreasedLongrangeTemporal2024">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Jäger</surname><given-names>Anna-Thekla P.</given-names></name>
+        <name><surname>Bailey</surname><given-names>Alexander</given-names></name>
+        <name><surname>Huntenburg</surname><given-names>Julia M.</given-names></name>
+        <name><surname>Tardif</surname><given-names>Christine L.</given-names></name>
+        <name><surname>Villringer</surname><given-names>Arno</given-names></name>
+        <name><surname>Gauthier</surname><given-names>Claudine J.</given-names></name>
+        <name><surname>Nikulin</surname><given-names>Vadim</given-names></name>
+        <name><surname>Bazin</surname><given-names>Pierre-Louis</given-names></name>
+        <name><surname>Steele</surname><given-names>Christopher J.</given-names></name>
+      </person-group>
+      <article-title>Decreased long-range temporal correlations in the Resting-state Functional Magnetic Resonance Imaging Blood-oxygen-level-dependent signal reflect motor sequence learning up to 2 weeks following training</article-title>
+      <source>Human Brain Mapping</source>
+      <year iso-8601-date="2024-03">2024</year><month>03</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-03-14">2025</year><month>03</month><day>14</day></date-in-citation>
+      <volume>45</volume>
+      <issue>4</issue>
+      <issn>1065-9471, 1097-0193</issn>
+      <pub-id pub-id-type="doi">10.1002/hbm.26539</pub-id>
+      <fpage>e26539</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-keshmiriEntropyBrainOverview2020">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Keshmiri</surname><given-names>Soheil</given-names></name>
+      </person-group>
+      <article-title>Entropy and the Brain: An Overview</article-title>
+      <source>Entropy</source>
+      <year iso-8601-date="2020-08">2020</year><month>08</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-11-29">2025</year><month>11</month><day>29</day></date-in-citation>
+      <volume>22</volume>
+      <issue>9</issue>
+      <issn>1099-4300</issn>
+      <pub-id pub-id-type="doi">10.3390/e22090917</pub-id>
+      <fpage>917</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-laiShiftRandomnessBrain2010">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Lai</surname><given-names>Meng-Chuan</given-names></name>
+        <name><surname>Lombardo</surname><given-names>Michael V.</given-names></name>
+        <name><surname>Chakrabarti</surname><given-names>Bhismadev</given-names></name>
+        <name><surname>Sadek</surname><given-names>Susan A.</given-names></name>
+        <name><surname>Pasco</surname><given-names>Greg</given-names></name>
+        <name><surname>Wheelwright</surname><given-names>Sally J.</given-names></name>
+        <name><surname>Bullmore</surname><given-names>Edward T.</given-names></name>
+        <name><surname>Baron-Cohen</surname><given-names>Simon</given-names></name>
+        <name><surname>Suckling</surname><given-names>John</given-names></name>
+      </person-group>
+      <article-title>A Shift to Randomness of Brain Oscillations in People with Autism</article-title>
+      <source>Biological Psychiatry</source>
+      <year iso-8601-date="2010-12">2010</year><month>12</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-02-27">2025</year><month>02</month><day>27</day></date-in-citation>
+      <volume>68</volume>
+      <issue>12</issue>
+      <issn>00063223</issn>
+      <pub-id pub-id-type="doi">10.1016/j.biopsych.2010.06.027</pub-id>
+      <fpage>1092</fpage>
+      <lpage>1099</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-leiExtraversionEncodedScalefree2013">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Lei</surname><given-names>Xu</given-names></name>
+        <name><surname>Zhao</surname><given-names>Zhiying</given-names></name>
+        <name><surname>Chen</surname><given-names>Hong</given-names></name>
+      </person-group>
+      <article-title>Extraversion is encoded by scale-free dynamics of default mode network</article-title>
+      <source>NeuroImage</source>
+      <year iso-8601-date="2013-07">2013</year><month>07</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-02-27">2025</year><month>02</month><day>27</day></date-in-citation>
+      <volume>74</volume>
+      <issn>10538119</issn>
+      <pub-id pub-id-type="doi">10.1016/j.neuroimage.2013.02.020</pub-id>
+      <fpage>52</fpage>
+      <lpage>57</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-leiFadedCriticalDynamics2021">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Lei</surname><given-names>Yu</given-names></name>
+        <name><surname>Li</surname><given-names>Yuzhu</given-names></name>
+        <name><surname>Yu</surname><given-names>Lianchun</given-names></name>
+        <name><surname>Xu</surname><given-names>Longzhou</given-names></name>
+        <name><surname>Zhang</surname><given-names>Xin</given-names></name>
+        <name><surname>Zheng</surname><given-names>Gaoxing</given-names></name>
+        <name><surname>Chen</surname><given-names>Liang</given-names></name>
+        <name><surname>Zhang</surname><given-names>Wei</given-names></name>
+        <name><surname>Qi</surname><given-names>Xiaoying</given-names></name>
+        <name><surname>Gu</surname><given-names>Yuxiang</given-names></name>
+        <name><surname>Yu</surname><given-names>Yuguo</given-names></name>
+        <name><surname>Mao</surname><given-names>Ying</given-names></name>
+      </person-group>
+      <article-title>Faded Critical Dynamics in Adult Moyamoya Disease Revealed by EEG and fMRI</article-title>
+      <source>Oxidative Medicine and Cellular Longevity</source>
+      <person-group person-group-type="editor">
+        <name><surname>Gomes</surname><given-names>Aldrin</given-names></name>
+      </person-group>
+      <year iso-8601-date="2021-01">2021</year><month>01</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-03-13">2025</year><month>03</month><day>13</day></date-in-citation>
+      <volume>2021</volume>
+      <issue>1</issue>
+      <issn>1942-0900, 1942-0994</issn>
+      <pub-id pub-id-type="doi">10.1155/2021/6640108</pub-id>
+      <fpage>6640108</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-linkeAlteredDevelopmentHurst2024">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Linke</surname><given-names>Annika C.</given-names></name>
+        <name><surname>Chen</surname><given-names>Bosi</given-names></name>
+        <name><surname>Olson</surname><given-names>Lindsay</given-names></name>
+        <name><surname>Cordova</surname><given-names>Michaela</given-names></name>
+        <name><surname>Wilkinson</surname><given-names>Molly</given-names></name>
+        <name><surname>Wang</surname><given-names>Tiffany</given-names></name>
+        <name><surname>Herrera</surname><given-names>Meagan</given-names></name>
+        <name><surname>Salmina</surname><given-names>Madison</given-names></name>
+        <name><surname>Rios</surname><given-names>Adriana</given-names></name>
+        <name><surname>Mahmalji</surname><given-names>Judy</given-names></name>
+        <name><surname>Do</surname><given-names>Tess</given-names></name>
+        <name><surname>Vu</surname><given-names>Jessica</given-names></name>
+        <name><surname>Budman</surname><given-names>Michelle</given-names></name>
+        <name><surname>Walker</surname><given-names>Alexis</given-names></name>
+        <name><surname>Fishman</surname><given-names>Inna</given-names></name>
+      </person-group>
+      <article-title>Altered Development of the Hurst Exponent in the Medial Prefrontal Cortex in Preschoolers With Autism</article-title>
+      <source>Biological Psychiatry: Cognitive Neuroscience and Neuroimaging</source>
+      <year iso-8601-date="2024-09">2024</year><month>09</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-02-28">2025</year><month>02</month><day>28</day></date-in-citation>
+      <issn>24519022</issn>
+      <pub-id pub-id-type="doi">10.1016/j.bpsc.2024.09.003</pub-id>
+      <fpage>S2451902224002714</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-maximFractionalGaussianNoise2005">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Maxim</surname><given-names>Voichiţa</given-names></name>
+        <name><surname>Şendur</surname><given-names>Levent</given-names></name>
+        <name><surname>Fadili</surname><given-names>Jalal</given-names></name>
+        <name><surname>Suckling</surname><given-names>John</given-names></name>
+        <name><surname>Gould</surname><given-names>Rebecca</given-names></name>
+        <name><surname>Howard</surname><given-names>Rob</given-names></name>
+        <name><surname>Bullmore</surname><given-names>Ed</given-names></name>
+      </person-group>
+      <article-title>Fractional Gaussian noise, functional MRI and Alzheimer’s disease</article-title>
+      <source>NeuroImage</source>
+      <year iso-8601-date="2005-03">2005</year><month>03</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-02-27">2025</year><month>02</month><day>27</day></date-in-citation>
+      <volume>25</volume>
+      <issue>1</issue>
+      <issn>10538119</issn>
+      <pub-id pub-id-type="doi">10.1016/j.neuroimage.2004.10.044</pub-id>
+      <fpage>141</fpage>
+      <lpage>158</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-mellaTemporalComplexityBOLDsignal2024">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Mella</surname><given-names>Allison Eve</given-names></name>
+        <name><surname>Vanderwal</surname><given-names>Tamara</given-names></name>
+        <name><surname>Miller</surname><given-names>Steven P</given-names></name>
+        <name><surname>Weber</surname><given-names>Alexander Mark</given-names></name>
+      </person-group>
+      <article-title>Temporal complexity of the BOLD-signal in preterm versus term infants</article-title>
+      <source>Cerebral Cortex</source>
+      <year iso-8601-date="2024-10">2024</year><month>10</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-02-28">2025</year><month>02</month><day>28</day></date-in-citation>
+      <volume>34</volume>
+      <issue>10</issue>
+      <issn>1047-3211, 1460-2199</issn>
+      <pub-id pub-id-type="doi">10.1093/cercor/bhae426</pub-id>
+      <fpage>bhae426</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-omidvarniaAssessmentTemporalComplexity2021">
+    <element-citation>
+      <person-group person-group-type="author">
+        <name><surname>Omidvarnia</surname><given-names>Amir</given-names></name>
+        <name><surname>Liégeois</surname><given-names>Raphaël</given-names></name>
+        <name><surname>Amico</surname><given-names>Enrico</given-names></name>
+        <name><surname>Preti</surname><given-names>Maria Giulia</given-names></name>
+        <name><surname>Zalesky</surname><given-names>Andrew</given-names></name>
+        <name><surname>Van De Ville</surname><given-names>Dimitri</given-names></name>
+      </person-group>
+      <article-title>Assessment of temporal complexity in functional MRI between rest and task conditions</article-title>
+      <publisher-name>Bioengineering</publisher-name>
+      <year iso-8601-date="2021-11">2021</year><month>11</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-03-28">2025</year><month>03</month><day>28</day></date-in-citation>
+      <pub-id pub-id-type="doi">10.1101/2021.11.20.469367</pub-id>
+    </element-citation>
+  </ref>
+  <ref id="ref-rubinOptimizingComplexityMeasures2013">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Rubin</surname><given-names>Denis</given-names></name>
+        <name><surname>Fekete</surname><given-names>Tomer</given-names></name>
+        <name><surname>Mujica-Parodi</surname><given-names>Lilianne R.</given-names></name>
+      </person-group>
+      <article-title>Optimizing Complexity Measures for fMRI Data: Algorithm, Artifact, and Sensitivity</article-title>
+      <source>PLoS ONE</source>
+      <person-group person-group-type="editor">
+        <name><surname>Montoya</surname><given-names>Alejandro Raul Hernandez</given-names></name>
+      </person-group>
+      <year iso-8601-date="2013-05">2013</year><month>05</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-02-27">2025</year><month>02</month><day>27</day></date-in-citation>
+      <volume>8</volume>
+      <issue>5</issue>
+      <issn>1932-6203</issn>
+      <pub-id pub-id-type="doi">10.1371/journal.pone.0063448</pub-id>
+      <fpage>e63448</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-sarassoConsciousnessComplexityConsilience2021">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Sarasso</surname><given-names>Simone</given-names></name>
+        <name><surname>Casali</surname><given-names>Adenauer Girardi</given-names></name>
+        <name><surname>Casarotto</surname><given-names>Silvia</given-names></name>
+        <name><surname>Rosanova</surname><given-names>Mario</given-names></name>
+        <name><surname>Sinigaglia</surname><given-names>Corrado</given-names></name>
+        <name><surname>Massimini</surname><given-names>Marcello</given-names></name>
+      </person-group>
+      <article-title>Consciousness and complexity: A consilience of evidence</article-title>
+      <source>Neuroscience of Consciousness</source>
+      <year iso-8601-date="2021-12">2021</year><month>12</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2024-11-24">2024</year><month>11</month><day>24</day></date-in-citation>
+      <volume>2021</volume>
+      <issue>2</issue>
+      <issn>2057-2107</issn>
+      <pub-id pub-id-type="doi">10.1093/nc/niab023</pub-id>
+      <fpage>niab023</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-sokunbiNonlinearComplexityAnalysis2014">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Sokunbi</surname><given-names>Moses O.</given-names></name>
+        <name><surname>Gradin</surname><given-names>Victoria B.</given-names></name>
+        <name><surname>Waiter</surname><given-names>Gordon D.</given-names></name>
+        <name><surname>Cameron</surname><given-names>George G.</given-names></name>
+        <name><surname>Ahearn</surname><given-names>Trevor S.</given-names></name>
+        <name><surname>Murray</surname><given-names>Alison D.</given-names></name>
+        <name><surname>Steele</surname><given-names>Douglas J.</given-names></name>
+        <name><surname>Staff</surname><given-names>Roger T.</given-names></name>
+      </person-group>
+      <article-title>Nonlinear Complexity Analysis of Brain fMRI Signals in Schizophrenia</article-title>
+      <source>PLoS ONE</source>
+      <person-group person-group-type="editor">
+        <name><surname>Stamatakis</surname><given-names>Emmanuel A.</given-names></name>
+      </person-group>
+      <year iso-8601-date="2014-05">2014</year><month>05</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-02-27">2025</year><month>02</month><day>27</day></date-in-citation>
+      <volume>9</volume>
+      <issue>5</issue>
+      <issn>1932-6203</issn>
+      <pub-id pub-id-type="doi">10.1371/journal.pone.0095146</pub-id>
+      <fpage>e95146</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-sucklingEndogenousMultifractalBrain2008">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Suckling</surname><given-names>John</given-names></name>
+        <name><surname>Wink</surname><given-names>Alle Meije</given-names></name>
+        <name><surname>Bernard</surname><given-names>Frederic A.</given-names></name>
+        <name><surname>Barnes</surname><given-names>Anna</given-names></name>
+        <name><surname>Bullmore</surname><given-names>Edward</given-names></name>
+      </person-group>
+      <article-title>Endogenous multifractal brain dynamics are modulated by age, cholinergic blockade and cognitive performance</article-title>
+      <source>Journal of Neuroscience Methods</source>
+      <year iso-8601-date="2008-09">2008</year><month>09</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2024-11-29">2024</year><month>11</month><day>29</day></date-in-citation>
+      <volume>174</volume>
+      <issue>2</issue>
+      <issn>01650270</issn>
+      <pub-id pub-id-type="doi">10.1016/j.jneumeth.2008.06.037</pub-id>
+      <fpage>292</fpage>
+      <lpage>300</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-sunComplexityAnalysisEEG2020">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Sun</surname><given-names>Jie</given-names></name>
+        <name><surname>Wang</surname><given-names>Bin</given-names></name>
+        <name><surname>Niu</surname><given-names>Yan</given-names></name>
+        <name><surname>Tan</surname><given-names>Yuan</given-names></name>
+        <name><surname>Fan</surname><given-names>Chanjuan</given-names></name>
+        <name><surname>Zhang</surname><given-names>Nan</given-names></name>
+        <name><surname>Xue</surname><given-names>Jiayue</given-names></name>
+        <name><surname>Wei</surname><given-names>Jing</given-names></name>
+        <name><surname>Xiang</surname><given-names>Jie</given-names></name>
+        <name><surname>Sun</surname><given-names>Jie</given-names></name>
+        <name><surname>Wang</surname><given-names>Bin</given-names></name>
+        <name><surname>Niu</surname><given-names>Yan</given-names></name>
+        <name><surname>Tan</surname><given-names>Yuan</given-names></name>
+        <name><surname>Fan</surname><given-names>Chanjuan</given-names></name>
+        <name><surname>Zhang</surname><given-names>Nan</given-names></name>
+        <name><surname>Xue</surname><given-names>Jiayue</given-names></name>
+        <name><surname>Wei</surname><given-names>Jing</given-names></name>
+        <name><surname>Xiang</surname><given-names>Jie</given-names></name>
+      </person-group>
+      <article-title>Complexity Analysis of EEG, MEG, and fMRI in Mild Cognitive Impairment and Alzheimer’s Disease: A Review</article-title>
+      <source>Entropy</source>
+      <publisher-name>publisher</publisher-name>
+      <year iso-8601-date="2020-02">2020</year><month>02</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-11-28">2025</year><month>11</month><day>28</day></date-in-citation>
+      <volume>22</volume>
+      <issue>2</issue>
+      <issn>1099-4300</issn>
+      <pub-id pub-id-type="doi">10.3390/e22020239</pub-id>
+    </element-citation>
+  </ref>
+  <ref id="ref-taylorPersonalReflectionsJackson2006">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Taylor</surname><given-names>Richard</given-names></name>
+      </person-group>
+      <article-title>Personal reflections on Jackson Pollock’s fractal paintings</article-title>
+      <source>História, Ciências, Saúde-Manguinhos</source>
+      <year iso-8601-date="2006-10">2006</year><month>10</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-03-04">2025</year><month>03</month><day>04</day></date-in-citation>
+      <volume>13</volume>
+      <issue>suppl</issue>
+      <issn>0104-5970</issn>
+      <pub-id pub-id-type="doi">10.1590/S0104-59702006000500007</pub-id>
+      <fpage>109</fpage>
+      <lpage>123</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-teterevaVarianceScaleFreeProperties2020">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Tetereva</surname><given-names>Alina</given-names></name>
+        <name><surname>Kartashov</surname><given-names>Sergey</given-names></name>
+        <name><surname>Ivanitsky</surname><given-names>Alexey</given-names></name>
+        <name><surname>Martynova</surname><given-names>Olga</given-names></name>
+      </person-group>
+      <article-title>Variance and Scale-Free Properties of Resting-State Blood Oxygenation Level-Dependent Signal After Fear Memory Acquisition and Extinction</article-title>
+      <source>Frontiers in Human Neuroscience</source>
+      <year iso-8601-date="2020-10">2020</year><month>10</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-03-14">2025</year><month>03</month><day>14</day></date-in-citation>
+      <volume>14</volume>
+      <issn>1662-5161</issn>
+      <pub-id pub-id-type="doi">10.3389/fnhum.2020.509075</pub-id>
+      <fpage>509075</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-uscatescuUsingExcitationInhibition2022">
+    <element-citation>
+      <person-group person-group-type="author">
+        <name><surname>Uscătescu</surname><given-names>Lavinia Carmen</given-names></name>
+        <name><surname>Hyatt</surname><given-names>Christopher J.</given-names></name>
+        <name><surname>Dunn</surname><given-names>Jack</given-names></name>
+        <name><surname>Kronbichler</surname><given-names>Martin</given-names></name>
+        <name><surname>Calhoun</surname><given-names>Vince</given-names></name>
+        <name><surname>Corbera</surname><given-names>Silvia</given-names></name>
+        <name><surname>Pelphrey</surname><given-names>Kevin</given-names></name>
+        <name><surname>Pittman</surname><given-names>Brian</given-names></name>
+        <name><surname>Pearlson</surname><given-names>Godfrey</given-names></name>
+        <name><surname>Assaf</surname><given-names>Michal</given-names></name>
+      </person-group>
+      <article-title>Using the Excitation/Inhibition Ratio to Optimize the Classification of Autism and Schizophrenia</article-title>
+      <year iso-8601-date="2022-05">2022</year><month>05</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-03-03">2025</year><month>03</month><day>03</day></date-in-citation>
+      <pub-id pub-id-type="doi">10.1101/2022.05.24.22275531</pub-id>
+    </element-citation>
+  </ref>
+  <ref id="ref-varleyFractalDimensionCortical2020">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Varley</surname><given-names>Thomas F.</given-names></name>
+        <name><surname>Craig</surname><given-names>Michael</given-names></name>
+        <name><surname>Adapa</surname><given-names>Ram</given-names></name>
+        <name><surname>Finoia</surname><given-names>Paola</given-names></name>
+        <name><surname>Williams</surname><given-names>Guy</given-names></name>
+        <name><surname>Allanson</surname><given-names>Judith</given-names></name>
+        <name><surname>Pickard</surname><given-names>John</given-names></name>
+        <name><surname>Menon</surname><given-names>David K.</given-names></name>
+        <name><surname>Stamatakis</surname><given-names>Emmanuel A.</given-names></name>
+      </person-group>
+      <article-title>Fractal dimension of cortical functional connectivity networks &amp; severity of disorders of consciousness</article-title>
+      <source>PLOS ONE</source>
+      <person-group person-group-type="editor">
+        <name><surname>Esteban</surname><given-names>Francisco J.</given-names></name>
+      </person-group>
+      <year iso-8601-date="2020-02">2020</year><month>02</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-02-27">2025</year><month>02</month><day>27</day></date-in-citation>
+      <volume>15</volume>
+      <issue>2</issue>
+      <issn>1932-6203</issn>
+      <pub-id pub-id-type="doi">10.1371/journal.pone.0223812</pub-id>
+      <fpage>e0223812</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-vonwegnerMutualInformationIdentifies2018">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Von Wegner</surname><given-names>Frederic</given-names></name>
+        <name><surname>Laufs</surname><given-names>Helmut</given-names></name>
+        <name><surname>Tagliazucchi</surname><given-names>Enzo</given-names></name>
+      </person-group>
+      <article-title>Mutual information identifies spurious Hurst phenomena in resting state EEG and fMRI data</article-title>
+      <source>Physical Review E</source>
+      <year iso-8601-date="2018-02">2018</year><month>02</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-02-27">2025</year><month>02</month><day>27</day></date-in-citation>
+      <volume>97</volume>
+      <issue>2</issue>
+      <issn>2470-0045, 2470-0053</issn>
+      <pub-id pub-id-type="doi">10.1103/PhysRevE.97.022415</pub-id>
+      <fpage>022415</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-warsiCorrelatingBrainBlood2012">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Warsi</surname><given-names>Mohammed A.</given-names></name>
+        <name><surname>Molloy</surname><given-names>William</given-names></name>
+        <name><surname>Noseworthy</surname><given-names>Michael D.</given-names></name>
+      </person-group>
+      <article-title>Correlating brain blood oxygenation level dependent (BOLD) fractal dimension mapping with magnetic resonance spectroscopy (MRS) in Alzheimer’s disease</article-title>
+      <source>Magnetic Resonance Materials in Physics, Biology and Medicine</source>
+      <year iso-8601-date="2012-10">2012</year><month>10</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-02-27">2025</year><month>02</month><day>27</day></date-in-citation>
+      <volume>25</volume>
+      <issue>5</issue>
+      <issn>1352-8661</issn>
+      <pub-id pub-id-type="doi">10.1007/s10334-012-0312-0</pub-id>
+      <fpage>335</fpage>
+      <lpage>344</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-weberPreliminaryStudyEffects2014">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Weber</surname><given-names>Alexander M.</given-names></name>
+        <name><surname>Soreni</surname><given-names>Noam</given-names></name>
+        <name><surname>Noseworthy</surname><given-names>Michael D.</given-names></name>
+      </person-group>
+      <article-title>A preliminary study on the effects of acute ethanol ingestion on default mode network and temporal fractal properties of the brain</article-title>
+      <source>Magnetic Resonance Materials in Physics, Biology and Medicine</source>
+      <year iso-8601-date="2014-08">2014</year><month>08</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-02-28">2025</year><month>02</month><day>28</day></date-in-citation>
+      <volume>27</volume>
+      <issue>4</issue>
+      <issn>0968-5243, 1352-8661</issn>
+      <pub-id pub-id-type="doi">10.1007/s10334-013-0420-5</pub-id>
+      <fpage>291</fpage>
+      <lpage>301</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-winkAgeCholinergicEffects2006">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Wink</surname><given-names>Alle Meije</given-names></name>
+        <name><surname>Bernard</surname><given-names>Frédéric</given-names></name>
+        <name><surname>Salvador</surname><given-names>Raymond</given-names></name>
+        <name><surname>Bullmore</surname><given-names>Ed</given-names></name>
+        <name><surname>Suckling</surname><given-names>John</given-names></name>
+      </person-group>
+      <article-title>Age and cholinergic effects on hemodynamics and functional coherence of human hippocampus</article-title>
+      <source>Neurobiology of Aging</source>
+      <year iso-8601-date="2006-10">2006</year><month>10</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-02-28">2025</year><month>02</month><day>28</day></date-in-citation>
+      <volume>27</volume>
+      <issue>10</issue>
+      <issn>01974580</issn>
+      <pub-id pub-id-type="doi">10.1016/j.neurobiolaging.2005.08.011</pub-id>
+      <fpage>1395</fpage>
+      <lpage>1404</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-winkMonofractalMultifractalDynamics2008">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Wink</surname><given-names>Alle-Meije</given-names></name>
+        <name><surname>Bullmore</surname><given-names>Ed</given-names></name>
+        <name><surname>Barnes</surname><given-names>Anna</given-names></name>
+        <name><surname>Bernard</surname><given-names>Frederic</given-names></name>
+        <name><surname>Suckling</surname><given-names>John</given-names></name>
+      </person-group>
+      <article-title>Monofractal and multifractal dynamics of low frequency endogenous brain oscillations in functional MRI</article-title>
+      <source>Human Brain Mapping</source>
+      <year iso-8601-date="2008-07">2008</year><month>07</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-02-28">2025</year><month>02</month><day>28</day></date-in-citation>
+      <volume>29</volume>
+      <issue>7</issue>
+      <issn>1065-9471, 1097-0193</issn>
+      <pub-id pub-id-type="doi">10.1002/hbm.20593</pub-id>
+      <fpage>791</fpage>
+      <lpage>801</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-xiePharmacoresistantTemporalLobe2024">
+    <element-citation>
+      <person-group person-group-type="author">
+        <name><surname>Xie</surname><given-names>Ke</given-names></name>
+        <name><surname>Royer</surname><given-names>Jessica</given-names></name>
+        <name><surname>Rodriguez-Cruces</surname><given-names>Raul</given-names></name>
+        <name><surname>Horwood</surname><given-names>Linda</given-names></name>
+        <name><surname>Ngo</surname><given-names>Alexander</given-names></name>
+        <name><surname>Arafat</surname><given-names>Thaera</given-names></name>
+        <name><surname>Auer</surname><given-names>Hans</given-names></name>
+        <name><surname>Sahlas</surname><given-names>Ella</given-names></name>
+        <name><surname>Chen</surname><given-names>Judy</given-names></name>
+        <name><surname>Zhou</surname><given-names>Yigu</given-names></name>
+        <name><surname>Valk</surname><given-names>Sofie L.</given-names></name>
+        <name><surname>Hong</surname><given-names>Seok-Jun</given-names></name>
+        <name><surname>Frauscher</surname><given-names>Birgit</given-names></name>
+        <name><surname>Pana</surname><given-names>Raluca</given-names></name>
+        <name><surname>Bernasconi</surname><given-names>Andrea</given-names></name>
+        <name><surname>Bernasconi</surname><given-names>Neda</given-names></name>
+        <name><surname>Concha</surname><given-names>Luis</given-names></name>
+        <name><surname>Bernhardt</surname><given-names>Boris</given-names></name>
+      </person-group>
+      <article-title>Pharmaco-resistant temporal lobe epilepsy gradually perturbs the cortex-wide excitation-inhibition balance</article-title>
+      <year iso-8601-date="2024-04">2024</year><month>04</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-03-01">2025</year><month>03</month><day>01</day></date-in-citation>
+      <pub-id pub-id-type="doi">10.1101/2024.04.22.590555</pub-id>
+    </element-citation>
+  </ref>
+  <ref id="ref-yangMentalIllnessComplex2013">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Yang</surname><given-names>Albert C.</given-names></name>
+        <name><surname>Tsai</surname><given-names>Shih-Jen</given-names></name>
+      </person-group>
+      <article-title>Is mental illness complex? From behavior to brain</article-title>
+      <source>Progress in Neuro-Psychopharmacology and Biological Psychiatry</source>
+      <year iso-8601-date="2013-08">2013</year><month>08</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2025-11-29">2025</year><month>11</month><day>29</day></date-in-citation>
+      <volume>45</volume>
+      <issn>02785846</issn>
+      <pub-id pub-id-type="doi">10.1016/j.pnpbp.2012.09.015</pub-id>
+      <fpage>253</fpage>
+      <lpage>257</lpage>
+    </element-citation>
+  </ref>
+</ref-list>
+</back>
+
+<sub-article article-type="notebook" id="nb-2-nb-1">
+<front-stub>
+<title-group>
+<article-title>Figures</article-title>
+</title-group>
+</front-stub>
+
+<body>
+<sec id="cell-2-nb-1" specific-use="notebook-content">
+<sec id="check-jupyter-kernel-nb-1">
+  <title>Check jupyter kernel</title>
+  </sec>
+  <sec id="cell-3-nb-1" specific-use="notebook-content">
+  <code language="python">import sys
+sys.executable</code>
+  <boxed-text>
+    <preformat>'/home/weberam2/Dropbox/AssistantProf_BCCHRI/Projects/Isabel_fMRITemporalComplexity/QuartoManuscript/.venv/bin/python'</preformat>
+  </boxed-text>
+  </sec>
+  <sec id="cell-4-nb-1" specific-use="notebook-content">
+</sec>
+<sec id="libraries-nb-1">
+  <title>Libraries</title>
+  </sec>
+  <sec id="cell-5-nb-1" specific-use="notebook-content">
+  <code language="python">import numpy as np
+from PIL import Image
+from wordcloud import WordCloud
+import math
+import ast # read file
+
+from fbm import FBM #fractional signals
+import matplotlib.pyplot as plt #plotting
+import matplotlib.lines as lines #draw lines
+from matplotlib.patches import Polygon
+from sklearn.linear_model import LinearRegression #perform linear regression
+from scipy import signal #create signals
+import string #for latex
+import warnings
+warnings.filterwarnings(&quot;ignore&quot;)</code>
+  </sec>
+  <sec id="cell-6-nb-1" specific-use="notebook-content">
+</sec>
+<sec id="wordcloud-nb-1">
+  <title>Wordcloud</title>
+  </sec>
+  <sec id="cell-7-nb-1" specific-use="notebook-content">
+  <sec id="shape-nb-1">
+    <title>Shape</title>
     </sec>
-  </body>
-  <back>
-    <ref-list>
-      <title>References</title>
-      <ref id="ref-beggsCortexCriticalPoint2022">
-        <element-citation publication-type="book">
-          <person-group person-group-type="author">
-            <name>
-              <surname>Beggs</surname>
-              <given-names>John M.</given-names>
-            </name>
-          </person-group>
-          <source>The Cortex and the Critical Point</source>
-          <publisher-name>MIT Press Direct</publisher-name>
-          <publisher-loc>Cambridge, MA</publisher-loc>
-          <year iso-8601-date="2022">2022</year>
-          <date-in-citation content-type="access-date">
-            <year iso-8601-date="2024-09-28">2024</year>
-            <month>09</month>
-            <day>28</day>
-          </date-in-citation>
-          <edition>1</edition>
-          <isbn>978-0-262-37034-9</isbn>
-        </element-citation>
-      </ref>
-    </ref-list>
-  </back>
+    <sec id="cell-8-nb-1" specific-use="notebook-content">
+    <code language="python">brain_mask = np.array(Image.open('datafiles/brain.png'))
+brain_mask[brain_mask != 0] = 255
+brain_mask = 255 - brain_mask</code>
+    </sec>
+    <sec id="cell-9-nb-1" specific-use="notebook-content">
+  </sec>
+  <sec id="wordcloud-proper-nb-1">
+    <title>Wordcloud proper</title>
+    </sec>
+    <sec id="cell-wordcloud-nb-1" specific-use="notebook-content">
+    <code language="python">with open(&quot;datafiles/pubmedsearchresults.txt&quot;, &quot;r&quot;) as f:
+    filtered_counts = ast.literal_eval(f.read())
+    
+# log to account for big differences
+log_freq = {key: round(10*math.log(value)) for key, value in filtered_counts.items()}
+
+    
+#wc = WordCloud(background_color= '#FFFFFF', contour_color= '#FFFFFF', mask = brain_mask, width = 800, height = 500, random_state=123).generate_from_frequencies(filtered_counts)
+wc = WordCloud(colormap = 'brg_r', prefer_horizontal=0.7, background_color= '#FFFFFF', contour_color= '#FFFFFF', mask = brain_mask, width = 800, height = 500, random_state=3).generate_from_frequencies(log_freq)
+plt.axis('off')
+plt.imshow(wc, interpolation='bilinear')
+plt.savefig('../images/wordcloud_pubmed.png', bbox_inches='tight', dpi=300)
+#plt.show()
+    </code>
+    <boxed-text>
+      <graphic id="wordcloud-nb-1" mimetype="image" mime-subtype="png" xlink:href="Figures_files/figure-jats/wordcloud-output-1.png" />
+    </boxed-text>
+    </sec>
+    <sec id="cell-11-nb-1" specific-use="notebook-content">
+  </sec>
+</sec>
+<sec id="sierpinski-triangle-nb-1">
+  <title>Sierpinski Triangle</title>
+  </sec>
+  <sec id="cell-sierpinskitriangle-nb-1" specific-use="notebook-content">
+  <code language="python">def sierpinski_triangle(level, p1, p2, p3):
+    &quot;&quot;&quot;Generate the triangles for a Sierpinski triangle at the given iteration level.&quot;&quot;&quot;
+    if level == 0:
+        return [np.array([p1, p2, p3])]
+    
+    # Calculate midpoints
+    mid1 = (p1 + p2) / 2
+    mid2 = (p2 + p3) / 2
+    mid3 = (p3 + p1) / 2
+    
+    # Recursively generate triangles for each sub-triangle
+    triangles = []
+    triangles.extend(sierpinski_triangle(level-1, p1, mid1, mid3))
+    triangles.extend(sierpinski_triangle(level-1, mid1, p2, mid2))
+    triangles.extend(sierpinski_triangle(level-1, mid3, mid2, p3))
+    
+    return triangles
+
+def plot_sierpinski(ax, level):
+    &quot;&quot;&quot;Plot a Sierpinski triangle on the given axes.&quot;&quot;&quot;
+    # Define the initial triangle points
+    height = np.sqrt(3) / 2
+    p1 = np.array([0, 0])
+    p2 = np.array([1, 0])
+    p3 = np.array([0.5, height])
+    
+    if level == 0:
+        # For level 0, just plot the single triangle
+        triangles = [np.array([p1, p2, p3])]
+    else:
+        # For level &gt; 0, generate the Sierpinski triangles
+        triangles = sierpinski_triangle(level, p1, p2, p3)
+    
+    # Create and add polygon patches to the axes
+    for triangle in triangles:
+        # The Polygon constructor takes the vertices as its first argument
+        polygon = Polygon(triangle, closed=True, edgecolor='k', facecolor='cornflowerblue', linewidth=0.5)
+        ax.add_patch(polygon)
+    
+    # Set limits and title
+    ax.set_xlim([-0.1, 1.1])
+    ax.set_ylim([-0.1, height + 0.1])
+    ax.set_aspect('equal')
+    ax.set_axis_off()
+
+# Create figure and subplots
+fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+
+# Level 0: Simple triangle
+plot_sierpinski(axes[0], 0)
+
+# Level 1: First Sierpinski iteration
+plot_sierpinski(axes[1], 1)
+
+# Level 5: Fifth Sierpinski iteration
+plot_sierpinski(axes[2], 5)
+
+plt.tight_layout()
+plt.savefig('../images/sierpinkski.png', dpi=600, bbox_inches='tight', format='png')
+plt.show()</code>
+  <boxed-text>
+    <graphic id="sierpinskitriangle-nb-1" mimetype="image" mime-subtype="png" xlink:href="Figures_files/figure-jats/sierpinskitriangle-output-1.png" />
+  </boxed-text>
+  </sec>
+  <sec id="cell-13-nb-1" specific-use="notebook-content">
+</sec>
+<sec id="exact-vs-statistical-fractal-nb-1">
+  <title>Exact vs Statistical Fractal</title>
+  </sec>
+  <sec id="cell-14-nb-1" specific-use="notebook-content">
+  <sec id="fractal-tree-nb-1">
+    <title>Fractal tree</title>
+    </sec>
+    <sec id="cell-15-nb-1" specific-use="notebook-content">
+    <code language="python">def draw_fractal_tree(ax, x, y, length, angle, depth):
+    &quot;&quot;&quot;
+    Draw a self-similar fractal tree.
+    
+    Parameters:
+    - ax: Matplotlib axis
+    - x, y: Starting coordinates
+    - length: Branch length
+    - angle: Angle in radians
+    - depth: Recursion depth
+    &quot;&quot;&quot;
+    if depth == 0:
+        return
+    
+    # Calculate endpoint using trigonometry
+    x2 = x + length * np.sin(angle)
+    y2 = y + length * np.cos(angle)
+    
+    # Draw the branch
+    ax.plot([x, x2], [y, y2], 'k-', linewidth=0.8)
+    
+    # Left branch
+    left_angle = angle + np.pi/3
+    # Right branch
+    right_angle = angle - np.pi/3
+    
+    # Reduce length for next branches
+    new_length = length * 0.6
+    
+    # Recursively draw the branches
+    draw_fractal_tree(ax, x2, y2, new_length, left_angle, depth-1)
+    draw_fractal_tree(ax, x2, y2, new_length, right_angle, depth-1)
+
+# Create figure and axis
+fig, ax = plt.subplots(figsize=(10, 10))
+
+# Configure the axis
+#ax.set_xlim(-5, 5)
+ax.set_ylim(0, 10)
+ax.set_aspect('equal')
+ax.axis('off')
+
+# Draw the tree starting from the bottom center
+# with initial upward direction (angle = 0)
+draw_fractal_tree(ax, 0, 0, 4.7, 0, 10)
+
+# Ensure tight layout
+#plt.tight_layout()
+plt.savefig('datafiles/fractal_tree.png', dpi=600, bbox_inches='tight', format='png')
+plt.show()</code>
+    <boxed-text>
+      <graphic mimetype="image" mime-subtype="png" xlink:href="Figures_files/figure-jats/cell-7-output-1.png" />
+    </boxed-text>
+    </sec>
+    <sec id="cell-16-nb-1" specific-use="notebook-content">
+  </sec>
+</sec>
+<sec id="four-properties-of-fractal-signal-nb-1">
+  <title>Four properties of fractal signal</title>
+  </sec>
+  <sec id="cell-fourproperties-nb-1" specific-use="notebook-content">
+  <code language="python">plt.rcParams['text.usetex'] = True #latex
+
+np.random.seed(4)
+scale1=1024
+scale2=512
+scale3=256
+
+fp7 = FBM(scale1, hurst=0.8, length=1, method='daviesharte')
+fgnp7 = fp7.fgn()*100
+
+fig, ax = plt.subplots(3,2, constrained_layout=True, figsize=(8,8))
+ax[0][0].plot(fgnp7)
+ax[0][0].axvline(x=scale2, color='red', linestyle='--')
+ax[0][0].axvline(x=0, color='red', linestyle='--')
+ax[0][0].set_title(&quot;Raw time-series&quot;, loc='left')
+
+ax[1][0].plot(fgnp7[:scale2])
+ax[1][0].axvline(x=scale3, color='red', linestyle='--')
+ax[1][0].axvline(x=0, color='red', linestyle='--')
+ax[1][0].set_ylabel('Signal Amplitude')
+ax[1][0].set_title(&quot;Half of segment of A&quot;, loc='left')
+
+ax[2][0].plot(fgnp7[:scale3])
+ax[2][0].set_xlabel('Time')
+ax[2][0].set_title(&quot;Half of segment of B&quot;, loc='left')
+
+freq, power = signal.periodogram(fgnp7, 1)
+power = power[1:]
+freq = freq[1:]
+
+log_power = np.log10(power)
+log_freq = np.log10(freq)
+log_power = log_power[1:]
+log_freq = log_freq[1:]
+
+model = LinearRegression().fit(log_freq.reshape(-1,1), log_power)
+predicted_power = 10**model.predict(log_freq.reshape(-1,1))
+Hurst = (model.coef_*-1+1)/2
+
+ax[0][1].plot(freq.reshape(-1,1), power)
+ax[0][1].set_title(&quot;Power spectral density of A&quot;, loc='left')
+
+ax[1][1].plot(freq.reshape(-1,1), power)
+ax[1][1].set_xscale('log')
+ax[1][1].set_yscale('log')
+ax[1][1].plot(freq[1:].reshape(-1,1), predicted_power, color='red')
+ax[1][1].text(0.002, .01, r&quot;$\beta=0.6<!-- (F2ED4C6E)[nb-1]:/home/weberam2/Dropbox/AssistantProf_BCCHRI/Projects/Isabel_fMRITemporalComplexity/QuartoManuscript/notebooks/Figures.ipynb -->quot;, color=&quot;r&quot;, fontsize=14)
+ax[1][1].text(0.002, .002, r&quot;$H=0.8<!-- (F2ED4C6E)[nb-1]:/home/weberam2/Dropbox/AssistantProf_BCCHRI/Projects/Isabel_fMRITemporalComplexity/QuartoManuscript/notebooks/Figures.ipynb -->quot;, color=&quot;r&quot;, fontsize=14)
+ax[1][1].set_title(&quot;Log-log plot of D&quot;, loc='left')
+ax[1][1].set_xlabel(r&quot;Frequency ($f$)&quot;)
+ax[1][1].set_ylabel(r&quot;Amplitude ($|A(f)|^{2}$)&quot;)
+
+newpower=power
+fp5 = FBM(scale1, hurst=0.5, length=1, method='daviesharte')
+fgnp5 = fp5.fgn()*5
+p5freq, p5power = signal.periodogram(fgnp5, 1)
+p5power=p5power - np.mean(p5power) + predicted_power[-1]*1.4
+newpower[:10]= (np.random.rand(10)+0.5) # 10 was the power value around the low frequency
+newpower[312:]=p5power[312:512]
+ax[2][1].plot(freq.reshape(-1,1), newpower)
+ax[2][1].plot(freq[1:].reshape(-1,1)[10:312], predicted_power[10:312], color='red')
+ax[2][1].axvline(x=freq[10], color='red', linestyle='--')
+ax[2][1].axvline(x=freq[312], color='red', linestyle='--')
+ax[2][1].set_xscale('log')
+ax[2][1].set_yscale('log')
+ax[2][1].set_xlabel(r&quot;Frequency ($f$)&quot;)
+ax[2][1].set_title(&quot;E but with a scaling range&quot;, loc='left')
+
+text = r&quot;$\log_{10} \left( \frac{f_{max} - f_{min}}{f_s} \right)<!-- (F2ED4C6E)[nb-1]:/home/weberam2/Dropbox/AssistantProf_BCCHRI/Projects/Isabel_fMRITemporalComplexity/QuartoManuscript/notebooks/Figures.ipynb -->quot;
+text_xy = (freq[10]*1.7, 0.001)
+ax[2][1].annotate(text, (freq[10],0.001), text_xy, arrowprops={&quot;arrowstyle&quot;: &quot;-&gt;&quot;, &quot;color&quot;: &quot;red&quot;}, color=&quot;red&quot;)
+ax[2][1].annotate(text, (freq[312],0.001), text_xy, arrowprops={&quot;arrowstyle&quot;: &quot;-&gt;&quot;, &quot;color&quot;: &quot;red&quot;}, color=&quot;red&quot;)
+
+for i in range(3):
+    ax[i, 0].text(-0.1, 1.1, string.ascii_uppercase[i], transform=ax[i, 0].transAxes, 
+                  size=13, weight='bold')
+    ax[i, 1].text(-0.1, 1.1, string.ascii_uppercase[i+3], transform=ax[i, 1].transAxes, 
+                  size=13, weight='bold')
+
+plt.savefig('../images/fourproperties.png', dpi=600, bbox_inches='tight', format='png')
+plt.show()</code>
+  <boxed-text>
+    <graphic id="fourproperties-nb-1" mimetype="image" mime-subtype="png" xlink:href="Figures_files/figure-jats/fourproperties-output-1.png" />
+  </boxed-text>
+  </sec>
+  <sec id="cell-18-nb-1" specific-use="notebook-content">
+</sec>
+<sec id="typical-sample-paths-nb-1">
+  <title>Typical Sample Paths</title>
+  </sec>
+  <sec id="cell-typicalsamplepaths-nb-1" specific-use="notebook-content">
+  <code language="python">np.random.seed(1)
+plt.rcParams['text.usetex'] = True #latex
+
+def psd(timeseries):
+    freq, power = signal.periodogram(timeseries, 1)
+    power = power[1:]
+    freq = freq[1:]
+
+    log_power = np.log10(power)
+    log_freq = np.log10(freq)
+    log_power = log_power[1:]
+    log_freq = log_freq[1:]
+
+    model = LinearRegression()
+    model.fit(log_freq.reshape(-1,1), log_power)
+    predicted_power = 10**model.predict(log_freq.reshape(-1,1))
+
+    return freq.reshape(-1,1), power, predicted_power
+
+fp5 = FBM(1024, hurst=0.5, length=1, method='daviesharte')
+fp1 = FBM(1024, hurst=0.1, length=1, method='daviesharte')
+fp9 = FBM(1024, hurst=0.9, length=1, method='daviesharte')
+fgnp5 = fp5.fgn()
+fgnp1 = fp1.fgn()
+fgnp9 = fp9.fgn()
+fbmp5 = fp5.fbm()
+fbmp1 = fp1.fbm()
+fbmp9 = fp9.fbm()
+
+fig, ax = plt.subplots(6,2, figsize=(10,7))
+fig.subplots_adjust(wspace=0.25)
+ax[0,0].plot(fgnp1)
+ax[0,0].set_title(&quot;Time Series&quot;)
+ax[0,0].xaxis.set_visible(False)
+ax[0,0].set_ylabel(&quot;0.1&quot;, rotation=0, labelpad=12)
+ax[0,0].text(1.05, 0.55, &quot;-0.8&quot;, rotation=0,
+             transform=ax[0,0].transAxes, color='red')
+ax[0,0].set_yticks([])
+ax[1,0].plot(fgnp5)
+ax[1,0].xaxis.set_visible(False)
+ax[1,0].set_yticks([])
+ax[1,0].set_ylabel(&quot;0.5&quot;, rotation=0, labelpad=12)
+ax[1,0].text(1.08, 0.55, &quot;0&quot;, rotation=0,
+             transform=ax[1,0].transAxes, color='red')
+ax[2,0].plot(fgnp9)
+ax[2,0].xaxis.set_visible(False)
+ax[2,0].set_yticks([])
+ax[2,0].set_ylabel(&quot;0.9&quot;, rotation=0, labelpad=12)
+ax[2,0].text(1.06, 0.55, &quot;0.8&quot;, rotation=0,
+             transform=ax[2,0].transAxes, color='red')
+ax[3,0].plot(fbmp1)
+ax[3,0].xaxis.set_visible(False)
+ax[3,0].set_yticks([])
+ax[3,0].set_ylabel(&quot;0.1&quot;, rotation=0, labelpad=12)
+ax[3,0].text(1.06, 0.55, &quot;1.2&quot;, rotation=0,
+             transform=ax[3,0].transAxes, color='red')
+ax[4,0].plot(fbmp5)
+ax[4,0].xaxis.set_visible(False)
+ax[4,0].set_yticks([])
+ax[4,0].set_ylabel(&quot;0.5&quot;, rotation=0, labelpad=12)
+ax[4,0].text(1.08, 0.55, &quot;2&quot;, rotation=0,
+             transform=ax[4,0].transAxes, color='red')
+ax[5,0].plot(fbmp9)
+ax[5,0].set_yticks([])
+ax[5,0].set_ylabel(&quot;0.9&quot;, rotation=0, labelpad=12)
+ax[5,0].set_xlabel(&quot;Time&quot;)
+ax[5,0].text(1.06, 0.55, &quot;2.8&quot;, rotation=0,
+             transform=ax[5,0].transAxes, color='red')
+
+line = lines.Line2D([0.1, 1.05], [0.495, 0.495], transform=fig.transFigure, color='black', linewidth=1)
+fig.add_artist(line)
+fig.text(1, 0.705, r&quot;$H=\frac{\beta+1}{2}<!-- (F2ED4C6E)[nb-1]:/home/weberam2/Dropbox/AssistantProf_BCCHRI/Projects/Isabel_fMRITemporalComplexity/QuartoManuscript/notebooks/Figures.ipynb -->quot;, ha='center', va='center', fontsize=18, transform=fig.transFigure)
+fig.text(1, 0.305, r&quot;$H=\frac{\beta-1}{2}<!-- (F2ED4C6E)[nb-1]:/home/weberam2/Dropbox/AssistantProf_BCCHRI/Projects/Isabel_fMRITemporalComplexity/QuartoManuscript/notebooks/Figures.ipynb -->quot;, ha='center', va='center', fontsize=18, transform=fig.transFigure)
+
+fig.text(0.11, .9, r&quot;H&quot;, fontsize=14, ha='center', va='center', transform=fig.transFigure)
+fig.text(0.5, .9, r&quot;$\beta<!-- (F2ED4C6E)[nb-1]:/home/weberam2/Dropbox/AssistantProf_BCCHRI/Projects/Isabel_fMRITemporalComplexity/QuartoManuscript/notebooks/Figures.ipynb -->quot;, fontsize=14, ha='center', va='center', transform=fig.transFigure, color='red')
+
+freq,power,pred_power = psd(fgnp1)
+ax[0,1].plot(freq,power)
+ax[0,1].set_title(&quot;Power Spectral Density&quot;)
+ax[0,1].plot(freq[1:], pred_power, color='red')
+ax[0,1].set_xscale('log')
+ax[0,1].set_yscale('log')
+ax[0,1].xaxis.set_visible(False)
+ax[0,1].yaxis.tick_right()
+ax[0,1].set_ylim(1e-4,10)
+
+freq,power,pred_power = psd(fgnp5)
+ax[1,1].plot(freq,power)
+ax[1,1].plot(freq[1:], pred_power, color='red')
+ax[1,1].set_xscale('log')
+ax[1,1].set_yscale('log')
+ax[1,1].xaxis.set_visible(False)
+ax[1,1].yaxis.tick_right()
+ax[1,1].set_ylabel(r&quot;$\log|A(f)|^2<!-- (F2ED4C6E)[nb-1]:/home/weberam2/Dropbox/AssistantProf_BCCHRI/Projects/Isabel_fMRITemporalComplexity/QuartoManuscript/notebooks/Figures.ipynb -->quot;)
+ax[1,1].set_ylim(1e-5,1e-2)
+
+freq,power,pred_power = psd(fgnp9)
+ax[2,1].plot(freq,power)
+ax[2,1].plot(freq[1:], pred_power, color='red')
+ax[2,1].set_xscale('log')
+ax[2,1].set_yscale('log')
+ax[2,1].xaxis.set_visible(False)
+ax[2,1].yaxis.tick_right()
+ax[2,1].set_ylim(1e-9,1e-2)
+
+freq,power,pred_power = psd(fbmp1)
+ax[3,1].plot(freq,power)
+ax[3,1].plot(freq[1:], pred_power, color='red')
+ax[3,1].set_xscale('log')
+ax[3,1].set_yscale('log')
+ax[3,1].xaxis.set_visible(False)
+ax[3,1].yaxis.tick_right()
+
+freq,power,pred_power = psd(fbmp5)
+ax[4,1].plot(freq,power)
+ax[4,1].plot(freq[1:], pred_power, color='red')
+ax[4,1].set_xscale('log')
+ax[4,1].set_yscale('log')
+ax[4,1].xaxis.set_visible(False)
+ax[4,1].set_ylabel(r&quot;$\log|A(f)|^2<!-- (F2ED4C6E)[nb-1]:/home/weberam2/Dropbox/AssistantProf_BCCHRI/Projects/Isabel_fMRITemporalComplexity/QuartoManuscript/notebooks/Figures.ipynb -->quot;)
+ax[4,1].yaxis.tick_right()
+ax[4,1].set_ylim(1e-5,1e3)
+
+freq,power,pred_power = psd(fbmp9)
+ax[5,1].plot(freq,power)
+ax[5,1].plot(freq[1:], pred_power, color='red')
+ax[5,1].set_xscale('log')
+ax[5,1].set_yscale('log')
+#ax[5,1].set_xticklabels([])
+ax[5,1].yaxis.tick_right()
+ax[5,1].set_xlabel(r&quot;$\log(f)<!-- (F2ED4C6E)[nb-1]:/home/weberam2/Dropbox/AssistantProf_BCCHRI/Projects/Isabel_fMRITemporalComplexity/QuartoManuscript/notebooks/Figures.ipynb -->quot;)
+
+plt.savefig('../images/typicalsamplepaths.png', dpi=600, bbox_inches='tight', format='png')
+plt.show()</code>
+  <boxed-text>
+    <graphic id="typicalsamplepaths-nb-1" mimetype="image" mime-subtype="png" xlink:href="Figures_files/figure-jats/typicalsamplepaths-output-1.png" />
+  </boxed-text>
+  </sec>
+</sec>
+</body>
+
+
+
+<back>
+</back>
+
+
+</sub-article>
+<sub-article article-type="notebook" id="nb-4-nb-2">
+<front-stub>
+</front-stub>
+
+<body>
+<sec id="notes-nb-2">
+  <title>Notes</title>
+  <p>Isabel figures
+  https://drive.google.com/drive/folders/16L0yBHQQSbK52aJAdxOkWPf82XAhmDYo</p>
+</sec>
+</body>
+
+
+
+<back>
+</back>
+
+
+</sub-article>
+
 </article>

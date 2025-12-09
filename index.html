@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Isabel Si-En Wilson">
-<meta name="author" content="Andre Zamani">
+<meta name="author" content="Andre Reza Zamani">
 <meta name="author" content="Alexander Mark Weber">
-<meta name="dcterms.date" content="2025-12-02">
+<meta name="dcterms.date" content="2025-12-03">
 <meta name="keywords" content="temporal complexity, complexity, entropy, sample entropy, hurst exponent, fractal dimension, fractal, functional magnetic resonance imaging, resting-state, nonlinear dynamics, neuroscience, brain, blood-oxygen level dependence, predictability, irregularity, long-range temporal correlations, long-term memory, scale-invariance, power-law">
 
 <title>A Hitchhiker’s Guide to Temporal Complexity for Resting State fMRI Analysis</title>
@@ -58,6 +58,9 @@ div.csl-indent {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script async="" src="https://hypothes.is/embed.js"></script>
 <script>
   window.document.addEventListener("DOMContentLoaded", function (_event) {
@@ -65,18 +68,47 @@ div.csl-indent {
   });
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta name="citation_title" content="A Hitchhiker&amp;amp;#039;s Guide to Temporal Complexity for Resting State fMRI Analysis">
 <meta name="citation_abstract" content="Cognitive and clinical neuroimaging have increasingly drawn on tools from complexity science to characterize the nonlinear dynamics of the brain. Temporal complexity metrics reflect a range of approaches to complexity in time series, including describing the system&amp;amp;#039;s regularity and irregularity, predictability and unpredictability, information compressibility, and long-term memory. In functional magnetic resonance imaging (fMRI), applications of temporal complexity are scattered across siloed literatures with varying clarity, which limits accessibility and therefore prevalence. This review aims to bridge this gap by communicating the basics of temporal complexity to fMRI scientists. We offer a comprehensive guide to temporal complexity in fMRI, including an overview of fMRI temporal complexity metrics—Shannon entropy, variations of (multi-scale) sample entropy, Lempel-Ziv complexity, avalanche measures, and Hurst—followed by a comprehensive review of extant applications in fMRI.
 ">
 <meta name="citation_keywords" content="temporal complexity,complexity,entropy,sample entropy,hurst exponent,fractal dimension,fractal,functional magnetic resonance imaging,resting-state,nonlinear dynamics,neuroscience,brain,blood-oxygen level dependence,predictability,irregularity,long-range temporal correlations,long-term memory,scale-invariance,power-law">
 <meta name="citation_author" content="Isabel Si-En Wilson">
-<meta name="citation_author" content="Andre Zamani">
+<meta name="citation_author" content="Andre Reza Zamani">
 <meta name="citation_author" content="Alexander Mark Weber">
-<meta name="citation_publication_date" content="2025-12-02">
-<meta name="citation_cover_date" content="2025-12-02">
+<meta name="citation_publication_date" content="2025-12-03">
+<meta name="citation_cover_date" content="2025-12-03">
 <meta name="citation_year" content="2025">
-<meta name="citation_online_date" content="2025-12-02">
+<meta name="citation_online_date" content="2025-12-03">
 <meta name="citation_language" content="en">
 <meta name="citation_journal_title" content="Unpublished">
 <meta name="citation_reference" content="citation_title=A 50-Year Quest: My Personal Journey with the Second Law of Thermodynamics;,citation_abstract=Follow Stephen Wolfram’s evolution of research on the 2nd Law from early interest as a 12-year-old to his current findings in the Wolfram Physics Project. View a large collection of images of early and published works.;,citation_publication_date=2023-02;,citation_cover_date=2023-02;,citation_year=2023;,citation_language=en-US;,citation_publisher=https://writings.stephenwolfram.com/2023/02/a-50-year-quest-my-personal-journey-with-the-second-law-of-thermodynamics/;">
@@ -522,11 +554,11 @@ div.csl-indent {
                       </p>
                   </div>
                       <div class="quarto-title-meta-contents">
-            <p class="author">Andre Zamani <a href="https://orcid.org/0000-0002-2930-3940" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+            <p class="author">Andre Reza Zamani <a href="mailto:azamani@psych.ubc.ca" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0002-2930-3940" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
           </div>
                 <div class="quarto-title-meta-contents">
                     <p class="affiliation">
-                        Department of Neuroscience, The University of British Columbia, Vancouver, BC, Canada
+                        Department of Pyschology, The University of British Columbia, Vancouver, BC, Canada
                       </p>
                   </div>
                       <div class="quarto-title-meta-contents">
@@ -537,7 +569,7 @@ div.csl-indent {
                         BC Children’s Hospital Research Institute, The University of British Columbia, Vancouver, BC, Canada
                       </p>
                     <p class="affiliation">
-                        School of Biomedical Engineering, The University of British Columbia, Vancouver, BC, Canada
+                        Department of Pediatrics, The University of British Columbia, Vancouver, BC, Canada
                       </p>
                   </div>
                     </div>
@@ -548,7 +580,7 @@ div.csl-indent {
                 <div>
             <div class="quarto-title-meta-heading">Published</div>
             <div class="quarto-title-meta-contents">
-              <p class="date">December 2, 2025</p>
+              <p class="date">December 3, 2025</p>
             </div>
           </div>
           
@@ -584,7 +616,7 @@ div.csl-indent {
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="notebooks/Figures-preview.html"><i class="bi bi-journal-code"></i>Figures</a></li><li><a href="notes-preview.html"><i class="bi bi-journal-code"></i>Notes</a></li></ul></div></nav>
 </div>
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
@@ -598,22 +630,610 @@ div.csl-indent {
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>Hello <span class="citation" data-cites="beggsCortexCriticalPoint2022">(<a href="#ref-beggsCortexCriticalPoint2022" role="doc-biblioref">Beggs 2022</a>)</span></p>
+<p>See <strong>?@fig-fmritempresolution</strong></p>
+<p><img src="./images/unnamed.png" id="fig-fmritempresolution" class="img-fluid" alt="Among neuroimaging methods, fMRI has a low temporal resolution. Here, one second of BOLD signal (TR = 1s in this example) is contrasted with one second of MEG signal (TR < 0.001s). Each timepoint in the BOLD signal represents activity for the entire one-second window. Arbitrary units; note that BOLD and MEG signals represent different physiological processes. Original image."> <!-- TODO: replace this image --></p>
+<p>See <a href="#fig-wordcloud" class="quarto-xref">Figure&nbsp;1</a></p>
+<div id="fig-wordcloud" class="quarto-float quarto-figure quarto-figure-center anchored" width="350">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wordcloud-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-embed-nb-cell">
+<div id="cell-wordcloud" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/notebooks-Figures-wordcloud-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: A variety of approaches to nonlinear analysis of fMRI data. A Python-generated word cloud of fMRI complexity terms, weighted by number of results in PubMed. Keywords were selected from reviews of nonlinearity/complexity (including @sarassoConsciousnessComplexityConsilience2021, @sunComplexityAnalysisEEG2020, @hernandezBrainComplexityPsychiatric2023, @keshmiriEntropyBrainOverview2020, @donoghueEvaluatingComparingMeasures2024, and @yangMentalIllnessComplex2013)."><img src="index_files/figure-html/notebooks-Figures-wordcloud-output-1.png" id="wordcloud" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wordcloud-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: <strong>A variety of approaches to nonlinear analysis of fMRI data.</strong> A Python-generated word cloud of fMRI complexity terms, weighted by number of results in PubMed. Keywords were selected from reviews of nonlinearity/complexity (including <span class="citation" data-cites="sarassoConsciousnessComplexityConsilience2021">Sarasso et al. (<a href="#ref-sarassoConsciousnessComplexityConsilience2021" role="doc-biblioref">2021</a>)</span>, <span class="citation" data-cites="sunComplexityAnalysisEEG2020">Sun et al. (<a href="#ref-sunComplexityAnalysisEEG2020" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="hernandezBrainComplexityPsychiatric2023">Hernández et al. (<a href="#ref-hernandezBrainComplexityPsychiatric2023" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="keshmiriEntropyBrainOverview2020">Keshmiri (<a href="#ref-keshmiriEntropyBrainOverview2020" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="donoghueEvaluatingComparingMeasures2024">Donoghue et al. (<a href="#ref-donoghueEvaluatingComparingMeasures2024" role="doc-biblioref">2024</a>)</span>, and <span class="citation" data-cites="yangMentalIllnessComplex2013">Yang and Tsai (<a href="#ref-yangMentalIllnessComplex2013" role="doc-biblioref">2013</a>)</span>).
+</figcaption>
+</figure>
+</div>
+<p>See <a href="#fig-sierpinskitriangle" class="quarto-xref">Figure&nbsp;2</a></p>
+<div id="fig-sierpinskitriangle" class="quarto-float quarto-figure quarto-figure-center anchored" width="50%">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sierpinskitriangle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-embed-nb-cell">
+<div id="cell-sierpinskitriangle" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/notebooks-Figures-sierpinskitriangle-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Ideal mathematical fractal. The 2D Sierpinski triangle starts with a simple equilateral triangle (left), and subdivides it recursively into smaller equilateral triangles. For every iteration, each triangle (in blue) is further subdivided it into four smaller congruent equilateral triangles with the central triangle removed. The first such iteration is shown in the centre, with the fifth iteration shown on the right."><img src="index_files/figure-html/notebooks-Figures-sierpinskitriangle-output-1.png" id="sierpinskitriangle" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sierpinskitriangle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: <strong>Ideal mathematical fractal.</strong> The 2D Sierpinski triangle starts with a simple equilateral triangle (left), and subdivides it recursively into smaller equilateral triangles. For every iteration, each triangle (in blue) is further subdivided it into four smaller congruent equilateral triangles with the central triangle removed. The first such iteration is shown in the centre, with the fifth iteration shown on the right.
+</figcaption>
+</figure>
+</div>
+<p>See <a href="#fig-statisticalfractal" class="quarto-xref">Figure&nbsp;3</a></p>
+<div id="fig-statisticalfractal" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-statisticalfractal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/exact_vs_statistical_tree.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: A comparison of statistical and exact fractal patterns. The two basic forms of fractals are demonstrated. Zooming in on tree branches (left), an exact self-similar element cannot be found. Zooming in on an exact fractal (right), exact replica of the whole are found. Photo by author. Branching fractal made in Python. Figure inspired by @taylorPersonalReflectionsJackson2006"><img src="./images/exact_vs_statistical_tree.png" class="img-fluid figure-img" width="350"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-statisticalfractal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: <strong>A comparison of statistical and exact fractal patterns.</strong> The two basic forms of fractals are demonstrated. Zooming in on tree branches (left), an exact self-similar element cannot be found. Zooming in on an exact fractal (right), exact replica of the whole are found. Photo by author. Branching fractal made in Python. Figure inspired by <span class="citation" data-cites="taylorPersonalReflectionsJackson2006">Taylor (<a href="#ref-taylorPersonalReflectionsJackson2006" role="doc-biblioref">2006</a>)</span>
+</figcaption>
+</figure>
+</div>
+<p>See <a href="#fig-fourproperties" class="quarto-xref">Figure&nbsp;4</a></p>
+<div id="fig-fourproperties" class="quarto-float quarto-figure quarto-figure-center anchored" width="350">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fourproperties-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-embed-nb-cell">
+<div id="cell-fourproperties" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/notebooks-Figures-fourproperties-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: Main properties of a fractal time-series A-C show a raw time-series (fractional Gaussian noise in this example) at different scales: B is the first half of A (shown as vertical dashed lines in A), while C is half of B (shown in vertical dashed lines in B). D is a power spectral density plot of A. E shows D but on a log-log plot, demonstrating the linear nature of fractal signals when plotted on a log-log scale. The slope of E is -\beta. In this example, \beta is calculated to be 0.6, which translates to an H of 0.8. F shows a modified version of E, which imagines that E only demonstrates a power law scaling relationship between two distinct frequencies. The equation for calculating the scaling range in decades is shown. Exact fractal time-series (A) was created using the Davies-Harte method."><img src="index_files/figure-html/notebooks-Figures-fourproperties-output-1.png" id="fourproperties" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fourproperties-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: <strong>Main properties of a fractal time-series</strong> A-C show a raw time-series (fractional Gaussian noise in this example) at different scales: B is the first half of A (shown as vertical dashed lines in A), while C is half of B (shown in vertical dashed lines in B). D is a power spectral density plot of A. E shows D but on a log-log plot, demonstrating the linear nature of fractal signals when plotted on a log-log scale. The slope of E is <span class="math inline">\(-\beta\)</span>. In this example, <span class="math inline">\(\beta\)</span> is calculated to be 0.6, which translates to an H of 0.8. F shows a modified version of E, which imagines that E only demonstrates a power law scaling relationship between two distinct frequencies. The equation for calculating the scaling range in decades is shown. Exact fractal time-series (A) was created using the Davies-Harte method.
+</figcaption>
+</figure>
+</div>
+<!-- TODO: fix A and B, maybe make the horizontal lines different colors -->
+<p>See <a href="#fig-typicalsamplepaths" class="quarto-xref">Figure&nbsp;5</a></p>
+<div id="fig-typicalsamplepaths" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-typicalsamplepaths-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-embed-nb-cell">
+<div id="cell-typicalsamplepaths" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/notebooks-Figures-typicalsamplepaths-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;5: Simulated fractional Gaussian noise and fractional Brownian motion. Raw simulated time-series with 1,024 time-points and known Hurst values are plotted on the left. The top three time-series are fractional Gaussian noise, while the bottom three are fractional Brownian motion. H values are displayed on the left, while \beta values are displayed on the right. Note how fractional Gaussian noise remain centered around a mean (i.e.&nbsp;stationary), while fractional Brownian motion wanders away from the mean (i.e.&nbsp;non-stationary). Log-log power spectral density plots of the signals on the left are shown on the right. Linear-regression fits are shown in red, which are used to calculate \beta and H using the appropriate equation (on the right). Exact fractal time-series were created using the Davies-Harte method. Figure inspired by @ekePhysiologicalTimeSeries2000."><img src="index_files/figure-html/notebooks-Figures-typicalsamplepaths-output-1.png" id="typicalsamplepaths" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-typicalsamplepaths-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: <strong>Simulated fractional Gaussian noise and fractional Brownian motion.</strong> Raw simulated time-series with 1,024 time-points and known Hurst values are plotted on the left. The top three time-series are fractional Gaussian noise, while the bottom three are fractional Brownian motion. H values are displayed on the left, while <span class="math inline">\(\beta\)</span> values are displayed on the right. Note how fractional Gaussian noise remain centered around a mean (i.e.&nbsp;stationary), while fractional Brownian motion wanders away from the mean (i.e.&nbsp;non-stationary). Log-log power spectral density plots of the signals on the left are shown on the right. Linear-regression fits are shown in red, which are used to calculate <span class="math inline">\(\beta\)</span> and H using the appropriate equation (on the right). Exact fractal time-series were created using the Davies-Harte method. Figure inspired by <span class="citation" data-cites="ekePhysiologicalTimeSeries2000">Eke et al. (<a href="#ref-ekePhysiologicalTimeSeries2000" role="doc-biblioref">2000</a>)</span>.
+</figcaption>
+</figure>
+</div>
+<p>See <a href="#tbl-fmrihurst" class="quarto-xref">Table&nbsp;1</a></p>
+<div id="tbl-fmrihurst" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-fmrihurst-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: <strong>fMRI-Hurst studies.</strong> An attempt to gather all published fMRI studies that have used Hurst or Hurst-like analysis, some stats, and the main findings. Main findings are almost certainly more nuanced than how we have reported them here; we have attempted to condense the findings as succinctly as possible. n = number of subjects in the study; TR = repition time; MLWD = maximum likelihood wavelet; PSD<sub>Welch</sub> = power spectral density Welch method; DMN = default mode network; DFA = detrended fluctuation analysis; DA = dispersional analysis; SWV = scaled window variance; RS = rescaled range; LW = local Whittle;
+</figcaption>
+<div aria-describedby="tbl-fmrihurst-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Study</th>
+<th>n</th>
+<th>Age range</th>
+<th>Methods</th>
+<th>Volumes</th>
+<th>TR (s)</th>
+<th>Results</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="akhrifFractalAnalysisBOLD2018">Akhrif et al. (<a href="#ref-akhrifFractalAnalysisBOLD2018" role="doc-biblioref">2018</a>)</span></td>
+<td>103</td>
+<td>19-28</td>
+<td>AFA</td>
+<td>task: 425, resting: 350</td>
+<td>2</td>
+<td>impulsivity: <span class="math inline">\(\downarrow\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="barnesEndogenousHumanBrain2009">Barnes, Bullmore, and Suckling (<a href="#ref-barnesEndogenousHumanBrain2009" role="doc-biblioref">2009</a>)</span></td>
+<td>14</td>
+<td>21-29</td>
+<td>MLW</td>
+<td>2048</td>
+<td>1.1</td>
+<td>cognitive effort: <span class="math inline">\(\downarrow\)</span> H</td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="campbellFractalBasedAnalysisFMRI2022">Campbell, Vanderwal, and Weber (<a href="#ref-campbellFractalBasedAnalysisFMRI2022" role="doc-biblioref">2022</a>)</span></td>
+<td>72</td>
+<td>mean 29</td>
+<td>PSD<sub>Welch</sub></td>
+<td>900</td>
+<td>1</td>
+<td>movie-watching: <span class="math inline">\(\uparrow\)</span> H in visual, somatosensory, and dorsal attention; <span class="math inline">\(\downarrow\)</span> frontoparietal and DMN</td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="churchillScalefreeBrainDynamics2015">Churchill et al. (<a href="#ref-churchillScalefreeBrainDynamics2015" role="doc-biblioref">2015</a>)</span></td>
+<td>97 (28 chemo; 37 radiation; 32 HC)</td>
+<td>n/a</td>
+<td>DFA, Wavelet</td>
+<td>285</td>
+<td>1.5</td>
+<td>worry: <span class="math inline">\(\downarrow\)</span> H</td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="churchillSuppressionScalefreeFMRI2016">Churchill et al. (<a href="#ref-churchillSuppressionScalefreeFMRI2016" role="doc-biblioref">2016</a>)</span></td>
+<td>three datasets (98): 19; 49; 30</td>
+<td>20-82</td>
+<td>DFA, PSD<sub>Welch</sub></td>
+<td><span class="math inline">\(\sim\)</span> 300</td>
+<td>2</td>
+<td>age, task novelty and difficulty: <span class="math inline">\(\downarrow\)</span> H</td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="ciuciuInterplayFunctionalConnectivity2014">Ciuciu, Abry, and He (<a href="#ref-ciuciuInterplayFunctionalConnectivity2014" role="doc-biblioref">2014</a>)</span></td>
+<td>17</td>
+<td>18-27</td>
+<td>Wavelet</td>
+<td>194</td>
+<td>2.16</td>
+<td>networks</td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="donaTemporalFractalAnalysis2017">Dona, Hall, and Noseworthy (<a href="#ref-donaTemporalFractalAnalysis2017" role="doc-biblioref">2017</a>)</span></td>
+<td>71 (56 ASD; 15 HC)</td>
+<td>mean 13</td>
+<td>PSD, DA, SWV</td>
+<td>300</td>
+<td>2</td>
+<td>ASD: <span class="math inline">\(\uparrow\)</span> H</td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="donaFractalAnalysisBrain2017">Dona et al. (<a href="#ref-donaFractalAnalysisBrain2017" role="doc-biblioref">2017</a>)</span></td>
+<td>110 (55 mTBI; 55 HC)</td>
+<td>mean 13</td>
+<td>PSD, DA, SWV</td>
+<td>180</td>
+<td>2</td>
+<td>mTBI: <span class="math inline">\(\uparrow\)</span> H</td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="dongHurstExponentAnalysis2018">Dong et al. (<a href="#ref-dongHurstExponentAnalysis2018" role="doc-biblioref">2018</a>)</span></td>
+<td>116</td>
+<td>19-85</td>
+<td>RS</td>
+<td>260</td>
+<td>2.5</td>
+<td>age: <span class="math inline">\(\uparrow\)</span> H frontal and parietal lobe; <span class="math inline">\(\downarrow\)</span> H insula, limbic, occipital, temporal lobes</td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="drayneLongrangeTemporalCorrelation2024">Drayne et al. (<a href="#ref-drayneLongrangeTemporalCorrelation2024" role="doc-biblioref">2024</a>)</span></td>
+<td>98</td>
+<td>preterm</td>
+<td>PSD<sub>Welch</sub></td>
+<td>100</td>
+<td>3</td>
+<td>preterm: <span class="math inline">\(\downarrow\)</span> H; differentiates networks</td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="erbilScaleFreeDynamicsRestingState2025">Erbil and Deshpande (<a href="#ref-erbilScaleFreeDynamicsRestingState2025" role="doc-biblioref">2025</a>)</span></td>
+<td>7</td>
+<td>21-28</td>
+<td>Wavelet</td>
+<td>1,000; 1,000, 3,000</td>
+<td>1; 0.6; 0.2</td>
+<td>microstates</td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="gaoTemporalDynamicsSpontaneous2018">Gao et al. (<a href="#ref-gaoTemporalDynamicsSpontaneous2018" role="doc-biblioref">2018</a>)</span></td>
+<td>110</td>
+<td>mean 21</td>
+<td>PSD, Wavelet</td>
+<td>232</td>
+<td>2</td>
+<td>reappraisal scores: <span class="math inline">\(\downarrow\)</span> H</td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="gaoTemporalDynamicPatterns2023">Gao et al. (<a href="#ref-gaoTemporalDynamicPatterns2023" role="doc-biblioref">2023</a>)</span></td>
+<td>195 (100; 95)</td>
+<td>18-28</td>
+<td>Wavelet</td>
+<td>?</td>
+<td>2</td>
+<td>rumination: <span class="math inline">\(\uparrow\)</span> H</td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="gentiliNotOneMetric2017">Gentili et al. (<a href="#ref-gentiliNotOneMetric2017" role="doc-biblioref">2017</a>)</span></td>
+<td>31</td>
+<td>mean 25</td>
+<td>Wavelet</td>
+<td>512</td>
+<td>1.64</td>
+<td>neuroticism: <span class="math inline">\(\downarrow\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="gentiliPronenessSocialAnxiety2015">Gentili et al. (<a href="#ref-gentiliPronenessSocialAnxiety2015" role="doc-biblioref">2015</a>)</span></td>
+<td>36</td>
+<td>mean 27</td>
+<td>Wavelet</td>
+<td>450</td>
+<td>2</td>
+<td>social anxiety: <span class="math inline">\(\uparrow\)</span> H</td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="heScaleFreePropertiesFunctional2011">He (<a href="#ref-heScaleFreePropertiesFunctional2011" role="doc-biblioref">2011</a>)</span></td>
+<td>17</td>
+<td>18-27</td>
+<td>DFA, PSD</td>
+<td>194</td>
+<td>2.16</td>
+<td>task: <span class="math inline">\(\downarrow\)</span> H; differentiates networks; brain glucose metabolism and neurovascular coupling</td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="jagerDecreasedLongrangeTemporal2024">Jäger et al. (<a href="#ref-jagerDecreasedLongrangeTemporal2024" role="doc-biblioref">2024</a>)</span></td>
+<td>40 (20 task; 20 no task)</td>
+<td>20-32</td>
+<td>DFA</td>
+<td>512</td>
+<td>1.13</td>
+<td>motor sequence learning: <span class="math inline">\(\downarrow\)</span> H</td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="laiShiftRandomnessBrain2010">Lai et al. (<a href="#ref-laiShiftRandomnessBrain2010" role="doc-biblioref">2010</a>)</span></td>
+<td>63 (33 ASD; 3- HC)</td>
+<td>n/a</td>
+<td>Wavelet</td>
+<td>512</td>
+<td>1.3</td>
+<td>ASD: <span class="math inline">\(\downarrow\)</span> H</td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="leiExtraversionEncodedScalefree2013">X. Lei, Zhao, and Chen (<a href="#ref-leiExtraversionEncodedScalefree2013" role="doc-biblioref">2013</a>)</span></td>
+<td>17</td>
+<td>18-29</td>
+<td>Wavelet</td>
+<td>200</td>
+<td>1.5</td>
+<td>extroversion: <span class="math inline">\(\downarrow\)</span> H in DMN</td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="leiFadedCriticalDynamics2021">Y. Lei et al. (<a href="#ref-leiFadedCriticalDynamics2021" role="doc-biblioref">2021</a>)</span></td>
+<td>75 (16 HMMD; 34 IMMD; 25 HC)</td>
+<td>mean <span class="math inline">\(\sim\)</span> 41</td>
+<td>RS</td>
+<td>240</td>
+<td>2</td>
+<td>moyamoya disease: <span class="math inline">\(\downarrow\)</span> H</td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="linkeAlteredDevelopmentHurst2024">Linke et al. (<a href="#ref-linkeAlteredDevelopmentHurst2024" role="doc-biblioref">2024</a>)</span></td>
+<td>83</td>
+<td>1.5-5</td>
+<td>WML</td>
+<td>400</td>
+<td>0.8</td>
+<td>age of children ASD: <span class="math inline">\(\downarrow\)</span> H in vmPFC</td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="maximFractionalGaussianNoise2005">Maxim et al. (<a href="#ref-maximFractionalGaussianNoise2005" role="doc-biblioref">2005</a>)</span></td>
+<td>21</td>
+<td>n/a</td>
+<td>LW, Wornell, MLW</td>
+<td>150</td>
+<td>2</td>
+<td>AD: <span class="math inline">\(\uparrow\)</span> H</td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="mellaTemporalComplexityBOLDsignal2024">Mella et al. (<a href="#ref-mellaTemporalComplexityBOLDsignal2024" role="doc-biblioref">2024</a>)</span></td>
+<td>716</td>
+<td>preterm</td>
+<td>PSD<sub>Welch</sub></td>
+<td>2,300</td>
+<td>0.392</td>
+<td>preterm: <span class="math inline">\(\downarrow\)</span> H; H starts &lt; 0.5 at preterm age ; differentiates networks</td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="omidvarniaAssessmentTemporalComplexity2021">Omidvarnia et al. (<a href="#ref-omidvarniaAssessmentTemporalComplexity2021" role="doc-biblioref">2021</a>)</span></td>
+<td>100</td>
+<td>22-35</td>
+<td>PSD, DFA</td>
+<td>min 250</td>
+<td>0.72</td>
+<td>cognitive load: <span class="math inline">\(\downarrow\)</span> H; H and entropy-based complexity highly correlated; H highest in frontoparietal network and default mode network</td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="rubinOptimizingComplexityMeasures2013">Rubin, Fekete, and Mujica-Parodi (<a href="#ref-rubinOptimizingComplexityMeasures2013" role="doc-biblioref">2013</a>)</span></td>
+<td>22</td>
+<td>?</td>
+<td>Many</td>
+<td>?</td>
+<td>?</td>
+<td>HFFT and PSD<sub>Welch</sub> outperform other methods</td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="sokunbiNonlinearComplexityAnalysis2014">Sokunbi et al. (<a href="#ref-sokunbiNonlinearComplexityAnalysis2014" role="doc-biblioref">2014</a>)</span></td>
+<td>29 (13 SZ; 16 HC)</td>
+<td>?</td>
+<td>DA, DFA</td>
+<td>?</td>
+<td>?</td>
+<td>SZ: <span class="math inline">\(\downarrow\)</span> H</td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="sucklingEndogenousMultifractalBrain2008">Suckling et al. (<a href="#ref-sucklingEndogenousMultifractalBrain2008" role="doc-biblioref">2008</a>)</span></td>
+<td>22 (11 old; 11 young)</td>
+<td>22 and 65</td>
+<td>MLW</td>
+<td>512</td>
+<td>1.1</td>
+<td>multifractal reanalysis of <span class="citation" data-cites="winkAgeCholinergicEffects2006">(<a href="#ref-winkAgeCholinergicEffects2006" role="doc-biblioref">Alle Meije Wink et al. 2006</a>)</span></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="teterevaVarianceScaleFreeProperties2020">Tetereva et al. (<a href="#ref-teterevaVarianceScaleFreeProperties2020" role="doc-biblioref">2020</a>)</span></td>
+<td>23</td>
+<td>mean 23.9</td>
+<td>DFA</td>
+<td>300</td>
+<td>2</td>
+<td>fear: <span class="math inline">\(\downarrow\)</span> H then <span class="math inline">\(\uparrow\)</span> H</td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="uscatescuUsingExcitationInhibition2022">Uscătescu et al. (<a href="#ref-uscatescuUsingExcitationInhibition2022" role="doc-biblioref">2022</a>)</span></td>
+<td>124 (55 TD; 30 AT; 39 SZ)</td>
+<td>?</td>
+<td>Wavelet</td>
+<td>947?</td>
+<td>0.475</td>
+<td>ASD and SZ: <span class="math inline">\(\downarrow\)</span> H</td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="varleyFractalDimensionCortical2020">Varley et al. (<a href="#ref-varleyFractalDimensionCortical2020" role="doc-biblioref">2020</a>)</span></td>
+<td>33 (15 HC; 10 min conscious; 8 veg)</td>
+<td>?</td>
+<td>HFD</td>
+<td>?</td>
+<td>?</td>
+<td>Lower consciousness: <span class="math inline">\(\downarrow\)</span> H</td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="vonwegnerMutualInformationIdentifies2018">Von Wegner, Laufs, and Tagliazucchi (<a href="#ref-vonwegnerMutualInformationIdentifies2018" role="doc-biblioref">2018</a>)</span></td>
+<td>?</td>
+<td>?</td>
+<td>Wavelet, DFA</td>
+<td>1500</td>
+<td>2.08</td>
+<td>multiscale variance effects produce Hurst phenomena without long-range dependence</td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="warsiCorrelatingBrainBlood2012">Warsi, Molloy, and Noseworthy (<a href="#ref-warsiCorrelatingBrainBlood2012" role="doc-biblioref">2012</a>)</span></td>
+<td>46 (33 AD; 13 HC)</td>
+<td>?</td>
+<td>PSD, RD</td>
+<td>2,400</td>
+<td>0.25</td>
+<td>AD: <span class="math inline">\(\uparrow\)</span> H</td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="weberPreliminaryStudyEffects2014">Weber, Soreni, and Noseworthy (<a href="#ref-weberPreliminaryStudyEffects2014" role="doc-biblioref">2014</a>)</span></td>
+<td>14</td>
+<td>22-38</td>
+<td>Wavelet</td>
+<td>512</td>
+<td>2</td>
+<td>acute alcohol intoxication: mix of <span class="math inline">\(uparrow\)</span> and <span class="math inline">\(downarrow\)</span> H</td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="winkAgeCholinergicEffects2006">Alle Meije Wink et al. (<a href="#ref-winkAgeCholinergicEffects2006" role="doc-biblioref">2006</a>)</span></td>
+<td>22 (11 old; 11 young)</td>
+<td>22 and 65</td>
+<td>MLW</td>
+<td>512</td>
+<td>1.1</td>
+<td>age: <span class="math inline">\(\uparrow\)</span> H in bilateral hippocampus; scopolamine: <span class="math inline">\(\uparrow\)</span> H; faster task: <span class="math inline">\(\uparrow\)</span> H</td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="winkMonofractalMultifractalDynamics2008">Alle-Meije Wink et al. (<a href="#ref-winkMonofractalMultifractalDynamics2008" role="doc-biblioref">2008</a>)</span></td>
+<td>11</td>
+<td>mean 35 <span class="math inline">\(\pm\)</span> 10</td>
+<td>Wavelet</td>
+<td>136</td>
+<td>1.1</td>
+<td>latency in fame decision task: <span class="math inline">\(\downarrow\)</span> H</td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="xiePharmacoresistantTemporalLobe2024">Xie et al. (<a href="#ref-xiePharmacoresistantTemporalLobe2024" role="doc-biblioref">2024</a>)</span></td>
+<td>70</td>
+<td>?</td>
+<td>Wavelet</td>
+<td>700</td>
+<td>0.6</td>
+<td>pharmaco-resistant TLE: <span class="math inline">\(\downarrow\)</span> H</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
 </section>
 <section id="references" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-akhrifFractalAnalysisBOLD2018" class="csl-entry" role="listitem">
+Akhrif, Atae, Marcel Romanos, Katharina Domschke, Angelika Schmitt-Boehrer, and Susanne Neufang. 2018. <span>“Fractal <span>Analysis</span> of <span>BOLD Time Series</span> in a <span>Network Associated With Waiting Impulsivity</span>.”</span> <em>Frontiers in Physiology</em> 9 (October): 1378. <a href="https://doi.org/10.3389/fphys.2018.01378">https://doi.org/10.3389/fphys.2018.01378</a>.
+</div>
+<div id="ref-barnesEndogenousHumanBrain2009" class="csl-entry" role="listitem">
+Barnes, Anna, Edward T. Bullmore, and John Suckling. 2009. <span>“Endogenous <span>Human Brain Dynamics Recover Slowly Following Cognitive Effort</span>.”</span> Edited by Björn Brembs. <em>PLoS ONE</em> 4 (8): e6626. <a href="https://doi.org/10.1371/journal.pone.0006626">https://doi.org/10.1371/journal.pone.0006626</a>.
+</div>
 <div id="ref-beggsCortexCriticalPoint2022" class="csl-entry" role="listitem">
 Beggs, John M. 2022. <em>The <span>Cortex</span> and the <span>Critical Point</span></em>. 1st ed. Cambridge, MA: MIT Press Direct.
+</div>
+<div id="ref-campbellFractalBasedAnalysisFMRI2022" class="csl-entry" role="listitem">
+Campbell, Olivia, Tamara Vanderwal, and Alexander Mark Weber. 2022. <span>“Fractal-<span>Based Analysis</span> of <span class="nocase">fMRI BOLD Signal During Naturalistic Viewing Conditions</span>.”</span> <em>Frontiers in Physiology</em> 12 (January): 809943. <a href="https://doi.org/10.3389/fphys.2021.809943">https://doi.org/10.3389/fphys.2021.809943</a>.
+</div>
+<div id="ref-churchillScalefreeBrainDynamics2015" class="csl-entry" role="listitem">
+Churchill, Nathan W., Bernadine Cimprich, Mary K. Askren, Patricia A. Reuter-Lorenz, Mi Sook Jung, Scott Peltier, and Marc G. Berman. 2015. <span>“Scale-Free Brain Dynamics Under Physical and Psychological Distress: <span>Pre</span>-Treatment Effects in Women Diagnosed with Breast Cancer.”</span> <em>Human Brain Mapping</em> 36 (3): 1077–92. <a href="https://doi.org/10.1002/hbm.22687">https://doi.org/10.1002/hbm.22687</a>.
+</div>
+<div id="ref-churchillSuppressionScalefreeFMRI2016" class="csl-entry" role="listitem">
+Churchill, Nathan W., Robyn Spring, Cheryl Grady, Bernadine Cimprich, Mary K. Askren, Patricia A. Reuter-Lorenz, Mi Sook Jung, Scott Peltier, Stephen C. Strother, and Marc G. Berman. 2016. <span>“The Suppression of Scale-Free <span class="nocase">fMRI</span> Brain Dynamics Across Three Different Sources of Effort: Aging, Task Novelty and Task Difficulty.”</span> <em>Scientific Reports</em> 6 (1): 30895. <a href="https://doi.org/10.1038/srep30895">https://doi.org/10.1038/srep30895</a>.
+</div>
+<div id="ref-ciuciuInterplayFunctionalConnectivity2014" class="csl-entry" role="listitem">
+Ciuciu, Philippe, Patrice Abry, and Biyu J. He. 2014. <span>“Interplay Between Functional Connectivity and Scale-Free Dynamics in Intrinsic <span class="nocase">fMRI</span> Networks.”</span> <em>NeuroImage</em> 95 (July): 248–63. <a href="https://doi.org/10.1016/j.neuroimage.2014.03.047">https://doi.org/10.1016/j.neuroimage.2014.03.047</a>.
+</div>
+<div id="ref-donaTemporalFractalAnalysis2017" class="csl-entry" role="listitem">
+Dona, Olga, Geoffrey B. Hall, and Michael D. Noseworthy. 2017. <span>“Temporal Fractal Analysis of the Rs-<span>BOLD</span> Signal Identifies Brain Abnormalities in Autism Spectrum Disorder.”</span> Edited by Satoru Hayasaka. <em>PLOS ONE</em> 12 (12): e0190081. <a href="https://doi.org/10.1371/journal.pone.0190081">https://doi.org/10.1371/journal.pone.0190081</a>.
+</div>
+<div id="ref-donaFractalAnalysisBrain2017" class="csl-entry" role="listitem">
+Dona, Olga, Michael D. Noseworthy, Carol DeMatteo, and John F. Connolly. 2017. <span>“Fractal <span>Analysis</span> of <span>Brain Blood Oxygenation Level Dependent</span> (<span>BOLD</span>) <span>Signals</span> from <span>Children</span> with <span>Mild Traumatic Brain Injury</span> (<span class="nocase">mTBI</span>).”</span> Edited by Radouil Tzekov. <em>PLOS ONE</em> 12 (1): e0169647. <a href="https://doi.org/10.1371/journal.pone.0169647">https://doi.org/10.1371/journal.pone.0169647</a>.
+</div>
+<div id="ref-dongHurstExponentAnalysis2018" class="csl-entry" role="listitem">
+Dong, Jianxin, Bin Jing, Xiangyu Ma, Han Liu, Xiao Mo, and Haiyun Li. 2018. <span>“Hurst <span>Exponent Analysis</span> of <span class="nocase">Resting-State fMRI Signal Complexity</span> Across the <span>Adult Lifespan</span>.”</span> <em>Frontiers in Neuroscience</em> 12 (February): 34. <a href="https://doi.org/10.3389/fnins.2018.00034">https://doi.org/10.3389/fnins.2018.00034</a>.
+</div>
+<div id="ref-donoghueEvaluatingComparingMeasures2024" class="csl-entry" role="listitem">
+Donoghue, Thomas, Ryan Hammonds, Eric Lybrand, Leonhard Washcke, Richard Gao, and Bradley Voytek. 2024. <span>“Evaluating and <span>Comparing Measures</span> of <span>Aperiodic Neural Activity</span>.”</span> <a href="https://doi.org/10.1101/2024.09.15.613114">https://doi.org/10.1101/2024.09.15.613114</a>.
+</div>
+<div id="ref-drayneLongrangeTemporalCorrelation2024" class="csl-entry" role="listitem">
+Drayne, Johann P., Allison E. Mella, Mia M. McLean, Steven Ufkes, Vann Chau, Ting Guo, Helen M. Branson, et al. 2024. <span>“Long-Range Temporal Correlation Development in Resting-State <span class="nocase">fMRI</span> Signal in Preterm Infants: <span>Scanned</span> Shortly After Birth and at Term-Equivalent Age.”</span> Edited by Kosmas Kosmidis. <em>PLOS Complex Systems</em> 1 (4): e0000024. <a href="https://doi.org/10.1371/journal.pcsy.0000024">https://doi.org/10.1371/journal.pcsy.0000024</a>.
+</div>
+<div id="ref-ekePhysiologicalTimeSeries2000" class="csl-entry" role="listitem">
+Eke, A., P. Hermán, J. Bassingthwaighte, G. Raymond, D. Percival, M. Cannon, I. Balla, and C. Ikrényi. 2000. <span>“Physiological Time Series: Distinguishing Fractal Noises from Motions.”</span> <em>Pflügers Archiv - European Journal of Physiology</em> 439 (4): 403–15. <a href="https://doi.org/10.1007/s004249900135">https://doi.org/10.1007/s004249900135</a>.
+</div>
+<div id="ref-erbilScaleFreeDynamicsRestingState2025" class="csl-entry" role="listitem">
+Erbil, Nurhan, and Gopikrishna Deshpande. 2025. <span>“Scale-<span>Free Dynamics</span> of <span class="nocase">Resting-State fMRI Microstates</span>.”</span> <em>Fractal and Fractional</em> 9 (2): 112. <a href="https://doi.org/10.3390/fractalfract9020112">https://doi.org/10.3390/fractalfract9020112</a>.
+</div>
+<div id="ref-gaoTemporalDynamicPatterns2023" class="csl-entry" role="listitem">
+Gao, Wei, Bharat Biswal, Jiemin Yang, Songlin Li, YanQing Wang, Shengdong Chen, and JiaJin Yuan. 2023. <span>“Temporal Dynamic Patterns of the Ventromedial Prefrontal Cortex Underlie the Association Between Rumination and Depression.”</span> <em>Cerebral Cortex</em> 33 (4): 969–82. <a href="https://doi.org/10.1093/cercor/bhac115">https://doi.org/10.1093/cercor/bhac115</a>.
+</div>
+<div id="ref-gaoTemporalDynamicsSpontaneous2018" class="csl-entry" role="listitem">
+Gao, Wei, ShengDong Chen, Bharat Biswal, Xu Lei, and JiaJin Yuan. 2018. <span>“Temporal Dynamics of Spontaneous Default-Mode Network Activity Mediate the Association Between Reappraisal and Depression.”</span> <em>Social Cognitive and Affective Neuroscience</em>, October. <a href="https://doi.org/10.1093/scan/nsy092">https://doi.org/10.1093/scan/nsy092</a>.
+</div>
+<div id="ref-gentiliNotOneMetric2017" class="csl-entry" role="listitem">
+Gentili, Claudio, Ioana Alina Cristea, Emiliano Ricciardi, Nicola Vanello, Cristian Popita, Daniel David, and Pietro Pietrini. 2017. <span>“Not in One Metric: <span>Neuroticism</span> Modulates Different Resting State Metrics Within Distinctive Brain Regions.”</span> <em>Behavioural Brain Research</em> 327 (June): 34–43. <a href="https://doi.org/10.1016/j.bbr.2017.03.031">https://doi.org/10.1016/j.bbr.2017.03.031</a>.
+</div>
+<div id="ref-gentiliPronenessSocialAnxiety2015" class="csl-entry" role="listitem">
+Gentili, Claudio, Nicola Vanello, Ioana Cristea, Daniel David, Emiliano Ricciardi, and Pietro Pietrini. 2015. <span>“Proneness to Social Anxiety Modulates Neural Complexity in the Absence of Exposure: <span>A</span> Resting State <span class="nocase">fMRI</span> Study Using <span>Hurst</span> Exponent.”</span> <em>Psychiatry Research: Neuroimaging</em> 232 (2): 135–44. <a href="https://doi.org/10.1016/j.pscychresns.2015.03.005">https://doi.org/10.1016/j.pscychresns.2015.03.005</a>.
+</div>
+<div id="ref-heScaleFreePropertiesFunctional2011" class="csl-entry" role="listitem">
+He, Biyu J. 2011. <span>“Scale-<span>Free Properties</span> of the <span>Functional Magnetic Resonance Imaging Signal</span> During <span>Rest</span> and <span>Task</span>.”</span> <em>The Journal of Neuroscience</em> 31 (39): 13786–95. <a href="https://doi.org/10.1523/JNEUROSCI.2111-11.2011">https://doi.org/10.1523/JNEUROSCI.2111-11.2011</a>.
+</div>
+<div id="ref-hernandezBrainComplexityPsychiatric2023" class="csl-entry" role="listitem">
+Hernández, Ronald Miguel, Jacqueline Cynthia Ponce-Meza, Miguel Ángel Saavedra-López, Walter Antonio Campos Ugaz, Roxana Monteza Chanduvi, and Walter Campos Monteza. 2023. <span>“Brain <span>Complexity</span> and <span>Psychiatric Disorders</span>.”</span> <em>Iranian Journal of Psychiatry</em>, September. <a href="https://doi.org/10.18502/ijps.v18i4.13637">https://doi.org/10.18502/ijps.v18i4.13637</a>.
+</div>
+<div id="ref-jagerDecreasedLongrangeTemporal2024" class="csl-entry" role="listitem">
+Jäger, Anna-Thekla P., Alexander Bailey, Julia M. Huntenburg, Christine L. Tardif, Arno Villringer, Claudine J. Gauthier, Vadim Nikulin, Pierre-Louis Bazin, and Christopher J. Steele. 2024. <span>“Decreased Long-Range Temporal Correlations in the <span><span class="smallcaps">Resting-state Functional Magnetic Resonance Imaging Blood-oxygen-level-dependent</span></span> Signal Reflect Motor Sequence Learning up to 2 Weeks Following Training.”</span> <em>Human Brain Mapping</em> 45 (4): e26539. <a href="https://doi.org/10.1002/hbm.26539">https://doi.org/10.1002/hbm.26539</a>.
+</div>
+<div id="ref-keshmiriEntropyBrainOverview2020" class="csl-entry" role="listitem">
+Keshmiri, Soheil. 2020. <span>“Entropy and the <span>Brain</span>: <span>An Overview</span>.”</span> <em>Entropy</em> 22 (9): 917. <a href="https://doi.org/10.3390/e22090917">https://doi.org/10.3390/e22090917</a>.
+</div>
+<div id="ref-laiShiftRandomnessBrain2010" class="csl-entry" role="listitem">
+Lai, Meng-Chuan, Michael V. Lombardo, Bhismadev Chakrabarti, Susan A. Sadek, Greg Pasco, Sally J. Wheelwright, Edward T. Bullmore, Simon Baron-Cohen, and John Suckling. 2010. <span>“A <span>Shift</span> to <span>Randomness</span> of <span>Brain Oscillations</span> in <span>People</span> with <span>Autism</span>.”</span> <em>Biological Psychiatry</em> 68 (12): 1092–99. <a href="https://doi.org/10.1016/j.biopsych.2010.06.027">https://doi.org/10.1016/j.biopsych.2010.06.027</a>.
+</div>
+<div id="ref-leiExtraversionEncodedScalefree2013" class="csl-entry" role="listitem">
+Lei, Xu, Zhiying Zhao, and Hong Chen. 2013. <span>“Extraversion Is Encoded by Scale-Free Dynamics of Default Mode Network.”</span> <em>NeuroImage</em> 74 (July): 52–57. <a href="https://doi.org/10.1016/j.neuroimage.2013.02.020">https://doi.org/10.1016/j.neuroimage.2013.02.020</a>.
+</div>
+<div id="ref-leiFadedCriticalDynamics2021" class="csl-entry" role="listitem">
+Lei, Yu, Yuzhu Li, Lianchun Yu, Longzhou Xu, Xin Zhang, Gaoxing Zheng, Liang Chen, et al. 2021. <span>“Faded <span>Critical Dynamics</span> in <span>Adult Moyamoya Disease Revealed</span> by <span>EEG</span> and <span class="nocase">fMRI</span>.”</span> Edited by Aldrin Gomes. <em>Oxidative Medicine and Cellular Longevity</em> 2021 (1): 6640108. <a href="https://doi.org/10.1155/2021/6640108">https://doi.org/10.1155/2021/6640108</a>.
+</div>
+<div id="ref-linkeAlteredDevelopmentHurst2024" class="csl-entry" role="listitem">
+Linke, Annika C., Bosi Chen, Lindsay Olson, Michaela Cordova, Molly Wilkinson, Tiffany Wang, Meagan Herrera, et al. 2024. <span>“Altered <span>Development</span> of the <span>Hurst Exponent</span> in the <span>Medial Prefrontal Cortex</span> in <span>Preschoolers With Autism</span>.”</span> <em>Biological Psychiatry: Cognitive Neuroscience and Neuroimaging</em>, September, S2451902224002714. <a href="https://doi.org/10.1016/j.bpsc.2024.09.003">https://doi.org/10.1016/j.bpsc.2024.09.003</a>.
+</div>
+<div id="ref-maximFractionalGaussianNoise2005" class="csl-entry" role="listitem">
+Maxim, Voichiţa, Levent Şendur, Jalal Fadili, John Suckling, Rebecca Gould, Rob Howard, and Ed Bullmore. 2005. <span>“Fractional <span>Gaussian</span> Noise, Functional <span>MRI</span> and <span>Alzheimer</span>’s Disease.”</span> <em>NeuroImage</em> 25 (1): 141–58. <a href="https://doi.org/10.1016/j.neuroimage.2004.10.044">https://doi.org/10.1016/j.neuroimage.2004.10.044</a>.
+</div>
+<div id="ref-mellaTemporalComplexityBOLDsignal2024" class="csl-entry" role="listitem">
+Mella, Allison Eve, Tamara Vanderwal, Steven P Miller, and Alexander Mark Weber. 2024. <span>“Temporal Complexity of the <span class="nocase">BOLD-signal</span> in Preterm Versus Term Infants.”</span> <em>Cerebral Cortex</em> 34 (10): bhae426. <a href="https://doi.org/10.1093/cercor/bhae426">https://doi.org/10.1093/cercor/bhae426</a>.
+</div>
+<div id="ref-omidvarniaAssessmentTemporalComplexity2021" class="csl-entry" role="listitem">
+Omidvarnia, Amir, Raphaël Liégeois, Enrico Amico, Maria Giulia Preti, Andrew Zalesky, and Dimitri Van De Ville. 2021. <span>“Assessment of Temporal Complexity in Functional <span>MRI</span> Between Rest and Task Conditions.”</span> Bioengineering. <a href="https://doi.org/10.1101/2021.11.20.469367">https://doi.org/10.1101/2021.11.20.469367</a>.
+</div>
+<div id="ref-rubinOptimizingComplexityMeasures2013" class="csl-entry" role="listitem">
+Rubin, Denis, Tomer Fekete, and Lilianne R. Mujica-Parodi. 2013. <span>“Optimizing <span>Complexity Measures</span> for <span class="nocase">fMRI Data</span>: <span>Algorithm</span>, <span>Artifact</span>, and <span>Sensitivity</span>.”</span> Edited by Alejandro Raul Hernandez Montoya. <em>PLoS ONE</em> 8 (5): e63448. <a href="https://doi.org/10.1371/journal.pone.0063448">https://doi.org/10.1371/journal.pone.0063448</a>.
+</div>
+<div id="ref-sarassoConsciousnessComplexityConsilience2021" class="csl-entry" role="listitem">
+Sarasso, Simone, Adenauer Girardi Casali, Silvia Casarotto, Mario Rosanova, Corrado Sinigaglia, and Marcello Massimini. 2021. <span>“Consciousness and Complexity: A Consilience of Evidence.”</span> <em>Neuroscience of Consciousness</em> 2021 (2): niab023. <a href="https://doi.org/10.1093/nc/niab023">https://doi.org/10.1093/nc/niab023</a>.
+</div>
+<div id="ref-sokunbiNonlinearComplexityAnalysis2014" class="csl-entry" role="listitem">
+Sokunbi, Moses O., Victoria B. Gradin, Gordon D. Waiter, George G. Cameron, Trevor S. Ahearn, Alison D. Murray, Douglas J. Steele, and Roger T. Staff. 2014. <span>“Nonlinear <span>Complexity Analysis</span> of <span class="nocase">Brain fMRI Signals</span> in <span>Schizophrenia</span>.”</span> Edited by Emmanuel A. Stamatakis. <em>PLoS ONE</em> 9 (5): e95146. <a href="https://doi.org/10.1371/journal.pone.0095146">https://doi.org/10.1371/journal.pone.0095146</a>.
+</div>
+<div id="ref-sucklingEndogenousMultifractalBrain2008" class="csl-entry" role="listitem">
+Suckling, John, Alle Meije Wink, Frederic A. Bernard, Anna Barnes, and Edward Bullmore. 2008. <span>“Endogenous Multifractal Brain Dynamics Are Modulated by Age, Cholinergic Blockade and Cognitive Performance.”</span> <em>Journal of Neuroscience Methods</em> 174 (2): 292–300. <a href="https://doi.org/10.1016/j.jneumeth.2008.06.037">https://doi.org/10.1016/j.jneumeth.2008.06.037</a>.
+</div>
+<div id="ref-sunComplexityAnalysisEEG2020" class="csl-entry" role="listitem">
+Sun, Jie, Bin Wang, Yan Niu, Yuan Tan, Chanjuan Fan, Nan Zhang, Jiayue Xue, et al. 2020. <span>“Complexity <span>Analysis</span> of <span>EEG</span>, <span>MEG</span>, and <span class="nocase">fMRI</span> in <span>Mild Cognitive Impairment</span> and <span>Alzheimer</span>’s <span>Disease</span>: <span>A Review</span>.”</span> <em>Entropy</em> 22 (2). <a href="https://doi.org/10.3390/e22020239">https://doi.org/10.3390/e22020239</a>.
+</div>
+<div id="ref-taylorPersonalReflectionsJackson2006" class="csl-entry" role="listitem">
+Taylor, Richard. 2006. <span>“Personal Reflections on <span>Jackson Pollock</span>’s Fractal Paintings.”</span> <em>História, Ciências, Saúde-Manguinhos</em> 13 (suppl): 109–23. <a href="https://doi.org/10.1590/S0104-59702006000500007">https://doi.org/10.1590/S0104-59702006000500007</a>.
+</div>
+<div id="ref-teterevaVarianceScaleFreeProperties2020" class="csl-entry" role="listitem">
+Tetereva, Alina, Sergey Kartashov, Alexey Ivanitsky, and Olga Martynova. 2020. <span>“Variance and <span>Scale-Free Properties</span> of <span>Resting-State Blood Oxygenation Level-Dependent Signal After Fear Memory Acquisition</span> and <span>Extinction</span>.”</span> <em>Frontiers in Human Neuroscience</em> 14 (October): 509075. <a href="https://doi.org/10.3389/fnhum.2020.509075">https://doi.org/10.3389/fnhum.2020.509075</a>.
+</div>
+<div id="ref-uscatescuUsingExcitationInhibition2022" class="csl-entry" role="listitem">
+Uscătescu, Lavinia Carmen, Christopher J. Hyatt, Jack Dunn, Martin Kronbichler, Vince Calhoun, Silvia Corbera, Kevin Pelphrey, Brian Pittman, Godfrey Pearlson, and Michal Assaf. 2022. <span>“Using the <span>Excitation</span>/<span>Inhibition Ratio</span> to <span>Optimize</span> the <span>Classification</span> of <span>Autism</span> and <span>Schizophrenia</span>.”</span> <a href="https://doi.org/10.1101/2022.05.24.22275531">https://doi.org/10.1101/2022.05.24.22275531</a>.
+</div>
+<div id="ref-varleyFractalDimensionCortical2020" class="csl-entry" role="listitem">
+Varley, Thomas F., Michael Craig, Ram Adapa, Paola Finoia, Guy Williams, Judith Allanson, John Pickard, David K. Menon, and Emmanuel A. Stamatakis. 2020. <span>“Fractal Dimension of Cortical Functional Connectivity Networks &amp; Severity of Disorders of Consciousness.”</span> Edited by Francisco J. Esteban. <em>PLOS ONE</em> 15 (2): e0223812. <a href="https://doi.org/10.1371/journal.pone.0223812">https://doi.org/10.1371/journal.pone.0223812</a>.
+</div>
+<div id="ref-vonwegnerMutualInformationIdentifies2018" class="csl-entry" role="listitem">
+Von Wegner, Frederic, Helmut Laufs, and Enzo Tagliazucchi. 2018. <span>“Mutual Information Identifies Spurious <span>Hurst</span> Phenomena in Resting State <span>EEG</span> and <span class="nocase">fMRI</span> Data.”</span> <em>Physical Review E</em> 97 (2): 022415. <a href="https://doi.org/10.1103/PhysRevE.97.022415">https://doi.org/10.1103/PhysRevE.97.022415</a>.
+</div>
+<div id="ref-warsiCorrelatingBrainBlood2012" class="csl-entry" role="listitem">
+Warsi, Mohammed A., William Molloy, and Michael D. Noseworthy. 2012. <span>“Correlating Brain Blood Oxygenation Level Dependent (<span>BOLD</span>) Fractal Dimension Mapping with Magnetic Resonance Spectroscopy (<span>MRS</span>) in <span>Alzheimer</span>’s Disease.”</span> <em>Magnetic Resonance Materials in Physics, Biology and Medicine</em> 25 (5): 335–44. <a href="https://doi.org/10.1007/s10334-012-0312-0">https://doi.org/10.1007/s10334-012-0312-0</a>.
+</div>
+<div id="ref-weberPreliminaryStudyEffects2014" class="csl-entry" role="listitem">
+Weber, Alexander M., Noam Soreni, and Michael D. Noseworthy. 2014. <span>“A Preliminary Study on the Effects of Acute Ethanol Ingestion on Default Mode Network and Temporal Fractal Properties of the Brain.”</span> <em>Magnetic Resonance Materials in Physics, Biology and Medicine</em> 27 (4): 291–301. <a href="https://doi.org/10.1007/s10334-013-0420-5">https://doi.org/10.1007/s10334-013-0420-5</a>.
+</div>
+<div id="ref-winkAgeCholinergicEffects2006" class="csl-entry" role="listitem">
+Wink, Alle Meije, Frédéric Bernard, Raymond Salvador, Ed Bullmore, and John Suckling. 2006. <span>“Age and Cholinergic Effects on Hemodynamics and Functional Coherence of Human Hippocampus.”</span> <em>Neurobiology of Aging</em> 27 (10): 1395–1404. <a href="https://doi.org/10.1016/j.neurobiolaging.2005.08.011">https://doi.org/10.1016/j.neurobiolaging.2005.08.011</a>.
+</div>
+<div id="ref-winkMonofractalMultifractalDynamics2008" class="csl-entry" role="listitem">
+Wink, Alle-Meije, Ed Bullmore, Anna Barnes, Frederic Bernard, and John Suckling. 2008. <span>“Monofractal and Multifractal Dynamics of Low Frequency Endogenous Brain Oscillations in Functional <span>MRI</span>.”</span> <em>Human Brain Mapping</em> 29 (7): 791–801. <a href="https://doi.org/10.1002/hbm.20593">https://doi.org/10.1002/hbm.20593</a>.
+</div>
+<div id="ref-xiePharmacoresistantTemporalLobe2024" class="csl-entry" role="listitem">
+Xie, Ke, Jessica Royer, Raul Rodriguez-Cruces, Linda Horwood, Alexander Ngo, Thaera Arafat, Hans Auer, et al. 2024. <span>“Pharmaco-Resistant Temporal Lobe Epilepsy Gradually Perturbs the Cortex-Wide Excitation-Inhibition Balance.”</span> <a href="https://doi.org/10.1101/2024.04.22.590555">https://doi.org/10.1101/2024.04.22.590555</a>.
+</div>
+<div id="ref-yangMentalIllnessComplex2013" class="csl-entry" role="listitem">
+Yang, Albert C., and Shih-Jen Tsai. 2013. <span>“Is Mental Illness Complex? <span>From</span> Behavior to Brain.”</span> <em>Progress in Neuro-Psychopharmacology and Biological Psychiatry</em> 45 (August): 253–57. <a href="https://doi.org/10.1016/j.pnpbp.2012.09.015">https://doi.org/10.1016/j.pnpbp.2012.09.015</a>.
 </div>
 </div>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{si-en_wilson2025,
-  author = {Si-En Wilson, Isabel and Zamani, Andre and Mark Weber,
+  author = {Si-En Wilson, Isabel and Reza Zamani, Andre and Mark Weber,
     Alexander},
   title = {A {Hitchhiker’s} {Guide} to {Temporal} {Complexity} for
     {Resting} {State} {fMRI} {Analysis}},
-  date = {2025-12-02},
+  date = {2025-12-03},
   langid = {en},
   abstract = {Cognitive and clinical neuroimaging have increasingly
     drawn on tools from complexity science to characterize the nonlinear
@@ -633,9 +1253,9 @@ Beggs, John M. 2022. <em>The <span>Cortex</span> and the <span>Critical Point</s
     extant applications in fMRI.}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-si-en_wilson2025" class="csl-entry quarto-appendix-citeas" role="listitem">
-Si-En Wilson, Isabel, Andre Zamani, and Alexander Mark Weber. 2025.
+Si-En Wilson, Isabel, Andre Reza Zamani, and Alexander Mark Weber. 2025.
 <span>“A Hitchhiker’s Guide to Temporal Complexity for Resting State
-fMRI Analysis.”</span> Unpublished. December 2, 2025.
+fMRI Analysis.”</span> Unpublished. December 3, 2025.
 </div></div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1059,6 +1679,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","loop":false});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
