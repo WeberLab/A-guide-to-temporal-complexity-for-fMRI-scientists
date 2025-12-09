@@ -3,6 +3,7 @@ project:
 
 execute:
   freeze: true
+  cache: true
 
 manuscript:
   article: index.qmd

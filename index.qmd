@@ -15,13 +15,16 @@ author:
       - writing - original draft preparation
     affiliations:
       - ref: 1
-  - name: Andre Zamani
+
+  - name: Andre Reza Zamani
     orcid: 0000-0002-2930-3940
+    email: azamani@psych.ubc.ca
     corresponding: false
     roles:
       - writing - review & editing
     affiliations:
       - ref: 2
+
   - name: Alexander Mark Weber
     orcid: 0000-0001-7295-0775
     email: aweber@bcchr.ca
@@ -49,9 +52,9 @@ affiliations:
   - id: 1
     name: BC Children's Hospital Research Institute, The University of British Columbia, Vancouver, BC, Canada
   - id: 2
-    name: Department of Neuroscience, The University of British Columbia, Vancouver, BC, Canada
+    name: Department of Pyschology, The University of British Columbia, Vancouver, BC, Canada
   - id: 3
-    name: School of Biomedical Engineering, The University of British Columbia, Vancouver, BC, Canada
+    name: Department of Pediatrics, The University of British Columbia, Vancouver, BC, Canada
 abstract: |
   Cognitive and clinical neuroimaging have increasingly drawn on tools from complexity science to characterize the nonlinear dynamics of the brain. Temporal complexity metrics reflect a range of approaches to complexity in time series, including describing the system's regularity and irregularity, predictability and unpredictability, information compressibility, and long-term memory. In functional magnetic resonance imaging (fMRI), applications of temporal complexity are scattered across siloed literatures with varying clarity, which limits accessibility and therefore prevalence. This review aims to bridge this gap by communicating the basics of temporal complexity to fMRI scientists. We offer a comprehensive guide to temporal complexity in fMRI, including an overview of fMRI temporal complexity metrics—Shannon entropy, variations of (multi-scale) sample entropy, Lempel-Ziv complexity, avalanche measures, and Hurst—followed by a comprehensive review of extant applications in fMRI. 
 keywords:
@@ -84,6 +87,86 @@ bibliography: BrainDynamics.bib
 ## Introduction
 
 Hello [@beggsCortexCriticalPoint2022]
+
+See @fig-fmritempresolution
+
+![Among neuroimaging methods, fMRI has a low temporal resolution. Here, one second of BOLD signal (TR = 1s in this example) is contrasted with one second of MEG signal (TR < 0.001s). Each timepoint in the BOLD signal represents activity for the entire one-second window. Arbitrary units; note that BOLD and MEG signals represent different physiological processes. Original image.](./images/unnamed.png){#fig-fmritempresolution}
+<!-- TODO: replace this image --> 
+
+See @fig-wordcloud
+
+::: {#fig-wordcloud width=350}
+{{< embed notebooks/Figures.ipynb#wordcloud >}}
+**A variety of approaches to nonlinear analysis of fMRI data.** A Python-generated word cloud of fMRI complexity terms, weighted by number of results in PubMed. Keywords were selected from reviews of nonlinearity/complexity (including @sarassoConsciousnessComplexityConsilience2021, @sunComplexityAnalysisEEG2020, @hernandezBrainComplexityPsychiatric2023, @keshmiriEntropyBrainOverview2020, @donoghueEvaluatingComparingMeasures2024, and @yangMentalIllnessComplex2013). 
+:::
+
+See @fig-sierpinskitriangle
+
+::: {#fig-sierpinskitriangle width="50%"}
+{{< embed notebooks/Figures.ipynb#sierpinskitriangle >}}
+**Ideal mathematical fractal.** The 2D Sierpinski triangle starts with a simple equilateral triangle (left), and subdivides it recursively into smaller equilateral triangles. For every iteration, each triangle (in blue) is further subdivided it into four smaller congruent equilateral triangles with the central triangle removed. The first such iteration is shown in the centre, with the fifth iteration shown on the right.
+:::
+
+See @fig-statisticalfractal
+
+![**A comparison of statistical and exact fractal patterns.** The two basic forms of fractals are demonstrated. Zooming in on tree branches (left), an exact self-similar element cannot be found. Zooming in on an exact fractal (right), exact replica of the whole are found. Photo by author. Branching fractal made in Python. Figure inspired by @taylorPersonalReflectionsJackson2006](./images/exact_vs_statistical_tree.png){#fig-statisticalfractal width=350}
+
+See @fig-fourproperties
+
+::: {#fig-fourproperties width=350}
+{{< embed notebooks/Figures.ipynb#fourproperties >}}
+**Main properties of a fractal time-series** A-C show a raw time-series (fractional Gaussian noise in this example) at different scales: B is the first half of A (shown as vertical dashed lines in A), while C is half of B (shown in vertical dashed lines in B). D is a power spectral density plot of A. E shows D but on a log-log plot, demonstrating the linear nature of fractal signals when plotted on a log-log scale. The slope of E is $-\beta$. In this example, $\beta$ is calculated to be 0.6, which translates to an H of 0.8. F shows a modified version of E, which imagines that E only demonstrates a power law scaling relationship between two distinct frequencies. The equation for calculating the scaling range in decades is shown. Exact fractal time-series (A) was created using the Davies-Harte method.
+:::
+<!-- TODO: fix A and B, maybe make the horizontal lines different colors --> 
+
+See @fig-typicalsamplepaths
+
+::: {#fig-typicalsamplepaths}
+{{< embed notebooks/Figures.ipynb#typicalsamplepaths >}}
+**Simulated fractional Gaussian noise and fractional Brownian motion.** Raw simulated time-series with 1,024 time-points and known Hurst values are plotted on the left. The top three time-series are fractional Gaussian noise, while the bottom three are fractional Brownian motion. H values are displayed on the left, while $\beta$ values are displayed on the right. Note how fractional Gaussian noise remain centered around a mean (i.e. stationary), while fractional Brownian motion wanders away from the mean (i.e. non-stationary). Log-log power spectral density plots of the signals on the left are shown on the right. Linear-regression fits are shown in red, which are used to calculate $\beta$ and H using the appropriate equation (on the right). Exact fractal time-series were created using the Davies-Harte method. Figure inspired by @ekePhysiologicalTimeSeries2000.
+:::
+
+See @tbl-fmrihurst
+
+| Study | n | Age range | Methods | Volumes | TR (s) | Results |
+|-- | -- | -- |-- |-- | -- | ----- |
+| @akhrifFractalAnalysisBOLD2018 | 103 | 19-28 | AFA | task: 425, resting: 350 | 2 | impulsivity: $\downarrow$ |
+| @barnesEndogenousHumanBrain2009 | 14 | 21-29 | MLW | 2048 | 1.1 | cognitive effort: $\downarrow$ H |
+| @campbellFractalBasedAnalysisFMRI2022 | 72 | mean 29 | PSD~Welch~ | 900 | 1 | movie-watching: $\uparrow$ H in visual, somatosensory, and dorsal attention; $\downarrow$ frontoparietal and DMN |
+| @churchillScalefreeBrainDynamics2015 | 97 (28 chemo; 37 radiation; 32 HC) | n/a | DFA, Wavelet | 285 | 1.5 | worry: $\downarrow$ H |
+| @churchillSuppressionScalefreeFMRI2016 | three datasets (98): 19; 49; 30 | 20-82 | DFA, PSD~Welch~ | $\sim$ 300 | 2 | age, task novelty and difficulty: $\downarrow$ H |
+| @ciuciuInterplayFunctionalConnectivity2014 | 17 | 18-27 | Wavelet | 194 | 2.16 | networks |
+| @donaTemporalFractalAnalysis2017 | 71 (56 ASD; 15 HC) | mean 13 | PSD, DA, SWV | 300 | 2 | ASD: $\uparrow$ H |
+| @donaFractalAnalysisBrain2017 | 110 (55 mTBI; 55 HC) | mean 13 | PSD, DA, SWV | 180 | 2 | mTBI: $\uparrow$ H |
+| @dongHurstExponentAnalysis2018 | 116 | 19-85 | RS | 260 | 2.5 | age: $\uparrow$ H frontal and parietal lobe; $\downarrow$ H insula, limbic, occipital, temporal lobes |
+| @drayneLongrangeTemporalCorrelation2024 | 98 | preterm | PSD~Welch~ | 100 | 3 | preterm: $\downarrow$ H; differentiates networks |
+| @erbilScaleFreeDynamicsRestingState2025 | 7 | 21-28 | Wavelet | 1,000; 1,000, 3,000 | 1; 0.6; 0.2 | microstates |
+| @gaoTemporalDynamicsSpontaneous2018 | 110 | mean 21 | PSD, Wavelet | 232 | 2 | reappraisal scores: $\downarrow$ H |
+| @gaoTemporalDynamicPatterns2023 | 195 (100; 95) | 18-28 | Wavelet | ? | 2 | rumination: $\uparrow$ H |
+| @gentiliNotOneMetric2017 | 31 | mean 25 | Wavelet | 512 | 1.64 | neuroticism: $\downarrow$ | 
+| @gentiliPronenessSocialAnxiety2015 | 36 | mean 27 | Wavelet | 450 | 2 | social anxiety: $\uparrow$ H |
+| @heScaleFreePropertiesFunctional2011 | 17 | 18-27 | DFA, PSD | 194 | 2.16 | task: $\downarrow$ H; differentiates networks; brain glucose metabolism and neurovascular coupling |
+| @jagerDecreasedLongrangeTemporal2024 | 40 (20 task; 20 no task) | 20-32 | DFA | 512 | 1.13 | motor sequence learning: $\downarrow$ H |
+| @laiShiftRandomnessBrain2010 | 63 (33 ASD; 3- HC) | n/a | Wavelet | 512 | 1.3 | ASD: $\downarrow$ H |
+| @leiExtraversionEncodedScalefree2013 | 17 | 18-29 | Wavelet | 200 | 1.5 | extroversion: $\downarrow$ H in DMN |
+| @leiFadedCriticalDynamics2021 | 75 (16 HMMD; 34 IMMD; 25 HC) | mean $\sim$ 41 | RS | 240 | 2 | moyamoya disease: $\downarrow$ H |
+| @linkeAlteredDevelopmentHurst2024 | 83 | 1.5-5 | WML | 400 | 0.8 | age of children ASD: $\downarrow$ H in vmPFC |
+| @maximFractionalGaussianNoise2005 | 21 | n/a | LW, Wornell, MLW | 150 | 2 | AD: $\uparrow$ H |
+| @mellaTemporalComplexityBOLDsignal2024 | 716 | preterm | PSD~Welch~ | 2,300 | 0.392 | preterm: $\downarrow$ H; H starts < 0.5 at preterm age ; differentiates networks | 
+| @omidvarniaAssessmentTemporalComplexity2021 | 100 | 22-35 | PSD, DFA | min 250 | 0.72 | cognitive load: $\downarrow$ H; H and entropy-based complexity highly correlated; H highest in frontoparietal network and default mode network | 
+| @rubinOptimizingComplexityMeasures2013 | 22 | ? | Many | ? | ? | HFFT and PSD~Welch~ outperform other methods |
+| @sokunbiNonlinearComplexityAnalysis2014 | 29 (13 SZ; 16 HC) | ? | DA, DFA | ? | ? |  SZ: $\downarrow$ H |
+| @sucklingEndogenousMultifractalBrain2008 | 22 (11 old; 11 young) | 22 and 65 | MLW | 512 | 1.1 | multifractal reanalysis of [@winkAgeCholinergicEffects2006] |
+| @teterevaVarianceScaleFreeProperties2020 | 23 | mean 23.9 | DFA | 300 | 2 | fear: $\downarrow$ H then $\uparrow$ H |
+| @uscatescuUsingExcitationInhibition2022 | 124 (55 TD; 30 AT; 39 SZ) | ? |  Wavelet | 947? | 0.475 |  ASD and SZ: $\downarrow$ H |
+| @varleyFractalDimensionCortical2020 | 33 (15 HC; 10 min conscious; 8 veg) | ? | HFD | ? | ? |  Lower consciousness: $\downarrow$ H |
+| @vonwegnerMutualInformationIdentifies2018 | ? | ? | Wavelet, DFA | 1500 | 2.08 | multiscale variance effects produce Hurst phenomena without long-range dependence |
+| @warsiCorrelatingBrainBlood2012 | 46 (33 AD; 13 HC) | ? | PSD, RD | 2,400 | 0.25 | AD: $\uparrow$ H |
+| @weberPreliminaryStudyEffects2014 | 14 | 22-38 | Wavelet | 512 | 2 | acute alcohol intoxication: mix of $uparrow$ and $downarrow$ H |
+| @winkAgeCholinergicEffects2006 | 22 (11 old; 11 young) | 22 and 65 | MLW | 512 | 1.1 | age: $\uparrow$ H in bilateral hippocampus; scopolamine: $\uparrow$ H; faster task: $\uparrow$ H |
+| @winkMonofractalMultifractalDynamics2008 | 11 | mean 35 $\pm$ 10 | Wavelet | 136 | 1.1 | latency in fame decision task: $\downarrow$ H |
+| @xiePharmacoresistantTemporalLobe2024 | 70 | ? | Wavelet | 700 | 0.6 | pharmaco-resistant TLE: $\downarrow$ H |
+: **fMRI-Hurst studies.** An attempt to gather all published fMRI studies that have used Hurst or Hurst-like analysis, some stats, and the main findings. Main findings are almost certainly more nuanced than how we have reported them here; we have attempted to condense the findings as succinctly as possible. n = number of subjects in the study; TR = repition time; MLWD = maximum likelihood wavelet; PSD~Welch~ = power spectral density Welch method; DMN = default mode network; DFA = detrended fluctuation analysis; DA = dispersional analysis; SWV = scaled window variance; RS = rescaled range; LW = local Whittle;   {#tbl-fmrihurst}
 
 ## References {.unnumbered}
 
