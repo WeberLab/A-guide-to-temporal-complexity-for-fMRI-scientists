@@ -88,9 +88,10 @@ bibliography: BrainDynamics.bib
 
 Hello [@beggsCortexCriticalPoint2022]
 
-See @fig-fmritempresolution
+See @fig-tempresolution
 
-![Among neuroimaging methods, fMRI has a low temporal resolution. Here, one second of BOLD signal (TR = 1s in this example) is contrasted with one second of MEG signal (TR < 0.001s). Each timepoint in the BOLD signal represents activity for the entire one-second window. Arbitrary units; note that BOLD and MEG signals represent different physiological processes. Original image.](./images/unnamed.png){#fig-fmritempresolution}
+![Among neuroimaging methods, fMRI has a low temporal resolution. Here, one second of BOLD signal (TR = 1s in this example) is contrasted with one second of MEG signal (TR < 0.001s). Each timepoint in the BOLD signal represents activity for the entire one-second window. Arbitrary units; note that BOLD and MEG signals represent different physiological processes. Original image.](images/unnamed.png){#fig-tempresolution}
+
 <!-- TODO: replace this image --> 
 
 See @fig-wordcloud
