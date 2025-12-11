@@ -189,15 +189,20 @@ of British Columbia, Vancouver, BC, Canada},,postcodesep={}}
 
         
 \begin{abstract}
-Cognitive and clinical neuroimaging have increasingly drawn on tools
-from complexity science to characterize the nonlinear dynamics of the
-brain. Temporal complexity metrics reflect a range of approaches to
-complexity in time series, including describing the system's regularity
-and irregularity, predictability and unpredictability, information
-compressibility, and long-term memory. In functional magnetic resonance
+For decades, fMRI analysis has predominantly focused on linear
+relationships, such as simple signal magnitude changes and pair-wise
+functional connectivity. Recent evidence suggests that failing to
+account for the brain's non-linear, dynamic organization may lead to
+incomplete inferences about neural processes. More recently, cognitive
+and clinical neuroimaging have begun to draw on tools from complexity
+science to characterize the nonlinear dynamics of the brain. Temporal
+complexity metrics reflect a range of approaches to complexity in time
+series, including describing the system's regularity and irregularity,
+predictability and unpredictability, information compressibility,
+long-term memory, and fractal patterns. In functional magnetic resonance
 imaging (fMRI), applications of temporal complexity are scattered across
 siloed literatures with varying clarity, which limits accessibility and
-therefore prevalence. This review aims to bridge this gap by
+therefore popularity. This review aims to bridge this gap by
 communicating the basics of temporal complexity to fMRI scientists. We
 offer a comprehensive guide to temporal complexity in fMRI, including an
 overview of fMRI temporal complexity metrics---Shannon entropy,
@@ -224,13 +229,22 @@ temporal correlations \sep long-term memory \sep scale-invariance \sep
     
 \subsection{Introduction}\label{introduction}
 
-Hello \citep{beggsCortexCriticalPoint2022}
-
-See \textbf{?@fig-fmritempresolution}
-
-\includegraphics{./images/unnamed.png}
-
-See Figure~\ref{fig-wordcloud}
+The brain is a complex system that exhibits nonlinear dynamics across
+multiple dimensions, including in how its activity unfolds over time.
+Capturing these dynamics requires more than traditional static summaries
+of average activity or connectivity. Instead, approaches are needed that
+explicitly quantify the temporal richness of brain function. One
+informal grouping of such approaches is temporal complexity
+(Figure~\ref{fig-wordcloud}). Temporal complexity metrics reflect
+diverse assumptions and motivations, but broadly aim to quantify
+regularity and irregularity in time series, including features like
+recurring patterns, memory, and unpredictability
+\citep{varleyConsciousnessBrainFunctional2020}. Temporal complexity is
+the most common of the complex-systems approaches to the brain (e.g.,
+see \citep{sunComplexityAnalysisEEG2020} for a domain-specific review
+(Alzheimer's)), and is present across scales (Figure~\ref{fig-scales}),
+from the cellular to large-scale functional networks
+\citep{cofreEntropyComplexityTools2025}.
 
 \begin{figure}
 
@@ -239,7 +253,7 @@ See Figure~\ref{fig-wordcloud}
 \includegraphics{index_files/figure-latex/notebooks-Figures-wordcloud-output-1.png}
 
 \textsubscript{Source:
-\href{https://WeberLab.github.io/A-guide-to-temporal-complexity-for-fMRI-scientists/notebooks/Figures-preview.html\#cell-wordcloud}{Figures}}
+\href{https://WeberLab.github.io/A-guide-to-temporal-complexity-for-fMRI-scientists/notebooks/Figures.ipynb.html\#cell-wordcloud}{Figures}}
 
 }
 
@@ -256,6 +270,1432 @@ selected from reviews of nonlinearity/complexity (including
 
 \end{figure}%
 
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=4.6875in,height=\textheight]{./images/300_dpi/Fig2.png}
+
+}
+
+\caption{\label{fig-scales}\textbf{The multiscale brain.} The brain is
+displays complexity at the microscopic, mesoscopic, and macroscopic
+scales, both in temporal and spatial domains. Cartoons adapted from
+\citep{rosTuningPathologicalBrain2014}; BOLD time series adapted from
+\citep{cifreFurtherResultsWhy2020}; layout inspired by
+\citep{betzelMultiscaleBrainNetworks2017}.}
+
+\end{figure}%
+
+Functional magnetic resonance imaging (fMRI) can indirectly assess
+temporal complexity in brain activity through the blood-oxygen level
+dependent (BOLD) signal. Despite the fact that fMRI is traditionally
+considered unsuitable for rigorous temporal analyses --- its time series
+are sampled slowly (0.5--3 s), and are relatively short in length (5--10
+minutes), limiting access to fine-scale dynamics and data-hungry metrics
+\citep{grandyEstimationBrainSignal2016} --- a growing literature shows
+that coarse-scale dynamics remain informative. These dynamics have been
+linked to both cognitive and clinical states and have be reliably
+characterized using fMRI recordings
+\citep{sokunbiBOLDFMRIComplexity2016, xinApplicationComplexityAnalysis2021}.
+
+Compared to other neuroimaging modalities (reviewed in
+\citep{sarassoConsciousnessComplexityConsilience2021, sunComplexityAnalysisEEG2020, hernandezBrainComplexityPsychiatric2023, keshmiriEntropyBrainOverview2020, yangMentalIllnessComplex2013}),
+however, temporal complexity metrics are seldom used in fMRI research.
+This is reflected in a diffuse, unstandardized landscape in which
+methods are siloed across research groups, limiting accessibility and
+comparability. The present review aims to help bridge this gap. Going
+beyond previous reviews of complexity in fMRI
+{[}\citep{sokunbiBOLDFMRIComplexity2016};
+xinApplicationComplexityAnalysis2021{]}, we have attempted to
+systematically identify all temporal complexity metrics used in fMRI
+research and all relevant papers that used each metric. To our
+knowledge, no prior review has undertaken this task at this scope.
+
+This review also differs from previous reviews in its primary aim.
+Rather than summarize prior clinical and neuroscience findings (although
+we do include this as well), we have focused on providing guidance for
+clinical and cognitive researchers who wish to implement temporal
+complexity metrics. Many such researchers lack a background in
+information theory and thus face a choice: either apply temporal
+complexity measures without fully understanding the theoretical context
+--- risking methodological or interpretational errors --- or invest
+considerable time learning about a vast, interdisciplinary, and
+technically varied literature. Our review aims to solve this problem by
+serving as both a comprehensive and accessible resource for temporal
+complexity methods in fMRI.
+
+What follows is first a review of the basic concepts of various temporal
+complexity metrics and the history of their applications to fMRI,
+followed by a comparison of these metrics, and finally a discussion that
+explores their clinical and neuroscience findings. \#\# What is
+complexity?
+
+Complexity is conceptualized as involving a balance between order and
+disorder \citep{spornsNetworksBrain2010}. Uniform systems (e.g., crystal
+lattices; sine waves) are not complex, nor are completely irregular ones
+(e.g., randomly moving particles; white noise); rather, complexity lies
+between these two extremes, combining predictability and
+unpredictability \citep{varleyConsciousnessBrainFunctional2020}.
+
+\subsection{Variability}\label{variability}
+
+In order to get a sense of temporal complexity, it may help to first
+describe how it differs from variability. Complexity and variability are
+statistically distinct, yet closely intertwined. Temporal complexity and
+variability both describe the temporal dynamics of neurophysiological
+signal, with variability describing signal spread, and complexity
+describing within-series interactions and recurring patterns
+(Figure~\ref{fig-variability}). A time series that is more complex is
+not necessarily more variable, and vice versa. Indeed, some measures of
+complexity explicitly make use of variability as a measure across
+different scales (e.g., Approximate entropy
+\citep{richmanPhysiologicalTimeseriesAnalysis2000} or Rescaled range to
+measure the Hurst exponent \citep{hurstLongTermStorageCapacity1951}).
+Nevertheless, complexity and variability are closely related. Across
+theoretical perspectives, changes in a system (i.e.~it's variance) are
+fundamentally related to the complexity of its behaviour
+\citep{lotfiStatisticalComplexityMaximized2021, garrettMomenttomomentBrainSignal2013, chialvoLifeEdgeComplexity2018, heScaleFreePropertiesFunctional2011}.
+Intuitively, a system cannot exhibit complex behaviour if its
+variability is either minimal or maximal --- that is, if it is in
+complete stasis or fluctuates completely randomly.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=4.6875in,height=\textheight]{./images/300_dpi/Fig3.png}
+
+}
+
+\caption{\label{fig-variability}Conceptual comparison of the features
+captured by the mean (a measure of central tendency), variance (a
+measure of variability), and Hurst exponent (a measure of complexity;
+specifically long-term memory). Synthetic waveform from
+\citep{liMorphologicalCoveringBased2012}; figure inspired by
+\citep{garrettBloodOxygenLevelDependent2010}.}
+
+\end{figure}%
+
+A review of empirical comparisons between variability and complexity in
+fMRI is provided in the later section ``Comparisons of All Metrics.''
+
+\subsection{Entropy measures}\label{entropy-measures}
+
+Entropy, in the context of time-series and brain signals, is a measure
+of uncertainty, irregularity, or unpredictability in a signal. It
+originates from information theory and statistical mechanics, but has
+been adapted into many specialized forms for analyzing neural dynamics.
+It is by far the most popular and diverse measure we encountered in our
+literature search, and is thus where we begin our review.
+
+\subsubsection{Shannon entropy}\label{shannon-entropy}
+
+Shannon entropy serves as the foundation for virtually all contemporary
+entropy measures, and its introduction marked the birth of information
+theory \citep{shannonCommunicationPresenceNoise1949}. Shannon entropy
+quantifies uncertainty; it can be thought of as the difficulty of
+predicting an observation's value (Figure~\ref{fig-entropyuncertainty}).
+Applied to a time series, it measures the minimum number of `bits'
+needed to encode the series based on the frequency of values
+(Figure~\ref{fig-entropybolddistribution}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=4.6875in,height=\textheight]{./images/300_dpi/Fig4.png}
+
+}
+
+\caption{\label{fig-entropyuncertainty}Shannon entropy represents
+uncertainty about an observation's value. Image adapted from
+\citep{serranoShannonEntropyInformation2018}.}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=4.6875in,height=\textheight]{./images/300_dpi/Fig5.png}
+
+}
+
+\caption{\label{fig-entropybolddistribution}Shannon entropy reflects the
+distribution of values; a wider distribution of BOLD signal values
+(blue) has higher entropy, while a narrower distribution of values
+(green) has lower entropy}
+
+\end{figure}%
+
+Shannon entropy can be calculated using the following equation:
+
+\begin{equation}\phantomsection\label{eq-shannonentropy}{
+H = - \sum_{i=1}^{N}p_{i}\log(p_{i})
+}\end{equation}
+
+where \(H\) is entropy and \(p_{i}\) is the frequency of a given value.
+
+Shannon entropy is seldom used to assess the temporal complexity of
+neuroimaging time series. Instead, it is most commonly applied to
+spatiotemporal properties---for example, to quantify the complexity of
+functional connectivity (FC)
+\citep{violShannonEntropyBrain2017, pappasBrainNetworkDisintegration2019}.
+This is because the classic formulation only considers frequency values,
+not their order. The resulting metric is poorly suited to describe how a
+series changes over time. Only one study, by
+\citep{huangDefaultModeNetwork2025}, used Shannon entropy of frequency
+of values (details in discussion). However, several studies have applied
+Shannon entropy to wavelet-decomposed time series (i.e., analyzing the
+entropy of different frequency bins; method described in
+\citep{rossoWaveletEntropyNew2001}), which has been shown to be an
+improvement over the classic formulation. For example,
+\citep{guptaWaveletEntropyBOLD2017} found that Shannon wavelet entropy
+was able to discriminate epilepsy patients from controls, whereas
+classical Shannon entropy was not.
+
+Although Shannon entropy is rarely applied with the explicit aim of
+describing temporal complexity, it has been used as an innovative
+alternative to traditional methods of analyzing event-related fMRI data.
+Unlike traditional methods, entropy makes no assumptions about the shape
+of the evoked hemodynamic response, which can improve stability and
+sensitivity
+\citep{mikolasAnalysisFMRITimeseries2012, ostwaldInformationTheoreticApproaches2011}.
+\citep{dearaujoShannonEntropyApplied2003} were the first to apply
+Shannon entropy to event-related fMRI analysis. They calculated entropy
+within time windows during activation and rest; the rise and fall of the
+entropy measure mirrored the theoretical hemodynamic response
+(Figure~\ref{fig-shannonentropyevents}). Compared to traditional
+cross-correlation, Shannon entropy was more stable with a changing
+signal-to-noise ratio \citep{dearaujoShannonEntropyApplied2003}.
+\citep{dinuzzoTemporalInformationEntropy2017} also used Shannon entropy
+in event-related analysis, which allowed them to capture changes induced
+by photic stimulation that were missed by traditional temporal
+descriptors (e.g., variance). Together, these results indicate that
+Shannon entropy may capture features of BOLD dynamics that escape
+conventional temporal measures. More broadly, this demonstrates the
+usefulness of temporal dynamics in situations where spatial maps are
+unable to fully capture condition differences.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=4.6875in,height=\textheight]{./images/300_dpi/Fig6.png}
+
+}
+
+\caption{\label{fig-shannonentropyevents}An example of how Shannon
+entropy can be used to analyze event-related data (de Araujo et al.,
+2003). Image stylized/recreated from de Araujo et al.~(2003).}
+
+\end{figure}%
+
+Several extensions to Shannon entropy have been introduced as
+alternatives to conventional methods for discriminating task conditions
+in event-related fMRI. A comprehensive list of these methods and their
+applications is as follows: Tsallis entropy (applied by
+\citep{sturzbecherNonextensiveEntropyExtraction2009, wangInvestigatingUnivariateTemporal2013},
+Renyi entropy
+\citep{gonzalezandinoMeasuringComplexityTime2000, wangInvestigatingUnivariateTemporal2013},
+generalized relative entropy
+\citep{cabellaGeneralizedRelativeEntropy2009, welvaertHowIgnoringPhysiological2012},
+adaptive entropy rate \citep{fisherAdaptiveEntropyRates2001}, and
+time-lagged mutual information
+\citep{tsaiAnalysisFunctionalMRI1999, fuhrmannalpertSpatiotemporalInformationAnalysis2007, alpertTemporalCharacteristicsAudiovisual2008, tedeschiGeneralizedMutualInformation2004, tedeschiGeneralizedMutualInformation2005, vonwegnerMutualInformationIdentifies2018}.
+Despite their potential effectiveness in event-related fMRI analysis,
+these methods have not been widely adopted, neither since they were
+first reviewed by \citep{mikolasAnalysisFMRITimeseries2012}, nor in the
+decade since. This may be because of their high computational demands or
+simply because there are better approaches to model-free hemodynamic
+response estimation (e.g., finite-impulse-response models
+\citep{metzakConstrainedPrincipalComponent2011}. No studies have
+systematically evaluated whether Shannon-entropy-based analysis methods
+discriminate task conditions better than conventional ones, which leaves
+a knowledge gap.
+
+\subsubsection{Kolmogorov-Sinai entropy}\label{kolmogorov-sinai-entropy}
+
+In contrast to Shannon entropy, Kolmogorov-Sinai (KS) entropy takes time
+into account (Figure~\ref{fig-ksentropy}), allowing for application to
+dynamical systems \citep{nogueiraExploringLinkMultiscale2017}. As a
+system evolves, KS entropy quantifies the average rate at which
+information is produced with each new state; that is, it quantifies the
+difficulty of predicting future observations given past observations.
+Higher KS entropy implies that a higher amount of information is being
+introduced at each time point, meaning that the series is more
+unpredictable. Like Shannon entropy, KS entropy implements the intuitive
+notion that a broader distribution of data values should correspond to
+greater uncertainty.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=4.6875in,height=\textheight]{./images/300_dpi/Fig7.png}
+
+}
+
+\caption{\label{fig-ksentropy}Because Shannon entropy only depends on
+the distribution of values and not their order, two sequences may look
+different but have the same Shannon entropy. Here, both series have the
+same Shannon entropy, but the series on the right has higher KS entropy.
+Original image}
+
+\end{figure}%
+
+KS entropy is difficult to apply to real-world data, given that proper
+implementation requires exceedingly large amounts of time series data
+and an absence of noise
+\citep{pincusApproximateEntropyMeasure1991, richmanPhysiologicalTimeseriesAnalysis2000}.
+As such, a variety of measures have been developed as approximations for
+KS entropy. The following sections discuss approximations of KS entropy
+that have been applied to fMRI research.
+
+\subsubsection{Approximate entropy}\label{approximate-entropy}
+
+In fMRI, nearly all approximations of KS entropy can trace their
+historical lineage to approximate entropy (ApEn)
+\citep{pincusApproximateEntropyMeasure1991}. First used on
+cardiovascular time series and later adapted for neuroimaging
+\citep{richmanPhysiologicalTimeseriesAnalysis2000, bruhnApproximateEntropyElectroencephalographic2000},
+ApEn quantifies the probability that sequences of similar patterns in a
+time series will remain similar when sequence length is increased. A
+higher value of ApEn signifies that the signal contains fewer repeating
+patterns---that is, greater complexity.
+
+In the calculation of ApEn, each sequence is counted as matching itself
+\citep{richmanPhysiologicalTimeseriesAnalysis2000}. This nuance leads to
+two limitations. First, it causes ApEn to be lower than expected for
+shorter time series \citep{richmanPhysiologicalTimeseriesAnalysis2000}.
+This is because counting self-matches inflates the estimation of
+regularity, and this over-inflation is more prominent for short series.
+Shortening datasets (e.g., by using one fMRI run instead of two) may
+change ApEn despite identical patterns. Second, ApEn lacks relative
+consistency, meaning that comparisons between datasets can be affected
+by the choice of time-window and tolerance parameters (i.e., if ApEn is
+higher for one dataset than another using one set of parameters, we
+would expect this to remain true for other choices of parameters, but
+this is not the case;
+\citep{richmanPhysiologicalTimeseriesAnalysis2000}).
+
+Given these limitations, ApEn is rarely used to characterize temporal
+complexity in fMRI. In most fMRI studies, ApEn is reported only
+alongside other entropy-based measures --- such as sample entropy (SE)
+or fuzzy approximate entropy --- and therefore these applications are
+included in our ``Comparisons of All Metrics'' section. Two ApEn studies
+that do not appear in that section are
+\citep{sokunbiInterindividualDifferencesFMRI2011} and
+\citep{liuComplexitySynchronicityResting2013}; both report clinical
+findings that align with the broader complexity literature, and we
+summarize these in the Discussion.
+
+\subsubsection{Sample entropy}\label{sample-entropy}
+
+Sample entropy (SE) was developed to correct ApEn's limitations
+\citep{richmanPhysiologicalTimeseriesAnalysis2000}. The difference
+between the calculation of SE and that of ApEn is that SE doesn't count
+self-matches in the conditional probability, which corrects the two
+limitations described in the ApEn section
+\citep{richmanPhysiologicalTimeseriesAnalysis2000} (for an example in
+fMRI, see \citep{yangStrategyReduceBias2018}. In addition to these
+advantages, SE is a better approximation of KS entropy and is simpler to
+compute \citep{richmanPhysiologicalTimeseriesAnalysis2000}. Accordingly,
+SE is more widely used than ApEn in fMRI and can be computed using the
+toolboxes \texttt{BENtbx}
+\href{https://github.com/zewangnew/BENtbx}{https://github.com/zewangnew/BENtbx;
+e.g., Wang et al., 2014} (e.g., \citep{wangBrainEntropyMapping2014}) or
+\texttt{Complexity\ Toolbox}
+\href{http://loft-lab.org/index-5.html}{http://loft-lab.org/index-5.html;
+e.g., Zhang et al., 2021} (e.g.,
+\citep{zhangAlteredComplexitySpontaneous2021}). SE is most often called
+``brain entropy'' (BEN) \citep{wangBrainEntropyMapping2014}; however,
+because BEN can also refer to Shannon entropy
+\citep{akdenizComplexityAnalysisRestingState2017}, we elected to use the
+term SE in this review.
+
+To calculate SE, the user specifies two parameters: the time window
+\(m\) and the tolerance scale \(r\). \(m\) is the number of values to be
+analysed at a time, and \(r\) is the multiplied by the standard
+deviation (SD) of the series to obtain the tolerance. SE is equal to the
+negative average natural logarithm of the conditional probability that
+two sequences that are similar (i.e., within the tolerance) for \(m\)
+points will stay similar for \(m+1\) points
+\citep{richmanPhysiologicalTimeseriesAnalysis2000}. Because conditional
+probability is between 0 and 1, SE will always be positive. When the
+time series is highly regular (i.e., when similar runs remain similar),
+SE is low; when the time series is irregular, SE is high
+\citep{pincusApproximateEntropyMeasure1991}. See
+Figure~\ref{fig-sampleentropyconceptual} for a conceptual explanation,
+Figure~\ref{fig-sampleentropycomputational} for a computational
+explanation, and \citep{delgado-bonalApproximateEntropySample2019} for a
+tutorial. For a detailed guide to selecting \(m\) and \(r\), see
+Appendix A1 and Figure A1.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=4.6875in,height=\textheight]{./images/300_dpi/Fig8.png}
+
+}
+
+\caption{\label{fig-sampleentropyconceptual}\textbf{Conceptual
+explanation of SE.} SE represents the probability that similar sequences
+will stay similar. Original image.}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=4.6875in,height=\textheight]{./images/300_dpi/Fig9.png}
+
+}
+
+\caption{\label{fig-sampleentropycomputational}\textbf{An example SE
+calculation with \(m = 2\).} Original image, except for time series
+(black dots/lines) which is adapted from
+\citep{roedigerOptimizingMeasurementSample2024}.}
+
+\end{figure}%
+
+What is the minimum number of timepoints needed for SE? In general, more
+timepoints improve results. For example, using simulated data,
+\citep{grandyEstimationBrainSignal2016} found that SE accuracy and
+precision increased fairly linearly from the shortest to longest series
+tested (32 to 32,768).
+\citep{wehrheimReliabilityVariabilityComplexity2024}
+(Figure~\ref{fig-SEtimepoints}) observed strong (albeit non-significant)
+correlations between reliability and series length, including a slow
+increase in split-half correlation from the shortest to longest series
+tested (100-800), along with a steady increase in test--retest
+correlation that plateaued around 500. Highlighting that the
+relationship between length and reliability is dataset--dependent, they
+found differences in rest versus task data (for a wide variety of tasks,
+including cognitive, motor, and social). As for the lower limit of
+length, \citep{yangStrategyReduceBias2018} identified a lower bound of
+97 timepoints; for series shorter than 97, SE could still be calculated,
+but with a narrower range of \(m-\) and \(r-\)values.
+\citep{sokunbiSampleEntropyReveals2014} found that SE discriminated
+between young and old adults in series as short as 85 in a small (n =
+20) cohort. Again highlighting that length limitations are
+dataset-dependent, \citep{sokunbiSampleEntropyReveals2014} found that
+more data points were needed in a larger (n = 86) cohort (potentially
+because the smaller cohort had low inter-individual variability).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=4.6875in,height=\textheight]{./images/300_dpi/Fig10.png}
+
+}
+
+\caption{\label{fig-SEtimepoints}SE accuracy (and precision, not shown)
+increase with increasing series length. Figure stylized based on results
+from Wehreim et al.~(2024).}
+
+\end{figure}%
+
+Several innovations to SE have been made in recent years.
+\citep{delmauroCrosssubjectBrainEntropy2024} introduced ``cross'' SE, a
+method for comparing multiple SE maps which can be applied to make
+comparisons between subjects, sessions, scan times, or regions. Thus
+far, cross entropy has been used to show a decoupling between the
+(across-subject) mean and variance of SE across different brain regions
+\citep{delmauroCrosssubjectBrainEntropy2024}.
+\citep{wangNeurocognitiveCorrelatesBrain2021} pioneered dynamic SE,
+wherein SE is estimated for every segment of a sliding window. Despite
+its name, dynamic SE is not designed to be used to track changes in SE
+over the course of a run; instead, SE for each segment is combined into
+a final run mean. In a sample of 862 subjects,
+\citep{wangNeurocognitiveCorrelatesBrain2021} found minimal differences
+between static (traditional) and dynamic SE.
+
+Table~\ref{tbl-fmriSE} includes a complete summary of fMRI-SE studies
+and their findings.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0870}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0870}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0870}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0870}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0870}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0870}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0870}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0870}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.3043}}@{}}
+\caption{\textbf{fMRI-SE and MSE studies.} An attempt to gather all
+published fMRI studies that have used SE or MSE, some stats, and the
+main findings. Main findings are more nuanced than how we have reported
+them here; we have attempted to condense the findings as succinctly as
+possible. Excludes analyses that do not meet the definition of temporal
+complexity used in this review: SE of the spatial map, SE of dynamic
+functional connectivity, and SE computed on synthetic data. For sample
+size and age, commas separate cohorts. \(\uparrow\) / \(\downarrow\) =
+Higher / lower; ACC = anterior cingulate cortex; AD = Alzheimer's; ADHD
+= attention-deficit hyperactivity disorder; ASD = autism spectrum
+disorder; corr. w/ = Correlated with; diff. = difference; DLPFC
+dorsolateral prefrontal cortex; DMN = default mode network; DPN =
+diabetic peripheral neuropathy; FG = frontal gyrus; FPN = frontoparietal
+network; HC = Healthy controls; MCI = mild cognitive impairment; MDD =
+major depressive disorder; MOFC = medial orbitofrontal cortex; MTL =
+medial temporal lobe; n.s. = not significant; OA = older adults; OCD =
+obsessive-compulsive disorder; OFC = orbitofrontal cortex; oppositional
+defiance disorder = ODD; PFC = prefrontal cortex; SMA = supplementary
+motor area; TPJ = temporal parietal junction; VMPFC = ventromedial
+prefrontal cortex; YA = young adults.}\label{tbl-fmriSE}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Reference
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Sample
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Age (mean \(\pm\) sd or min - max; years)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+TR (s)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Volumes
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Rest/task
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Method (SE or MSE)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Parameters
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Results
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Reference
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Sample
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Age (mean \(\pm\) sd or min - max; years)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+TR (s)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Volumes
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Rest/task
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Method (SE or MSE)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Parameters
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Results
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\citep{maximoUnrestRestingBrain2021} & ASD 45, HC 45 & 8-14 & 2.5, 2 &
+120, 152 & rest & SE & \(m\) = 2, \(r\)\,=\,0.46 & ASD: \(\uparrow\) SE
+in left angular gyrus, superior parietal lobule, right inferior temporal
+gyrus; \(\downarrow\) SE in superior FG. \\
+\citep{wangHypostatusDrugdependentBrain2017} & Cocaine 20, HC 19 & 42
+\(\pm\) 4, 40 \(\pm\) 5 & 2 & 180 & rest & SE & \(m\) = 3, \(r\) = 0.6 &
+Cocaine addiction: \(\uparrow\) SE in VMPFC, OFC, DLPFC, ventral
+striatum, basal ganglia, visual cortex, parietal cortex. \\
+\citep{fuAbnormalitiesBrainComplexity2024} & ASD 42, HC 42 & 1-1.5 & 2 &
+240 & rest & SE & \(m\) = 3, \(r\) = 0.6 & ASD: \(\uparrow\) SE in right
+inferior FG. \\
+\citep{sevelAcuteAlcoholIntake2020} & 26 & 25-45 & 1.5 & 360 & rest & SE
+& \(m\) = 3, \(r\) = 0.6 & Acute alcohol intake: Within regions with
+reductions in regional signal variability, \(\downarrow\) SE in
+bilateral middle FG, right superior FG. \\
+\citep{songAgedependentEffectsIntranasal2024} & YA 44, OA 43 & 18-31,
+63-81 & 2 & 240 & rest & SE & \(m\) = 3, \(r\) = 0.6 & Intranasal
+oxytocin: In left TPJ, SE \(\uparrow\) in YA, \(\downarrow\) in OA. \\
+\citep{zhaoAgedependentFunctionalDevelopment2024} & 280 & 38-44 weeks
+postmenstrual age & 0.392 & 2300 & rest & SE & \(m\) = 3, \(r\) = 0.3 &
+Postnatal age \(\uparrow\) corr. /w SE in sensorimotor-auditory cortex,
+association cortex, right rolandic operculum. Gestational age
+\(\downarrow\) corr. /w SE in sensorimotor-auditory cortex and
+association cortex, and \(\uparrow\) corr. /w SE in right rolandic
+operculum. Pre-term infants: \(\uparrow\) SE in visual-motor cortex. \\
+\citep{varleyConsciousnessBrainFunctional2020} & Dataset A 25, Dataset B
+19 & 19-52, 18-40 & 2, 2 & 150, ? & rest & SE & \(m\) = 2, \(r\) = 0.3 &
+SE \(\downarrow\) with increasing propofol sedation. \\
+\citep{jiangBrainEntropyStudy2021} & OCD 74, HC 93 & 18-60 & 2 & 200 &
+rest & SE & \(m\) = 3, \(r\) = 0.2 & SE map did not match brain
+structure. No difference between OCD and HC, or between genders. \\
+\citep{sharmaWhichVoxelwiseResting2024} & Concussion 28, HC 379 & 9-17 &
+2 & 180 & rest & SE & \(m\) = 3, \(r\) = 0.6 & Concussion vs HC
+classification: Most important region for classification was subcallosal
+cortex. \\
+\citep{catalIntrinsicHierarchySelf2022} & Dataset A 50, Dataset B 130 &
+18-50, 21-50 & 2, 2 & 288, varies & rest, task & SE & \(m\) = 2, \(r\) =
+0.5 & Interoceptive \textgreater{} Exteroceptive \textgreater{} Mental
+ROIs for all of rest and task. Rest \textgreater{} Task. \\
+\citep{liuAlteredBrainEntropy2020} & MDD 85, follow-up 30, HC 45 & 44
+\(\pm\) 14, 41 \(\pm\) 14, 43 \(\pm\) 12 & 2 & 240 & rest & SE & \(m\) =
+3, \(r\) = 0.6 & MDD: \(\downarrow\) SE in MOFC/subgenual-ACC;
+\(\uparrow\) SE in motor cortex. \\
+\citep{songAssociationsBrainEntropy2019} & 107 & 31 \(\pm\) 14 & 2 & 240
+& rest & SE & \(m\) = 3, \(r\) = 0.6 & Cerebral blood flow \(\uparrow\)
+corr. /w SE in OFC, posterior inferior temporal cortex. n.s. direct
+relationship between SE and gender. \\
+\citep{delmauroAssociationsBrainEntropy2024} & 1206 & 29 \(\pm\) 4 &
+0.72 & 1200 & rest & SE & \(m\) = 3, \(r\) = 0.6 & n.s. relationship
+between SE and heart rate. Cognition corr. /w SE \(\downarrow\) in
+fronto-parietal cortex, \(\uparrow\) in sensorimotor system. \\
+\citep{eassonBOLDSignalVariability2019} & ASD 20, HC 17 & 10-18, 8-18 &
+2 & 180 & rest & SE & \(m\) = 1-4, \(r\) = 0.05-0.8 & ASD: n.s. diff. in
+SE. SE \(\uparrow\) corr. /w global efficiency of structural connectome
+and age, \(\downarrow\) corr. /w behavioural ASD score. \\
+\citep{saxeBrainEntropyHuman2018} & 892 & 18-35 & 3 & 120 & rest & SE &
+\(m\) = 3, \(r\) = 0.6 & Intelligence \(\uparrow\) corr. /w SE,
+especially in PFC, inferior temporal lobes, cerebellum. \\
+\citep{liuBrainEntropyChanges2023} & Classical trigeminal neuralgia 85,
+HC 79 & 56 (interquartile range 13), 55 (interquartile range 14) & 2 &
+240 & rest & SE & \(m\) = 3, \(r\) = 0.6 & Classical trigeminal
+neuralgia: \(\uparrow\) SE in thalamus and brainstem, \(\downarrow\) SE
+in inferior semilunar lobule. \\
+\citep{shiBrainEntropyAssociated2019} & 386 & 17-27 & 2 & 242 & rest &
+SE & \(m\) = 3, \(r\) = 0.6 & Divergent thinking \(\uparrow\) corr. /w
+SE in left dorsal ACC/pre-SMA, left DLPFC. Fluency, flexibility, and
+originality \(\uparrow\) corr. /w SE in left inferior FG and left middle
+temporal gyrus. \\
+\citep{wangBrainEntropyMapping2020} & HC 54, Significant memory concern
+27, early MCI 58, late MCI 38, AD 34 & 65-95, 65-83, 56-89, 57-88, 56-87
+& 3 & 140 & rest & SE & \(m\) = 3, \(r\) = 0.6 & Aging in HC:
+\(\uparrow\) SE. Aging in AD: \(\downarrow\) SE. In AD SE \(\uparrow\)
+corr. /wimpairment. Cerebrospinal fluid Aβ depositions \(\downarrow\)
+corr. /w SE in HC, while \(\uparrow\) corr. in AD. Important regions:
+DMN, MTL, PFC. \\
+\citep{wangBrainEntropyMapping2014} & Small cohort 16, Large cohort 1049
+& 25 \(\pm\) 5, 27 \(\pm\) 11 & 3, 3, 0.75-3 & 220, 220, 72-395 & task,
+rest & SE & \(m\) = 3, \(r\) = 0.6 & Atlas of SE: SE reproduces known
+network parcellations. \\
+\citep{shanBrainFunctionCharacteristics2018} & Chronic fatigue syndrome
+43, HC 26 & 47 \(\pm\) 12, 43 \(\pm\) 14 & 0.798 & 1100 & task & SE &
+\(m\) = 3, \(r\) = 0.2 & Chronic fatigue syndrome: \(\downarrow\) SE in
+10 of 50 regions. \\
+\citep{allendorferBrainNetworkEntropy2024} & TBI only 60, TBI with
+psychogenic nonepileptic seizures 21, TBI with epileptic seizures 56 &
+38 \(\pm\) 12, 39 \(\pm\) 12, 38 \(\pm\) 12 & 1 & 1200 & task & SE &
+\(m\) = 3, \(r\) = 0.6 & TBI with psychogenic nonepileptic seizures: SE
+\(\downarrow\) corr. /w depression. TBI only, TBI with epileptic
+seizures: n.s. correlation between SE and depression. Across all groups:
+\(\downarrow\) SE in FPN. \\
+\citep{changCaffeineCausedWidespread2018} & 60 & 23 \(\pm\) 3 & 2 & ? &
+rest & SE & \(m\) = 3, \(r\) = 0.6 & Caffeine intake: \(\uparrow\) SE
+across cerebral cortex, with the highest increase in lateral PFC, DMN,
+visual cortex, motor network. \\
+\citep{mackenziejoelleavittCharacterizingBrainEntropy2022} & 31 & 19-25
+& 3 & 100 & task, rest & SE & \(m\) = 3, \(r\) = 0.6 & Task vs rest:
+n.s. diff. in SE. \\
+\citep{jiangCommonHyperentropyPatterns2023} & Marijuana dependence 59,
+HC matched to marijuana group 59, Nicotine dependence 34, HC matched to
+nicotine group 34, Alcohol dependence 35, HC matched to alcohol group 34
+& ? & 0.72 & 1200 & rest & SE & \(m\) = 3, \(r\) = 0.6 & Marijuana
+dependence: \(\uparrow\) SE. Nicotine dependence: \(\uparrow\) SE.
+Alcohol dependence: \(\uparrow\) SE. \\
+\citep{niuComparingTestRetestReliability2020} & 3 cohorts of HC: 29, 35,
+36 & 21 \(\pm\) 2, 31 \(\pm\) 9, 27 \(\pm\) 8 & 2.5, 2, 1.75 & 197 &
+rest & SE & \(m\) = 2, \(r\) = 0.25 & Reliability (test-retest): Poor to
+fair to good. \\
+\citep{galeComplexityAnalysisRestingState2021} & 412 & 22-35? & 0.72 &
+1200? & rest, task & SE & \(m\) = 3, \(r\) = 0.6 & Task (emotion,
+language, sensorimotor, gambling/risk-taking, relational processing,
+social processing, combination working memory/category-specific
+representation): Regions predicted to be active based on the literature
+\textless{} Regions predicted to be less relevant. Amplitude
+\(\downarrow\) corr. /w SE in task but not rest. \\
+\citep{xueDisruptedBrainEntropy2019} & MDD 46, HC 32 & 28 \(\pm\) 9, 27
+\(\pm\) 10 & 2 & 240 & rest & SE & \(m\) = 3, \(r\) = 0.6 & MDD:
+\(\downarrow\) SE across whole brain and in bilateral thalami, bilateral
+insula, bilateral putamen, left caudate, right inferior FG. Depression
+score \(\downarrow\) corr. /w SE. \\
+\citep{delmauroDivergentAssociationPain2024} & YA 577, OA 424 & 29
+\(\pm\) 4, 61 \(\pm\) 15 & 0.72, 0.8 & 478, 478 & rest & SE & \(m\) = 3,
+\(r\) = 0.6 & n.s. relationship between SE and pain intensity. \\
+\citep{delmauroNormativeBrainEntropy2025} & 2415 & 8-89 & 0.72 & 488 &
+rest & SE & \(m\) = 3, \(r\) = 0.6 & Increase in SE from childhood to
+older adulthood \\
+\citep{delmauroChronicPainAssociated2025} & Chronic pain 13132, HC
+18173, Non-chronic pain 4922 & 64 \(\pm\) 8, 64 \(\pm\) 8, 63 \(\pm\) 8
+& 0.735 & 490 & rest & SE & \(m\) = 3, \(r\) = 0.6 & Chronic pain:
+\(\uparrow\) SE. \\
+\citep{zhangElucidatingDistinctCommon2025} & ADHD 61, ODD 38, OCD 48,
+comorbid ADHD/ODD/OCD 833, HC 269 & 10 \(\pm\) 1, 10 \(\pm\) 1, 10
+\(\pm\) 1, 10 \(\pm\) 1, 10 \(\pm\) 1 & varied & varied & rest & SE &
+\(m\) = 2, \(r\) = 0.3 & In executive function networks: Comorbid-free
+ADHD \textless{} HC, comorbid-free ODD \textless{} HC, comorbid-free OCD
+= HC, ADHD \textless{} HC, within comorbid ADHD/ODD/OCD: ADHD
+\textless{} HC. \\
+\citep{nezafatiFunctionalMRISignal2020} & 100 & 22-36 & 0.72 & 1200,
+\textasciitilde400 & rest, task & SE & \(m\) = 3, \(r\) = 0.6 & Atlas of
+SE at rest and task. SE task \textless{} Rest. \\
+\citep{sokunbiFuzzyApproximateEntropy2015} & 86 & 19-85 & 2 & 133 & rest
+& SE & \(m\) = 2, \(r\) = 0.3 & No effect of age or sex. \\
+\citep{liHyperrestingBrainEntropy2016} & Chronic smoking 68, HC 66 &
+19-58, 21-51 & 2 & 150 & rest & SE & \(m\) = 3, \(r\) = 0.6 & Chronic
+smoking: \(\downarrow\) SE in right limbic area and frontal region. \\
+\citep{chiIdentifyingDistinctDevelopmental2025} & 1087 & 6-30 & varied &
+varied & rest & SE & \(m\) = 1, \(r\) = 0.15 & n.s. diff. between ASD
+and HC. \\
+\citep{kielarIdentifyingDysfunctionalCortex2016} & Stroke 19, OA 19, YA
+20 & 65 \(\pm\) 2, 66 \(\pm\) 2, 25 \(\pm\) 1 & 2 & 180 & rest & SE &
+\(m\) = 2, \(r\) = 0.2 & YA \textless{} OA. n.s. diff. between stroke
+patients and HC. n.s. corr. /w hypoperfusion in perilesional tissue. \\
+\citep{liuImmediateVisualReproduction2023} & Bipolar-II 19, HC 17 & 15
+\(\pm\) 2, 14 \(\pm\) 2 & 2 & ? & rest & SE & \(m\) = 3, \(r\) = 0.6 &
+Bipolar-II: \(\uparrow\) SE in parahippocampal gyrus and inferior
+occipital gyrus. \\
+\citep{decarvalhosantosImpairedBrainFunctional2025} & MCI 44, HC 40 & 75
+\(\pm\) 8, 77 \(\pm\) 7 & 2.2 & 164 & rest & SE & \(m\) = 3, r = 0.6 &
+MCI: \(\downarrow\) SE in left middle temporal gyrus. \\
+\citep{songIncreasedRestingstateBrain2024} & Depression 46 (14
+treatment), HC 20 & 33 \(\pm\) 9, 30 \(\pm\) 8 & 2.5 & 100 & rest & SE &
+\(m\) = 3, r = 0.6 & Depression: \(\uparrow\) SE in left DLPFC and
+limbic system; increase can be reversed through treatment. \\
+\citep{xueIncreasedRestingstateBrain2018} & AD 26, HC 26 & 73 \(\pm\) 8,
+75 \(\pm\) 6 & 3 & 140 & rest & SE & \(m\) = 3, \(r\) = 0.8 & AD:
+\(\uparrow\) SE in middle temporal gyrus and precentral gyrus. Network
+connectivity more \(\downarrow\) corr. /w SE in AD vs HC. \\
+\citep{zhangInterindividualSignaturesFMRI2021} & 410 & 22-36 & 0.72 &
+1200 & rest & SE & \(m\) = 2, \(r\) = 0.5 & Reliability (test-retest):
+Good. \\
+\citep{festorInvestigatingNeuroplasticityGlioma} & High-grade glioma 85,
+Low-grade glioma 76, HC 51 & 47 \(\pm\) 15 & 2 & 220-301 & rest & SE &
+\(m\) = 1-3, \(r\) = 0.7 & Glioma: \(\downarrow\) SE. \\
+\citep{linLowerRestingBrain2022} & 862 & 22-37 & 0.72 & 1200 & rest,
+task & SE & \(m\) = 3, \(r\) = 0.6 & Rest SE \(\downarrow\) corr. /w
+magnitude of (de)activation in regions activated by task. \\
+\citep{songNeurotransmittersContributeStructureFunction2024} & 176 & 29
+\(\pm\) 3 & varies & varies & rest, movie & SE & \(m\) = 3, \(r\) = 0.6
+& Identified regions where neurotransmitters (5HT1a, 5HTT, D1, D2, DAT,
+H3, MU, NMDA, VAChT, 5HT1b) contribute to structure-function coupling
+(incl.~visual cortex, temporal cortex, paracentral lobule, DLPFC). \\
+\citep{wangOccupationalFunctionalPlasticity2018} & 20 & 42-57 & 2 & 160
+& rest & SE & \(m\) = 2, \(r\) = 0.3 & Seafarers: \(\uparrow\) SE in
+orbital-FG and superior temporal gyrus, \(\downarrow\) SE in
+cerebellum. \\
+\citep{changOlderOrderEntropy2024} & 24 & 58-77 & 2 & \textasciitilde151
+& rest & SE & \(m\) = 3, \(r\) = 0.6 & YA \textgreater{} OA
+(longitudinal). Earlier-born \textgreater{} Later-born (cohort effect).
+With age, SE decreases faster in primary and intermediate networks than
+in higher-order association networks. \\
+\citep{wangPredictingClinicalSymptoms2017} & ADHD 74, HC 69 & 12 \(\pm\)
+2, 12 \(\pm\) 2 & varies & varies & rest & SE & \(m\) = 2, \(r\) = 0.2 &
+SE (and phase synchronization, IQ, age, ADHD diagnosis, and head motion)
+can be input into a predictive model to predict inattention and
+impulsivity. \\
+\citep{songReducedBrainEntropy2019} & Sham 18, rTMS 30 & 23 \(\pm\) 3,
+23 \(\pm\) 3 & 2 & 180 & rest & SE & \(m\) = 3, \(r\) = 0.6 & rTMS to
+left DLPFC: \(\downarrow\) SE in MOFC/subgenial-ACC. \\
+\citep{liangReducedComplexityStroke2020} & Stroke 23, HC 19 & 35-80 & 2
+& 240 & rest & SE & \(m\) = 2, \(r\) = 0.3 & Stroke: \(\downarrow\) SE
+in contralesional precentral gyrus, bilateral dorsolateral FG, bilateral
+SMA. \\
+\citep{songRegionalBrainEntropy2024} & 176 & 22-36 & 1 & 900, 921, 918,
+915, 901 & rest, movie & SE & \(m\) = 3, \(r\) = 0.6 & Movie \textless{}
+Rest in sensory cortex. Movie \textgreater{} Rest in association cortex.
+Higher inter-scan reliability in movie (esp.~in vmPFC and PCC) than in
+rest. \\
+\citep{luReproducibleBrainEntropy2024} & 41 & 23 \(\pm\) 4 & 2 & 240 &
+rest, task & SE & \(m\) = 3, \(r\) = 0.6 & Rest \textless{} Task in
+DLPFC, TPJ, posterior cingulate cortex,precuneus. Rest \textgreater{}
+Task in visual cortex. Rumination \textless{} Sad memory in visual
+cortex. Distraction \textless{} Sad memory in posterior cingulate
+cortex/precuneus. Distraction \textless{} Rumination in posterior
+cingulate cortex/precuneus. \\
+\citep{zhouRestingStateBrain2016} & RRMS 34, HC 34 & 20-58, 21-58 & 2 &
+240 & rest & SE & \(m\) = 3, \(r\) = 0.6 & Relapsing-remitting multiple
+sclerosis (RRMS): \(\uparrow\) SE in SMA, right PFC, right angular
+gyrus; \(\downarrow\) SE in right precentral operculum, left middle
+temporal gyrus, bilateral parahippocampus, brainstem, right posterior
+cerebellum. Disease severity and tissue damage \(\uparrow\) corr. /w
+SE. \\
+\citep{sokunbiRestingStateFMRI2013} & ADHD 17, HC 13 & 30 \(\pm\) 10, 30
+\(\pm\) 8 & 3 & 100 & rest & SE & \(m\) = 2, \(r\) = 0.46 & ADHD:
+\(\downarrow\) SE across whole brain and in frontal and occipital lobes.
+Symptoms \(\downarrow\) corr. /w SE. \\
+\citep{xueRestingstateBrainEntropy2019} & Schizophrenia 43, HC 59 & 39
+\(\pm\) 14, 35 \(\pm\) 11 & 2 & 150 & rest & SE & \(m\) = 3, \(r\) = 0.6
+& Schizophrenia: \(\downarrow\) SE in right middle PFC, bilateral
+thalamus, right hippocampus, bilateral caudate. Schizophrenia:
+\(\uparrow\) SE in left lingual gyrus, left precuneus, right fusiform
+face area, right superior occipital gyrus. In left cuneus and middle
+occipital gyrus, symptoms \(\downarrow\) corr. /w SE. In right fusiform
+gyrus and left insula, age of onset \(\downarrow\) corr. /w SE. \\
+\citep{mauroRsfMRIbasedBrainEntropy2025} & 989 & 29 \(\pm\) 4 & 0.72 &
+1200 & rest & SE & \(m\) = 3, \(r\) = 0.6 & SE \(\downarrow\) corr. /w
+gray matter volume and surface area (in lateral frontal and temporal
+lobes, inferior parietal lobules, and precuneus), n.s. relationship /w
+cortical thickness. \\
+\citep{sokunbiSampleEntropyReveals2014} & YA 10, OA 10, YA 43, OA 43 &
+22 \(\pm\) 3, 70 \(\pm\) 9, 29 \(\pm\) 9, 59 \(\pm\) 10 & 2 & 85-128 &
+rest & SE & \(m\) = 2, \(r\) = 0.3 & YA \textgreater{} OA in frontal and
+parietal lobes. SE discriminated between YA and OA across series lengths
+(N = 85-128) in a small, low-variability cohort, but only in long series
+(N = 128) in a large, high-variability cohort. \\
+\citep{zhaoSexDifferencesSignal2024} & 1642 & 18-65 & varies & varies &
+rest & SE & \(m\) = 2, \(r\) = 0.2 & Females \textgreater{} Males
+(largest effect in DMN), difference associated with expression of genes
+that were enriched in estrogen-signaling pathway. \\
+\citep{camargoTaskinducedChangesBrain2024} & 1096 & 29 \(\pm\) 4 & 0.72
+& varies & rest, task & SE & \(m\) = 1, \(r\) = 0.6 & Task \textless{}
+Rest in peripheral cortical area. Task \textgreater{} Rest in centric
+part of sensorimotor and perception networks. \\
+\citep{wangNeurocognitiveCorrelatesBrain2021} & 862 & 22-37 & 0.72 &
+1200 & rest & SE & \(m\) = 3, \(r\) = 0.6 & SE \(\downarrow\) corr. /w
+activity in default mode and executive control networks. SE \(\uparrow\)
+corr. /w age in prefrontal executive control network and
+frontal-temporal-parietal DMN. Women \textgreater{} Men in visual
+cortex, motor area, some parts of precuneus. SE \(\downarrow\) corr. /w
+years of education, fluid intelligence, and performance during working
+memory/language/relational tasks in DMN and executive control
+network. \\
+\citep{songRelationshipsRestingstateBrain2025} & 44 & 23 \(\pm\) 2 &
+2.53 & 240 & rest & SE & \(m\) = 3, \(r\) = 0.6 & SE \(\downarrow\)
+corr. /w progesterone in FPN and limbic network. SE \(\uparrow\) corr.
+/w impulsivity in left DLPFC. \\
+\citep{jordanUnravelingNeuralComplexity2023} & 42 & 18-45 & 0.8 & 600 &
+rest & SE & \(m\) = 3, \(r\) = 0.3 & Smoking: \(\uparrow\) SE. rTMS in
+DLPFC reduced resting SE in insula and DLPFC. \\
+\citep{hullEntropicVoxelsIndicate2022} & 66 & 9-37 & ? & ? & rest & SE &
+? & SE \(\uparrow\) corr. /w PCA components. \\
+\citep{songAlteredRestingstateBrain2024} & cTBS 18, LF-rTMS 23 & 23
+\(\pm\) 3, 26 \(\pm\) 3 & 2, 1.25 & 180, 600 & rest & SE & \(m\) = 3,
+\(r\) = 0.6 & Continuous TBS (cTBS) to left DLPFC: \(\uparrow\) SE in
+MOFC. Low-frequency rTMS (LF-rTMS) to left DLPFC: \(\uparrow\) SE in
+MOFC/subgenual-ACC, putamen. LF-rTMS to left TPJ: \(\uparrow\) SE in
+right TPJ. LF-rTMS to L occipital cortex: \(\downarrow\) SE in the
+posterior cingulate cortex. \\
+\citep{wangInvestigatingUnivariateTemporal2013} & Short- and long-term
+scans 25, multi-band EPI 22, eyes open or closed 48 & 29 \(\pm\) 9, 32
+\(\pm\) 12, 22 \(\pm\) 2 & 2, 0.645, 1.4, 2.5, 2 & 195, 930, 430, 120,
+180 & rest & SE & ? & Reliability (inter- and intra- scan, varying TR,
+eyes-open vs eyes-closed) for 10 networks: Fair to high. \\
+\citep{sokunbiNonlinearComplexityAnalysis2014} & Schizophrenia 13, HC 16
+& 41 \(\pm\) 12, 42 \(\pm\) 12 & 2.5 & 244 & task & SE & \(m\) = 2,
+\(r\) = 0.32 & Schizophrenia: \(\uparrow\) SE in frontal lobe. \\
+\citep{liSpatiotemporalComplexityPsychotic2025} & HC 640, Schizophrenia
+288, Bipolar 183 & 36 \(\pm\) 13, 36 \(\pm\) 13, 37 \(\pm\) 13 & 1.5 &
+200 & rest & SE & \(m\) = 1, \(r\) = 0.32 & Schizophrenia and bipolar:
+\(\uparrow\) SE in sensorimotor network, DMN, central executive network,
+FPN, visual network, auditory network. \\
+\citep{liuEffectsIntermittentTheta2025} & 16 & 28 \(\pm\) 7 & 2 & 300 &
+rest & SE & \(m\) = 3, \(r\) = 0.6 & Subthreshold intermittent theta
+burst stimulation (iTBS) to DLPFC: \(\downarrow\) SE in striatum.
+Suprathreshold iTBS to DLPFC: \(\uparrow\) SE in striatum. \\
+\citep{stobbeImpactExposureNatural2024} & 35 & 28 \(\pm\) ? & 2 & 450 &
+task & SE & \(m\) = 2, \(r\) = 0.4 & Listening to nature sounds
+\textless{} Listening to urban sounds in posterior cingulate gyrus,
+cuneus, precuneus, occipital lobe/calcarine. \\
+\citep{zhouTemporalRegularityIntrinsic2016} & CPI 29, HC 29 & 43 \(\pm\)
+11, 42 \(\pm\) 12 & 2 & 240 & rest & SE & \(m\) = 3, \(r\) = 0.6 &
+Chronic primary insomnia (CPI): \(\uparrow\) SE in central part of DMN,
+anterior regions of task-positive network, hippocampus, basal ganglia;
+\(\downarrow\) SE in right postcentral gyrus and right
+temporal-occipital junction. \\
+\citep{liComplexityMeasuresPsychotic2023} & 288, 183 & 36 \(\pm\) 13, 37
+\(\pm\) 13 & 1.5 & 200 & rest & SE & \(m\) = 1, \(r\) = 0.32 & Bipolar
+\textgreater{} Schizophrenia, largest differences in visual domain,
+temporal domain, somatomotor domain, high-cognitive domain. \\
+\citep{fanAlteredBrainEntropy2023} & GAD 38, HC 37 & 40 \(\pm\) 2, 28-47
+& 2.4 & 217 & rest & SE & \(m\) = 3, \(r\) = 0.6 & Generalized anxiety
+disorder (GAD): \(\uparrow\) SE in right middle occipital gyrus and
+right inferior occipital gyrus. \\
+\citep{zhouRestingstateBrainEntropy2019} & rTLE 31, HC 33 & 28 \(\pm\)
+7, 28 \(\pm\) 5 & 2 & 180 & rest & SE & \(m\) = 3, \(r\) = 0.6 & Right
+temporal lobe epilepsy (rTLE): \(\uparrow\) SE in right middle temporal
+gyrus and inferior temporal gyrus; \(\downarrow\) SE in right middle FG
+and left SMA. \\
+\citep{zhangLongitudinalStudyFunctional2025} & HC 156, HC to MCI 16, MCI
+80, MCI to AD 20, AD 23 & 72 \(\pm\) 7, 76 \(\pm\) 7, 74 \(\pm\) 8, 73
+\(\pm\) 8, 76 \(\pm\) 8 & 3 & 140-200 & rest & SE, MSE & \(m\) = 2,
+\(r\) = 0.3, scale factors = 1-4 & Fine-scale MSE: Faster longitudinal
+\(\downarrow\) in HC-to-MCI than in HC (in PFC and lateral occipital
+cortex). Coarse-scale MSE: Faster longitudinal \(\downarrow\) in AD than
+in HC (in various frontal and temporal regions). \\
+\citep{yangStrategyReduceBias2018} & 354 & 21-89 & 2.5 & 200 & rest &
+SE, MSE & \(m\) = 1, \(r\) = 0.35; \(m\) = 2, \(r\) = 0.5; \(m\) = 3,
+\(r\) = 0.7 & Age \(\downarrow\) corr. /w mean MSE. \\
+\citep{guanComplexitySpontaneousBrain2023} & Small cohort 10, Large
+cohort 272 & 24-34, 21-50 & 2.2, & \textasciitilde800, 300? & rest & SE,
+MSE & \(m\) = 2, \(r\) = 0.25, scales = 1-10 &
+ADHD/Bipolar/Schizophrenia diff. from HC across regions and atlases
+(mixed directions) for SE and some scales of MSE. \\
+\citep{wehrheimReliabilityVariabilityComplexity2024} & 330 & 22-36 &
+varies & varies & rest, task & SE, MSE & \(m\) = 2, \(r\) = 0.2; \(m\) =
+3, \(r\) = 0.2, scales = 1-varies & Reliability (split-half, test-retest
+correlations): Moderate to good. Dependence on scan length: Low. \\
+\citep{grandyEstimationBrainSignal2016} & 20 & 20-30 & 0.645 & 900 &
+rest & SE, MSE & \(m\) = 2, \(r\) = 0.5, scales = 1-10 & MSE can be
+accurately estimated across discontinuous segments. Dependence on scan
+length: Low. \\
+\citep{jannClassifyingMildCognitive2025} & 147 & 73 \(\pm\) 8 & 3 & 197
+& rest & SE, MSE & \(m\) = 2, \(r\) = 0.5, scales = 1-6 & Classifier (HC
+vs AD) performance was similar for SE, mean MSE, and tau-PET. Salience
+network regions were most important for SE; dorsal attention regions
+were most important for MSE. \\
+\citep{suAlteredBrainActivity2022} & Parkinson's with depression 28,
+Parkinson's without depression 25 & 64 \(\pm\) 8, 64 \(\pm\) 9 & 0.75 &
+\textasciitilde495 & rest & MSE & \(m\) = 1, \(r\) = 0.35, scales = 1-10
+& Depression in Parkinson's: \(\downarrow\) mean MSE in posterior
+cingulate gyrus, SMA, cerebellum. \\
+\citep{thealzheimersdiseaseneuroimaginginitiativeAlteredComplexityRestingstate2020}
+& 168 & 60-90 & 3 & 140 & rest & MSE & \(m\) = 1, \(r\) = 0.35, scales =
+1-4 & Scale-1 MSE: HC \textgreater{} Amnestic MCI (aMCI) \textgreater{}
+AD in hippocampus, middle FG, intraparietal lobe, superior FG. Scale-4
+MSE: HC \textless{} aMCI \textless{} AD in middle FG and middle
+occipital gyrus. Cognitive functions \(\uparrow\) corr. /w fine-scale
+MSE, while \(\downarrow\) corr. /w coarse-scale MSE. \\
+\citep{zhangAlteredComplexitySpontaneous2021} & Schizophrenia 50,
+Bipolar 49, HC 49 & 21-50 & 2 & 152 & rest & MSE & \(m\) = 2, \(r\) =
+0.3, scales = 1-5 & Schizophrenia and bipolar: \(\downarrow\) mean MSE
+across whole brain and in calcarine fissure, precuneus, inferior
+occipital gyrus, lingual gyrus, cerebellum; \(\uparrow\) mean MSE in
+median cingulate, thalamus, hippocampus, middle temporal gyrus, middle
+FG. Differences between schizophrenia and bipolar in precuneus and
+inferior occipital gyrus. \\
+\citep{whitesideAlteredNetworkStability2021} & Progressive supranuclear
+palsy 94, HC 64 & 65 \(\pm\) 10, 70 \(\pm\) 7 & 2 & 305 & rest & MSE &
+\(m\) = 1, \(r\) = 0.35, scales = 1-3 for dataset 1; 1-4 for dataset 2 &
+Progressive supranuclear palsy: \(\downarrow\) mean MSE in one of two
+datasets. MSE \(\uparrow\) corr. /w the fractional occupancy component
+that differed between people with progressive supranuclear palsy and
+controls. \\
+\citep{penaBrainFunctionComplexity2022} & HC 8, MCI 9 & 74 \(\pm\) 4, 79
+\(\pm\) 8 & 2 & 720 & task & MSE & \(m\) = 2, \(r\) = 0.2, scale = 6 &
+MCI: \(\downarrow\) scale-6 MSE. Age: \(\downarrow\) scale-6 MSE. \\
+\citep{hoComplexityAnalysisResting2017} & MDD 35, HC 22 & 68 \(\pm\) 6,
+69 \(\pm\) 6 & 2 & 180 & rest & MSE & \(m\) = 2, \(r\) = 0.6, scales =
+1-5 & MDD: \(\uparrow\) scale-2 MSE in left FPN. \\
+\citep{yangComplexitySpontaneousBOLD2013} & OA 99, YA 56 & 81 \(\pm\) 5,
+28 \(\pm\) 4 & 2.5 & 200 & rest & MSE & \(m\) = 1, \(r\) = 0.35, scales
+= 1-5 & Cognitive score \(\uparrow\) corr. /w MSE in 26 of 33 regions.
+OA (vs YA): \(\downarrow\) MSE in left olfactory cortex, right posterior
+cingulate gyrus, right hippocampus, right parahippocampal gyrus, left
+superior occipital gyrus, left caudate. \\
+\citep{trevinoComplexityOrganizationRestingstate2024} & 10 & 24-34 & 2.2
+& 136 & rest & MSE & \(m\) = 2, \(r\) = 0.5, scales = 1-30 & Atlas of
+MSE: MSE reproduces known network parcellations. \\
+\citep{kungCrossScaleDynamicityEntropy2022} & 44 & 25 \(\pm\) 4 & 2.5 &
+3000 & sleep & MSE & \(m\) = 1, \(r\) = 0.35, scales = 1-3 & Deeper
+sleep: \(\downarrow\) fine-scaled MSE, consistent coarse-scaled MSE. \\
+\citep{yangDecreasedRestingstateBrain2015} & Schizophrenia 105, HC 210 &
+43 \(\pm\) 9, 43 \(\pm\) 11 & 2.5 & 200 & rest & MSE & m = 1, r = 0.35,
+scales = 1-5 & Schizophrenia (SC): \(\downarrow\) SE at all scales in
+inferior temporal gyrus, middle FG, superior FG, left SMA, cerebellum
+posterior lobe, left cerebellum anterior lobe. Regions with SC
+\textgreater{} HC at fine scales \& SC \textless{} HC at coarse scales:
+Inferior FG, occipital, right insula, postcentral gyrus, left middle
+cingulum. \\
+\citep{griederDefaultModeNetwork2018} & HC 14, AD 15 & 68 \(\pm\) 4, 67
+\(\pm\) 9 & 1.6 & 400 & rest & MSE & \(m\) = 2, \(r\) = 0.2, scales =
+1-10 & AD: \(\downarrow\) mean MSE in right hippocampus; functional
+connectivity \(\uparrow\) corr. /w MSE at scales 1 and 2 in DMN. \\
+\citep{niuDynamicComplexitySpontaneous2018} & HC 30, early MCI 33, late
+MCI 32, AD 29 & 74 \(\pm\) 6, 72 \(\pm\) 6, 73 \(\pm\) 8, 72 \(\pm\) 7 &
+3 & 140 & rest & MSE & \(m\) = 2, \(r\) = 0.35, scales = 1-6 &
+Generally: HC \textgreater{} MCI \textgreater{} AD; regions with
+differences include thalamus, insula, lingual gyrus and inferior
+occipital gyrus, superior FG and olfactory cortex, supramarginal gyrus,
+superior temporal gyrus, middle temporal gyrus; in regions with
+differences, cognitive decline corr. /w MSE (varying directions). \\
+\citep{amalricEntropyComplexityMaturity2023} & Adults 14, Children 18 &
+20 \(\pm\) ?, 9 \(\pm\) 0.2 & 2 & 175 & task & MSE & \(m\) = 2, \(r\) =
+0.5 & Math and grammar tasks: Children \textless{} Adults in association
+cortex. \\
+\citep{mcdonoughEvidenceMaintainedPostEncoding2019} & YA 20, middle-aged
+adults 31, OA 35 & 23 \(\pm\) 3, 54 \(\pm\) 3, 66 \(\pm\) 4 & 1.72 & 175
+& rest & MSE & \(m\) = 2, \(r\) = 0.5, scales = 1-7 & Memory encoding
+task: In DMN: for all scales MSE pre-encoding = post-encoding; age and
+memory accuracy \(\uparrow\) corr. w/ pre-post difference. \\
+\citep{jannClassifyingMildCognitive2025} & HC 88, MCI 50, AD 7 & 73
+\(\pm\) 8, 72 \(\pm\) 7, 67 \(\pm\) 8 & 3, 0.72 & 197, 420 & rest & MSE
+& \(m\) = 2, \(r\) = 0.5, scales = 1-6 & Mean MSE in HC \textgreater{}
+MCI \textgreater{} AD across whole brain. Tau-PET and cognitive
+impairment \(\downarrow\) corr. /w mean MSE in MTL. \\
+\citep{zhangFunctionalConnectivityComplexity2024} & ADHD 63, HC 92 & 10
+\(\pm\) 1, 10 \(\pm\) 1 & 0.8 & 383 & rest & MSE & \(m\) = 2, \(r\) =
+0.3, scales = 1-15 & ADHD: \(\downarrow\) mean MSE in FPN. Functional
+connectivity \(\uparrow\) corr. /w MSE in HC, but not ADHD, in FPN and
+reward and motivation-related circuits. \\
+\citep{linIncreasedBrainEntropy2019} & Depression 35, HC 22 & 68 \(\pm\)
+6, 69 \(\pm\) 6 & 2 & 180 & rest & MSE & \(m\) = 2, \(r\) = 0.6, scales
+= 1-5 & Late-life depression: n.s. diff. in mean MSE; \(\downarrow\)
+scale-1 MSE in right posterior cingulate gyrus; \(\uparrow\)
+varying-scale MSE in affective processing (putamen and thalamus),
+sensory, motor, temporal nodes; \(\uparrow\) scale-2 MSE in left FPN. \\
+\citep{wijesingheLifespanTrajectoriesBrains2025} & 504 & 6-85 & 1.4 &
+\textasciitilde430 & rest, task & MSE & \(m\) = 2, \(r\) = 0.3, scales =
+1-13 & Mean MSE peaks at age 23. Mean MSE \(\downarrow\) corr. /w 4 of 6
+executive function tasks. \\
+\citep{smithMultipleTimeScale2014} & Long scan on YA 5, Short scan YA 8,
+Short scan OA 8 & 21 \(\pm\) 2, 23 \(\pm\) 2, 66 \(\pm\) 3 & 1.37, 2 &
+1000, 240 & rest & MSE & \(m\) = 2, \(r\) = 0.3, scales = 1-10 & MSE in
+BOLD did not differ from simulated noise. Motion correction \(\uparrow\)
+MSE in both gray and white matter. Increasing echo time \(\uparrow\) MSE
+in gray matter, but not white matter. MSE \(\downarrow\) with age. \\
+\citep{zhouMULTISCALEDYNAMICSSPONTANOUS2018} & 53 & 72-96 & 3 & 120 &
+rest & MSE & \(m\) = 1, \(r\) = 0.35, scales = 1-5 & MSE corr. /w
+\(\downarrow\) walking speed and \(\uparrow\) dual-tasks costs. \\
+\citep{yuanMultiscaleEntropySmallworld2022} & Diabetes+DPN 10, Diabetes
+without DPN 10, HC 10 & 40-80 & 2 & 240 & rest & MSE & \(m\) = 2, \(r\)
+= 0.3, scales = 1-4 & DPN \textless{} HC or diabetes without peripheral
+neuropathy, in basal ganglia. \\
+\citep{kadotaMultiscaleEntropyRestingState2021} & PSP 14, MSA 18 & 74
+\(\pm\) 6, 69 \(\pm\) 9 & 2 & 150 & rest & MSE & \(m\) = 2, \(r\) = 0.3,
+scales = 1-4 & Progressive supranuclear palsy (PSP) \textless{} Multiple
+system atrophy (MSA) in PFC. MSE \(\uparrow\) corr. /w cognitive
+function in PFC. \\
+\citep{mccullochNavigatingChaosPsychedelic2023} & 28 & 33 \(\pm\) 8 & 2
+& 300 & rest & MSE & \(m\) = 2, \(r\) = 0.3, scales = 1-5 & MSE corr. /w
+various measures of psilocybin level: \(\uparrow\) at scale 1 (in 7 of
+17 networks), n.s. at scales 2-4, \(\downarrow\) at scale 5 (in 14 of 17
+networks). \\
+\citep{mcdonoughNetworkComplexityMeasure2014} & 20 & 22-35 & 0.72 & 1200
+& rest & MSE & \(m\) = 2, \(r\) = 0.5, scales = 1-25 & Inverted-U
+pattern of SE across scales. MSE differs from noise (white, pink, red).
+MSE differs between networks (default mode, cingulo-opercular, left and
+right frontoparietal). Across networks, MSE \(\downarrow\) corr. /w
+strength and extent of functional connectivity at fine scales but
+\(\uparrow\) corr. at coarse scales. \\
+\citep{hagerNeuralComplexityPotential2017} & Bipolar 125, Schizophrenia
+98, Schizoaffective disorder 107, HC 156 & 36 \(\pm\) 12, 38 \(\pm\) 12,
+35 \(\pm\) 13, 36 \(\pm\) 13 & 1.5 & 200 & rest & MSE & \(m\) = 1, \(r\)
+= 0.35, scales = 1-5 & Bipolar, schizophrenia, schizoaffective disorder:
+\(\downarrow\) mean MSE. \\
+\citep{wangNeurophysiologicalBasisMultiScale2018} & 20 & ? & 0.72 & 1200
+& rest & MSE & \(m\) = 2, \(r\) = 0.5, scales = 1-40 & MSE
+\(\downarrow\) corr. /w functional connectivity at fine scales,
+\(\uparrow\) corr. /w functional connectivity at coarse scales (default
+mode, left and right executive control, salience networks). \\
+\citep{yangOptimizedMultiscaleEntropy2022} & 98 & \textgreater60 & 2 &
+180 & rest & MSE & \(m\) = 1, \(r\) = 0.5, scale = 5 & Classification of
+cognitive ability based on MSE in 9 regions. \\
+\citep{zhengReducedDynamicComplexity2020} & Early MCI 87, Late MCI 82,
+HC 176 & 73 \(\pm\) 9, 74 \(\pm\) 7, 75 \(\pm\) 9 & 3 & 140-200 & rest &
+MSE & \(m\) = 2, \(r\) = 0.3, scales = 1-6 & Early and late MCI:
+\(\downarrow\) all-scale MSE (in left fusiform gyrus in early MCI, in
+rostral ACC in late MCI). \\
+\citep{wangRestingStateBrainActivity2017} & Schizophrenia 35, HC 30 &
+12-18 & 2 & 240 & rest & MSE & \(m\) = 1, \(r\) = 0.35, scales = 1-5 &
+Schizophrenia: \(\downarrow\) all-scale MSE in left superior parietal
+lobule and left cuneus; \(\uparrow\) all-scale MSE in right ventral of
+middle FG, right superior parietal lobule, right precuneus, bilateral
+cingulate gyrus. \\
+\citep{omidvarniaTemporalComplexityFMRI2021} & 987 & 22-35 & 0.72 & 1200
+& rest & MSE & \(m\) = 2-10, \(r\) = 0.15, 0.5, scales = 1-25 &
+\(\uparrow\) MSE in DMN and FPNs, \(\downarrow\) MSE in subcortical
+areas and limbic system. \(\uparrow\) MSE at \(\downarrow\) temporal
+resolution. Test-retest correlation varies across parameters. Functional
+brain connectivity corr. /w MSE, direction dependent on scale. Head
+motion \textless{} Resting-state. Intelligence \(\uparrow\) corr. /w
+MSE. \\
+\citep{yangAPOEE4Allele2014} & YA 100, OA 112 & 20-39, 60-79 & 2.5 & 200
+& rest & MSE & \(m\) = 1, \(r\) = 0.35, scales = 1-5? & In OA but not in
+YA: APOE ɛ4 allele carriers: \(\downarrow\) mean MSE in precuneus and
+posterior cingulate. \\
+\citep{zhenHeritabilityStructuralCorrelates2024} & 1206 & 22-35 & 0.72 &
+1200 & rest & MSE & \(m\) = 2, \(r\) = 0.5, scales = 1-12 & Fine-scale
+MSE \(\downarrow\) corr. /w surface area, coarse-scale MSE \(\uparrow\)
+corr. /w surface area (in lateral frontal and temporal lobes, inferior
+parietal lobules, and precuneus). Fine-scale MSE \(\uparrow\) corr. /w
+cortical myelination, coarse-scale MSE \(\downarrow\) corr. /w cortical
+myelination (PFC, lateral temporal lobe, precuneus, lateral parietal
+cortex, and cingulate cortex). \\
+\citep{xiaoMultiscaleEntropyRestingState2025} & ASD 179, HC 218 & 16
+\(\pm\) 7, 16 \(\pm\) 6 & 2 & 150-300 & rest & MSE & \(m\) = 2, \(r\) =
+0.6, scales = 1-5 & ASD: In posterior midline regions, \(\uparrow\)
+fine-scale MSE, \(\downarrow\) coarse-scale MSE; in prefrontal regions,
+\(\downarrow\) coarse-scale MSE. \\
+\citep{mcdonoughRelationWhiteMatter2018} & Primary 121, Matched
+replication 122, Non-matched replication 121 & 28 \(\pm\) 3, 28 \(\pm\)
+4, 30 \(\pm\) 3 & 0.72 & 1200 & rest & MSE & \(m\) = 2, \(r\) = 0.5,
+scales = 1-25 & White-matter integrity \(\uparrow\) corr. /w fine-scale
+MSE and \(\downarrow\) corr. /w coarse-scale MSE. \\
+\citep{omidvarniaRestingStateFMRI2023} & 20000 & 40-69? & 0.735 & 490 &
+rest & MSE & \(m\) = 2, \(r\) = 0.5, scales = 1-10 & In a predictive
+model, MSE could predict cognitive phenotypes (fluid intelligence,
+processing speed, visual memory, and numerical memory), age, and gender
+moderately well. \\
+\citep{omidvarniaSpatialDistributionTemporal2022} & 100 & 22-35 & 0.72 &
+263-399 & rest, task & MSE & \(m\) = 2, \(r\) = 0.5, scales = 1-10 &
+Tasks can be classified using MSE. Task \textless{} Rest. Highest MSE in
+frontoparietal, dorsal attention, visual, and default mode. \\
+\citep{smithWaveletbasedRegularityAnalysis2015} & HC 25, MCI 25 & 70
+\(\pm\) 4, 74 \(\pm\) 5 & 2.2, 2.2 & 164, 164 & rest & MSE & \(m\) = 1,
+\(r\) = 0.3, scales = 1-4 & MCI: \(\downarrow\) scale-2 MSE in R insula,
+R superior orbitofrontal cortex, and L inferior orbitofrontal cortex. \\
+\end{longtable}
+
+The entropy-based metrics discussed thus far --- Shannon entropy, KS
+entropy, ApEn, and SE --- are maximized with maximum randomness
+(Figure~\ref{fig-entropymonotonic}). That is, these metrics are
+formulated to increase monotonically with series randomness. Contrast
+this with the definition we described at the beginning, where complexity
+is a balance of regularity and irregularity, the ``ideal'' complexity
+metric should be maximized at an intermediate point these two extremes.
+Therefore, strictly speaking, despite being the most commonly used
+metrics, ApEn and SE do not truly capture ``complexity.''
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{./images/300_dpi/Fig12.png}
+
+}
+
+\caption{\label{fig-entropymonotonic}A) Entropy measures (Shannon
+entropy, SE, ApEn, and others; but not MSE) increase monotonically with
+data randomness. B) In contrast, an ideal complexity measure would
+represent the balance between order and disorder. Image adapted from
+\citep{yangMentalIllnessComplex2013}}
+
+\end{figure}%
+
+How much of a limitation is this? We are reluctant to dismiss the
+breadth of good work that has already been completed; in our view, the
+conflation of complexity and irregularity is only a limitation if, at
+the scale under investigation, the comparison involves shifts past the
+midpoint from the domain of irregularity to that of regularity. Although
+we recognize the limitations of comparing across metrics, we observe
+that metrics that can describe the full irregularity--regularity range
+tend to regularity in the adult brain (e.g., avalanche
+\citep{xuAvalancheCriticalityIndividuals2022}; Hurst
+\citep{campbellFractalBasedAnalysisFMRI2022}; both described later in
+this review). Therefore, the distinction between complexity and
+irregularity may be only semantic, at least in the healthy adult brain
+(but perhaps not in other populations -- e.g., infants
+\citep{mellaTemporalComplexityBOLDsignal2024}). Such distinctions could
+account for the observed inconsistencies across clinical studies,
+especially across neuroimaging modalities (see Discussion). In the next
+section, we will discuss a method to address this limitation: multiscale
+sample entropy (MSE).
+
+\subsubsection{Multiscale sample
+entropy}\label{multiscale-sample-entropy}
+
+Is a single-scale, like the entropy metrics discussed above, sufficient
+to describe the brain? The brain is complex across a range of temporal
+scales, from very short time windows to very long ones, and
+understanding how these layers interact is essential to understanding
+the system as a whole
+\citep{beggsCortexCriticalPoint2022, buzsakiRhythmsBrain2006, betzelMultiscaleBrainNetworks2017}.
+For example, in cross-frequency coupling, high-frequency oscillations
+(i.e., patterns that recur at fine scales) interact with slow ones,
+allowing for information transmission
+\citep{canoltyFunctionalRoleCrossfrequency2010}. More broadly,
+fractality --- or being similar across multiple scales (discussed below)
+--- appears to be essential to brain function
+\citep{wernerFractalsNervousSystem2010}. A better complexity metric
+would therefore have the ability to describe patterns that occur across
+multiple scales.
+
+MSE was developed to more fully characterize the complexity of
+physiological signals by describing SE over multiple scales
+\citep{costaMultiscaleEntropyAnalysis2003, yangComplexitySpontaneousBOLD2013}.
+This is achieved by downsampling the original time series to multiple
+lower temporal resolutions to create ``new'' series across a range of
+lower frequencies (Figure~\ref{fig-downsampling}). The SE algorithm is
+then applied to each series, resulting in a unique SE value for each
+temporal resolution. That is, the final output consists of a vector of
+SE values, one for each resolution. Because the output is not a single
+number, it can be hard to interpret. Typically, results are presented as
+a plot of SE versus sampling resolution (Figure~\ref{fig-msescale}). As
+an attempt to summarize the output, the slope of this plot or the mean
+value across scales may also be reported.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=4.6875in,height=\textheight]{./images/300_dpi/Fig13.png}
+
+}
+
+\caption{\label{fig-downsampling}An illustration of downsampling of a
+time series. Image recreated from
+\citep{kadotaMultiscaleEntropyRestingState2021}.}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{./images/300_dpi/Fig14.png}
+
+}
+
+\caption{\label{fig-msescale}MSE profiles for simulated white, pink, and
+red noise; preprocessed CSF; and grey matter (resting-state networks).
+Figure stylized based on results from McDonough et al.~(2014). Note that
+scale is not the same as frequency, as scale and frequency are terms
+from entirely different frameworks; however, were these concepts to be
+compared, fine scales (low \(m\) values) would roughly map to high
+frequencies (fast-moving oscillations) and coarse scales (high \(m\)) to
+low frequencies (slow drifts). CSF = cerebrospinal fluid}
+
+\end{figure}%
+
+Unlike single-scale entropy, MSE can differentiate randomness from
+complexity. The shape of the scale-MSE curve is neurophysiologically
+meaningful (Figure~\ref{fig-msescale}). MSE for white noise is high at
+short scales (where there are random fluctuations) and decreases at
+coarser scales, as fluctuations are smoothed out
+{[}\citep{mcdonoughNetworkComplexityMeasure2014};
+hoComplexityAnalysisResting2017{]} (however, this may be due to bias;
+see \citep{kosciessaStandardMultiscaleEntropy2020}). Fully preprocessed
+cerebrospinal fluid signal, which in theory consists of a series of
+uncorrelated random observations and therefore approximates white noise,
+has a high-then-low MSE curve
+\citep{mcdonoughNetworkComplexityMeasure2014}. On the other hand,
+complex signals, which contain meaningful information across scales,
+have approximately horizontal MSE curves. For instance, pink and brown
+noise --- which, unlike white noise, contain autocorrelation (i.e.,
+future values are influenced by past ones) --- both have characteristic
+MSE curves (Figure~\ref{fig-msescale}), with pink noise, which contains
+more autocorrelation than brown, having the flatter curve
+{[}\citep{mcdonoughNetworkComplexityMeasure2014};
+\citep{omidvarniaTemporalComplexityFMRI2021};
+hoComplexityAnalysisResting2017; smithMultipleTimeScale2014{]}.
+Consistent with the idea that BOLD signal from grey matter contains the
+more meaningful information, its MSE more closely resembles that of pink
+noise than that of white noise
+{[}\citep{mcdonoughNetworkComplexityMeasure2014};
+\citep{omidvarniaTemporalComplexityFMRI2021};
+hoComplexityAnalysisResting2017; smithMultipleTimeScale2014{]}. See
+Appendix A2 for an in-depth discussion of the significance of the MSE
+curve in grey matter, and for a discussion of the major limitations of
+MSE. See Appendix A3 for detailed instructions on choosing parameters
+for MSE calculation, including \(m\) and \(r\).
+
+What are the limitations of MSE? MSE requires a long time series for
+proper computation and utilization. Series must be long enough such that
+the longest scale (e.g., lowest temporal resolution) produced through
+downsampling contains at least 80 timepoints
+\citep{sokunbiSampleEntropyReveals2014}. Furthermore, for MSE to be most
+useful, the series must be long enough to support multiple resolutions
+of downsampling. Fortunately for fMRI researchers,
+\citep{grandyEstimationBrainSignal2016} showed that MSE can be
+effectively estimated across discontinuous segments (i.e., multiple runs
+of fMRI can be concatenated and the estimation will still be effective).
+
+See Table~\ref{tbl-fmriSE} for a complete summary of fMRI-MSE studies
+and their findings.
+
+\subsubsection{Other entropy-related
+measures}\label{other-entropy-related-measures}
+
+Beyond Shannon entropy, ApEn, SE, and MSE, a range of other entropy
+metrics are available (Figure~\ref{fig-otherentropymeasures}). These
+metrics are commonly used in other neuroimaging modalities (see
+\citep{keshmiriEntropyBrainOverview2020}), but are seldom employed in
+fMRI. Table~\ref{tbl-otherentropy} summarizes fMRI studies using these
+metrics.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=4.6875in,height=\textheight]{./images/300_dpi/Fig15.png}
+
+}
+
+\caption{\label{fig-otherentropymeasures}\textbf{Historical development
+of several entropy-related measures used in fMRI time series.} Time
+proceeds down arrowheads. This is not comprehensive; for instance,
+RangeEn can be computed using the algorithm for ApEn as well as SE, but
+only SE is displayed for simplicity. Temporal complexity measures are
+much more extensively used in EEG/MEG than in fMRI; accordingly, the
+entropy measures identified in our search represent a small subspace of
+what is possible. Also, note that nearly all these measures have
+multiscale versions --- e.g., MSE, multiscale permutation entropy, and
+multiscale fuzzy entropy --- are not displayed}
+
+\end{figure}%
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}@{}}
+\caption{fMRI studies that use permutation entropy (PE), fuzzy entropy
+(FuzzyEn), permutation fuzzy entropy (PFE), range entropy (RangeEn),
+dispersion entropy (DispEn), differential entropy (DiffEn), and
+Lempel-Ziv complexity (LZC). Studies that use several metrics are not in
+this table; instead, they are in \textbf{?@tbl-comparisons}. HC means
+healthy controls.}\label{tbl-otherentropy}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Reference
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Sample size
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Age (mean \(\pm\) sd or min - max; years)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+TR (s)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Volumes
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Rest/task
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Method
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Results
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Reference
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Sample size
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Age (mean \(\pm\) sd or min - max; years)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+TR (s)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Volumes
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Rest/task
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Method
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Results
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\citep{niuTrajectoriesBrainEntropy2022} & 319 & 6-85 & 0.645 & ? & rest
+& PE & Inverted-U relationship between age and PE \\
+\citep{wangDecreasedComplexityAlzheimers2017} & HC 30, early MCI 33,
+late MCI 32, AD 29 & 74 \(\pm\) 6, 72 \(\pm\) 6, 73 \(\pm\) 8, 72
+\(\pm\) 7 & 3 & ? & rest & PE & Low PE was associated with Alzheimer's,
+decreased cognitive function scores, and reduced grey matter volume \\
+\citep{jiDynamicBrainEntropy2025} & HC 63, Bipolar 48, Schizophrenia 47,
+ADHD 40 & 32 \(\pm\) 9, 35 \(\pm\) 9, 36 \(\pm\) 9, 32 \(\pm\) 10 & 2 &
+152 & rest & PE & PE can predict risky behaviour in these groups (but
+was outperformed by measures related to the entropy of FC) \\
+\citep{wohlschlagerSpectralDynamicsResting2018} & 97 & 18-30 & 2.8 & 134
+& rest & Multiscale PE & ROI x group (depression vs HC) interaction \\
+\citep{liuNeuroimagingMarkersAberrant2024} & Schizophrenia 44, HC 30 &
+28 \(\pm\) 10, 28 \(\pm\) 8 & 2 & 190 & rest & wPE & wPE is reduced in
+schizophrenia \\
+\citep{xiangAnalysisFunctionalMRI2021} & Bipolar 49, HC 49 & 35 \(\pm\)
+1, 32 \(\pm\) 1 & 2 & 152 & rest & PFE & PFE is altered in bipolar
+(regional increases or decreases) \\
+\citep{veliogluSmokingAffectsGlobal2024} & Smokers 11, Non-smokers 13 &
+28 \(\pm\) 7, 29 \(\pm\) 8 & 3 & 255 & rest & DispEn & DispEn is lower
+in non-smokers than in smokers \\
+\citep{liuNeuroimagingMarkersAberrant2024} & 998 & 22-35 & 0.72 & 1200 &
+rest & DispEn & DispEn can predict cognitive ability and is related to
+brain anatomy features \\
+\citep{catalIntrinsicHierarchySelf2022} & 50, 130 & 18-50 & 2, 2 & 273,
+varies & task & LZC & LZC decreases during all of seven tasks \\
+\citep{golesorkhiTemporalSpatialTopography2022} & 1200 & 22-35 & 1 &
+varies & task & LZC & LZC decreases during two tasks \\
+\citep{medianoFluctuationsNeuralComplexity2021} & 650 & 18-88 & varies &
+varies & task & LZC & LZC increases during task \\
+\end{longtable}
+
+\paragraph{Permutation entropy}\label{permutation-entropy}
+
+Permutation entropy (PE) considers only the order of amplitude values,
+not absolute amplitudes \citep{bandtPermutationEntropyNatural2002}. PE
+calculation uses a sliding window to slice the series into overlapping
+segments called ``embedded vectors.'' Each embedded vector is matched to
+a motif (called a ``permutation pattern'' or an ``ordinal pattern''),
+which represents the relative order of the values in the vector. PE is
+the Shannon entropy of the relative frequencies of the ordinal patterns.
+That is, PE is closely related to Shannon entropy, but considers the
+order of values. Compared to ApEn and SE, PE is simpler to compute,
+makes fewer assumptions, and is more robust in the presence of noise
+\citep{zaninPermutationEntropyIts2012}.
+
+There are several variants of PE. PE can be computed on downsampled
+versions of the data (i.e., multiscale permutation entropy), resulting
+in a description of PE across frequencies
+\citep{wohlschlagerSpectralDynamicsResting2018}. Weighted permutation
+entropy (wPE) was introduced by
+\citep{fadlallahWeightedpermutationEntropyComplexity2013}, and
+incorporates amplitude information into the PE calculation by
+multiplying each embedded vector by a weight. Unlike PE, wPE is affected
+by spikes and abrupt amplitude changes.
+
+\paragraph{Fuzzy entropy}\label{fuzzy-entropy}
+
+Fuzzy entropy (FuzzyEn) is identical to SE but defines similarity
+differently \citep{mcdonoughEvidenceMaintainedPostEncoding2019}. SE
+defines similarity using the Heaviside function; unfortunately, this
+function has a rigid boundary, leading to limitations including
+information loss and parameter-dependence. In contrast, FuzzyEn defines
+similarity using a fuzzy function and is thus an improved measure of
+complexity.
+
+\paragraph{Permutation fuzzy entropy}\label{permutation-fuzzy-entropy}
+
+Permutation fuzzy approximate entropy (PFE) was introduced by
+\citep{niuComparingTestRetestReliability2020}. It is calculated by first
+performing permutations on the original time series --- which reduces
+the impact of noise --- then computing FuzzyEn. Note that, despite its
+name, PFE is not directly related to PE.
+
+\paragraph{Range entropy}\label{range-entropy}
+
+Range entropy (RangeEn) was introduced to address a limitation of SE and
+ApEn that is pertinent in EEG, which is that these metrics are not
+robust to variations in signal amplitude
+\citep{omidvarniaRangeEntropyBridge2018}. Compared to SE and ApEn,
+RangeEn is also less affected by variations in signal length, which
+makes it an option for short-length fMRI time series
+\citep{omidvarniaRangeEntropyBridge2018, omidvarniaRestingStateFMRI2023}.
+There are two versions of RangeEn: RangeEnA is an improvement to ApEn,
+and RangeEnB is an improvement to SE
+\citep{omidvarniaRangeEntropyBridge2018}.
+
+\paragraph{Dispersion entropy}\label{dispersion-entropy}
+
+Dispersion entropy (DispEn) originates from SE and PE and corrects a few
+problems with these respective techniques --- namely, that SE is slow to
+calculate, and that PE does not thoroughly describe changes in amplitude
+\citep{rostaghiDispersionEntropyMeasure2016}. DispEn is faster to
+compute than both SE and PE and a better descriptor of frequency and
+amplitude changes than PE \citep{rostaghiDispersionEntropyMeasure2016}.
+
+\paragraph{Differential entropy}\label{differential-entropy}
+
+Differential entropy (DiffEn) describes the spread of the probability
+density function for a random variable
+\citep{coverElementsInformationTheory2005}. It has an interesting
+history; Claude Shannon thought it was the analogue of discrete entropy
+for continuous variables, but it is not, and thus is not derived from
+information-theoretic first principles
+\citep{coverElementsInformationTheory2005}. Hence, it changes with
+simple operations to the series like scaling or shifting, and its values
+are not always meaningful (as they are sometimes negative)
+\citep{coverElementsInformationTheory2005}. Despite these major
+limitations, DiffEn has been used in EEG (e.g.,
+\citep{duanDifferentialEntropyFeature2013}); in fMRI, it has been shown
+to have test-retest reliability comparable to or exceeding those of
+other temporal complexity metrics
+{[}\citep{wangInvestigatingUnivariateTemporal2013};
+guanComplexitySpontaneousBrain2023{]}, though no other fMRI studies have
+used it.
+
+\subsection{Lempel-Ziv complexity}\label{lempel-ziv-complexity}
+
+\subsection{Figures}\label{figures}
+
 See Figure~\ref{fig-sierpinskitriangle}
 
 \begin{figure}
@@ -265,7 +1705,7 @@ See Figure~\ref{fig-sierpinskitriangle}
 \includegraphics{index_files/figure-latex/notebooks-Figures-sierpinskitriangle-output-1.png}
 
 \textsubscript{Source:
-\href{https://WeberLab.github.io/A-guide-to-temporal-complexity-for-fMRI-scientists/notebooks/Figures-preview.html\#cell-sierpinskitriangle}{Figures}}
+\href{https://WeberLab.github.io/A-guide-to-temporal-complexity-for-fMRI-scientists/notebooks/Figures.ipynb.html\#cell-sierpinskitriangle}{Figures}}
 
 }
 
@@ -308,7 +1748,7 @@ See Figure~\ref{fig-fourproperties}
 \includegraphics{index_files/figure-latex/notebooks-Figures-fourproperties-output-1.png}
 
 \textsubscript{Source:
-\href{https://WeberLab.github.io/A-guide-to-temporal-complexity-for-fMRI-scientists/notebooks/Figures-preview.html\#cell-fourproperties}{Figures}}
+\href{https://WeberLab.github.io/A-guide-to-temporal-complexity-for-fMRI-scientists/notebooks/Figures.ipynb.html\#cell-fourproperties}{Figures}}
 
 }
 
@@ -337,7 +1777,7 @@ See Figure~\ref{fig-typicalsamplepaths}
 \includegraphics{index_files/figure-latex/notebooks-Figures-typicalsamplepaths-output-1.png}
 
 \textsubscript{Source:
-\href{https://WeberLab.github.io/A-guide-to-temporal-complexity-for-fMRI-scientists/notebooks/Figures-preview.html\#cell-typicalsamplepaths}{Figures}}
+\href{https://WeberLab.github.io/A-guide-to-temporal-complexity-for-fMRI-scientists/notebooks/Figures.ipynb.html\#cell-typicalsamplepaths}{Figures}}
 
 }
 
