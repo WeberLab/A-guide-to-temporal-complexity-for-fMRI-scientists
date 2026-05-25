@@ -10,13 +10,17 @@ execute:
 manuscript:
   article: index.qmd
 
+# pdf-engine: xelatex
+
 format:
-  html:
-    comments:
-      hypothesis: true
+  # html:
+  #   comments:
+  #     hypothesis: true
   docx: default
-  jats: default
-  elsevier-pdf:
-      keep-tex: true
+  # jats: default
+  # elsevier-pdf:
+  #   keep-tex: true
+  frontiers-harvard-pdf:
+    keep-tex: true
 
   # (other formats)
