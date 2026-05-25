@@ -13,9 +13,9 @@ manuscript:
 # pdf-engine: xelatex
 
 format:
-  # html:
-  #   comments:
-  #     hypothesis: true
+  html:
+    comments:
+      hypothesis: true
   docx: default
   # jats: default
   # elsevier-pdf:
